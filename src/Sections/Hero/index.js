@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Hero = () => {
+const HeroSection = () => {
   return (
     <div>
       hero
@@ -8,4 +8,4 @@ const Hero = () => {
   )
 }
 
-export default index
+export default HeroSection
