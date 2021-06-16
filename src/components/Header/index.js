@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import logo from '../../assets/logo.svg'
 
-const Headers = styled.div`
+const Headers = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,11 +11,19 @@ const Headers = styled.div`
   color: var(--white);
   position: relative;
   z-index: 500;
+  @media only Screen and (max-width: 64em) {
+    padding: 0.5rem 3rem;
+  }
+
+  @media only Screen and (max-width: 40em) {
+    padding: 0.5rem 1.5rem;
+  }
 `
 
 const Logo = styled.a`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 4rem;
   height: auto;
   cursor: pointer;
@@ -26,7 +34,7 @@ const Logo = styled.a`
 `
 
 const Nav = styled.nav`
-  width: 29rem;
+  width: 27rem;
   max-width: 40rem;
   display: flex;
   align-items: center;
@@ -92,42 +100,74 @@ const HamburgerButton = styled.button`
   display: none;
   position: relative;
   width: 2rem;
-  height: 2px;
+  height: 2rem;
   cursor: pointer;
-  background-color: ${(props) =>
-    props.clicked ? 'transparent' : 'var(--white)'};
+  background-color: transparent;
 
   transition: background-color 0.15s;
 
   @media only Screen and (max-width: 48em) {
-    display: inline-block;
+    display: block;
   }
 
-  &::before,
-  &::after {
-    content: '';
-    background-color: var(--white);
+  span {
     width: 2rem;
     height: 2px;
-    display: inline-block;
-    position: absolute;
-    left: 0;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
+    background-color: ${(props) => (props.clicked ? 'transparent' : 'white')};
+    position: relative;
 
-  &::before {
-    top: ${(props) => (props.clicked ? '0' : '-0.5rem')};
-    transform: ${(props) => (props.clicked ? 'rotate(135deg)' : 'rotate(0)')};
-  }
+    &::before,
+    &::after {
+      content: '';
+      background-color: var(--white);
+      width: 2rem;
+      height: 2px;
+      /* display: inline-block; */
+      position: absolute;
+      left: 0;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
 
-  &::after {
-    top: ${(props) => (props.clicked ? '0' : '0.5rem')};
-    transform: ${(props) => (props.clicked ? 'rotate(-135deg)' : 'rotate(0)')};
+    &::before {
+      top: ${(props) => (props.clicked ? '0' : '-0.5rem')};
+      transform: ${(props) => (props.clicked ? 'rotate(135deg)' : 'rotate(0)')};
+    }
+
+    &::after {
+      top: ${(props) => (props.clicked ? '0' : '0.5rem')};
+      transform: ${(props) =>
+        props.clicked ? 'rotate(-135deg)' : 'rotate(0)'};
+    }
   }
 `
 
-const MobileMenu = styled.div``
+const MobileMenu = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  opacity: ${(props) => (props.clicked ? '1' : 0)};
+  visibility: ${(props) => (props.clicked ? 'visible' : 'hidden')};
+
+  background: rgba(53, 53, 63, 0.95);
+  border-radius: 20px;
+  margin: 0.5rem;
+  overflow-x: hidden;
+
+  a {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin: 1.5rem;
+    cursor: pointer;
+  }
+`
 
 const Header = () => {
   const [click, setClick] = useState(false)
@@ -154,7 +194,20 @@ const Header = () => {
       <HamburgerButton onClick={() => handleClick()} clicked={click}>
         <span />
       </HamburgerButton>
-      <MobileMenu></MobileMenu>
+      <MobileMenu clicked={click}>
+        <a href='#home' onClick={() => handleClick()}>
+          Home
+        </a>
+        <a href='#about' onClick={() => handleClick()}>
+          About Us
+        </a>
+        <a href='#services' onClick={() => handleClick()}>
+          Services
+        </a>
+        <a href='#contact' onClick={() => handleClick()}>
+          <Button>Contact Us</Button>
+        </a>
+      </MobileMenu>
     </Headers>
   )
 }
