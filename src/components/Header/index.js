@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import logo from '../../assets/logo.svg'
 
@@ -25,7 +26,7 @@ const Logo = styled.a`
 `
 
 const Nav = styled.nav`
-  width: 25rem;
+  width: 29rem;
   max-width: 40rem;
   display: flex;
   align-items: center;
@@ -39,15 +40,16 @@ const Nav = styled.nav`
     font-weight: 600;
     color: var(--white);
     line-height: 1.5;
-    position: relative;
 
-    &::before {
+    &:not(:last-child)::before {
       content: '';
       display: inline-block;
-      height: 1rem;
-      width: 0.5rem;
+      height: 1.7rem;
+      width: 3px;
       background: var(--purple);
-      transition: width 0.5s;
+      transition: height 0.2s;
+      margin-bottom: -0.4rem;
+      margin-right: 0.25rem;
     }
 
     &::after {
@@ -65,13 +67,75 @@ const Nav = styled.nav`
     }
 
     &:not(:last-child):hover::before {
-      height: 100%;
+      height: 0;
       background: var(--purple);
     }
   }
 `
 
+const Button = styled.button`
+  background-color: var(--purple);
+  padding: 0.5rem 1rem;
+  color: var(--white);
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+`
+
+const HamburgerButton = styled.button`
+  display: none;
+  position: relative;
+  width: 2rem;
+  height: 2px;
+  cursor: pointer;
+  background-color: ${(props) =>
+    props.clicked ? 'transparent' : 'var(--white)'};
+
+  transition: background-color 0.15s;
+
+  @media only Screen and (max-width: 48em) {
+    display: inline-block;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    background-color: var(--white);
+    width: 2rem;
+    height: 2px;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  &::before {
+    top: ${(props) => (props.clicked ? '0' : '-0.5rem')};
+    transform: ${(props) => (props.clicked ? 'rotate(135deg)' : 'rotate(0)')};
+  }
+
+  &::after {
+    top: ${(props) => (props.clicked ? '0' : '0.5rem')};
+    transform: ${(props) => (props.clicked ? 'rotate(-135deg)' : 'rotate(0)')};
+  }
+`
+
+const MobileMenu = styled.div``
+
 const Header = () => {
+  const [click, setClick] = useState(false)
+
+  const handleClick = () => setClick(!click)
+
+  useEffect(() => {}, [])
+
   return (
     <Headers>
       <Logo>
@@ -83,8 +147,14 @@ const Header = () => {
         <a href='#about'>About</a>
         <a href='#home'>Projects</a>
         <a href='#home'>Services</a>
-        <a href='#contact'>Contact Me</a>
+        <a href='#contact'>
+          <Button>Contact Me</Button>
+        </a>
       </Nav>
+      <HamburgerButton onClick={() => handleClick()} clicked={click}>
+        <span />
+      </HamburgerButton>
+      <MobileMenu></MobileMenu>
     </Headers>
   )
 }
