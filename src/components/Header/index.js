@@ -34,7 +34,7 @@ const Logo = styled.a`
 `
 
 const Nav = styled.nav`
-  width: 27rem;
+  width: 28rem;
   max-width: 40rem;
   display: flex;
   align-items: center;
@@ -44,20 +44,24 @@ const Nav = styled.nav`
     display: none;
   }
 
-  a {
+  div {
     font-weight: 600;
     color: var(--white);
     line-height: 1.5;
+    font-size: 1.1rem;
+    position: relative;
 
     &:not(:last-child)::before {
       content: '';
       display: inline-block;
-      height: 1.7rem;
+      bottom: 0;
+      height: 100%;
       width: 3px;
       background: var(--purple);
       transition: height 0.2s;
       margin-bottom: -0.4rem;
       margin-right: 0.25rem;
+      z-index: 1000;
     }
 
     &::after {
@@ -70,7 +74,7 @@ const Nav = styled.nav`
     }
 
     &:not(:last-child):hover::after {
-      width: 120%;
+      width: 110%;
       background: var(--purple);
     }
 
@@ -86,6 +90,8 @@ const Button = styled.button`
   padding: 0.5rem 1rem;
   color: var(--white);
   cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
 
   &:hover {
     transform: scale(1.1);
@@ -107,7 +113,10 @@ const HamburgerButton = styled.button`
   transition: background-color 0.15s;
 
   @media only Screen and (max-width: 48em) {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   span {
@@ -120,6 +129,7 @@ const HamburgerButton = styled.button`
     &::after {
       content: '';
       background-color: var(--white);
+      color: white;
       width: 2rem;
       height: 2px;
       /* display: inline-block; */
@@ -183,10 +193,10 @@ const Header = () => {
         <h3>Nick de Waal</h3>
       </Logo>
       <Nav>
-        <a href='#home'>Home</a>
-        <a href='#about'>About</a>
-        <a href='#home'>Projects</a>
-        <a href='#home'>Services</a>
+        <div href='#home'>Home</div>
+        <div href='#about'>About</div>
+        <div href='#home'>Projects</div>
+        <div href='#home'>Services</div>
         <a href='#contact'>
           <Button>Contact Me</Button>
         </a>
