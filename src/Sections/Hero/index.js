@@ -21,6 +21,16 @@ const HeroContainer = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
+
+  @media only Screen and (max-width: 48em) {
+    height: 70vw;
+    display: block;
+  }
+
+  @media only Screen and (max-width: 420px) {
+    height: auto;
+    padding-bottom: 2rem;
+  }
 `
 
 const Blobs = styled.div`
@@ -64,6 +74,13 @@ const MainContent = styled.div`
   align-items: center;
   width: 100vw;
   padding: 0 calc(5rem + 5vw);
+
+  @media only Screen and (max-width: 48em) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+  }
 `
 
 const LeftBlock = styled.div`
@@ -72,6 +89,15 @@ const LeftBlock = styled.div`
   align-items: flex-start;
   width: 50%;
   line-height: 1.5;
+
+  @media only Screen and (max-width: 48em) {
+    width: 80%;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: calc(2.5rem + 2.5vw);
+    filter: drop-shadow(2px 4px 6px var(--black));
+  }
 `
 
 const Topic = styled.div`
@@ -125,6 +151,18 @@ const CTA = styled.button`
   img {
     width: 1.5rem;
   }
+
+  @media only Screen and (max-width: 48em) {
+    position: absolute;
+    right: 0;
+    bottom: calc(-8rem + -4vw);
+  }
+
+  @media only Screen and (max-width: 40rem) {
+    position: static;
+    right: none;
+    bottom: none;
+  }
 `
 
 const DeveloperSvg = styled.img`
@@ -133,6 +171,18 @@ const DeveloperSvg = styled.img`
   z-index: 7;
   height: auto;
   animation: ${move} 2.5s ease infinite;
+
+  @media only Screen and (max-width: 48em) {
+    align-self: flex-start;
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    opacity: 0.35;
+  }
+
+  @media only screen and (max-width: 40em) {
+    display: none;
+  }
 `
 
 const HeroSection = () => {
@@ -157,12 +207,14 @@ const HeroSection = () => {
           </Topic>
           <Title>Transforming your digital presence</Title>
           <Subtext>
-            We help fast growing companies build award winning websites
+            I work with individuals and small businesses to develop online
+            solutions
           </Subtext>
           <CTA>
             Get in touch &nbsp; <img src={Arrow} alt='CTA' width='400' />
           </CTA>
         </LeftBlock>
+
         <DeveloperSvg src={Developer} alt='Mobile Svg' width='400' />
       </MainContent>
     </HeroContainer>
