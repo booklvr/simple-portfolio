@@ -166,7 +166,7 @@ const MobileMenu = styled.div`
   visibility: ${(props) => (props.clicked ? 'visible' : 'hidden')};
 
   background: rgba(53, 53, 63, 0.95);
-  border-radius: 20px;
+  border-radius: 0;
   margin: 0.5rem;
   overflow-x: hidden;
 

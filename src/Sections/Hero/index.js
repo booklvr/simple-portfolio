@@ -2,9 +2,9 @@ import React from 'react'
 import styled, { keyframes } from 'styled-components'
 
 import Arrow from '../../assets/arrowRight.svg'
-import Grey from '../../assets/grey-blob.svg'
-import White from '../../assets/white-blob.svg'
-import Purple from '../../assets/purple-blob.svg'
+// import Grey from '../../assets/grey-blob.svg'
+// import White from '../../assets/white-blob.svg'
+// import Purple from '../../assets/purple-blob.svg'
 import Developer from '../../assets/developer.svg'
 
 const move = keyframes`
@@ -33,15 +33,15 @@ const HeroContainer = styled.div`
   }
 `
 
-const Blobs = styled.div`
-  width: 100%;
-  position: absolute;
-  right: 0;
+// const Blobs = styled.div`
+//   width: 100%;
+//   position: absolute;
+//   right: 0;
 
-  @media only Screen and (max-width: 48em) {
-    opacity: 0.5;
-  }
-`
+//   @media only Screen and (max-width: 48em) {
+//     opacity: 0.5;
+//   }
+// `
 
 // const GreyBlob = styled.div`
 //   width: calc(12% + 12vw);
@@ -51,22 +51,22 @@ const Blobs = styled.div`
 //   z-index: 7;
 // `
 
-const WhiteBlob = styled.div`
-  width: calc(15% + 15vw);
-  position: absolute;
-  right: calc(2rem + 2vw);
-  top: calc(2rem + 2vw);
-  z-index: 5;
-`
+// const WhiteBlob = styled.div`
+//   width: calc(15% + 15vw);
+//   position: absolute;
+//   right: calc(2rem + 2vw);
+//   top: calc(2rem + 2vw);
+//   z-index: 5;
+// `
 
-const PurpleBlob = styled.div`
-  width: calc(15% + 15vw);
-  position: absolute;
-  right: calc(4rem + 4vw);
-  top: calc(3rem + 3vw);
-  z-index: 6;
-  opacity: 0.8;
-`
+// const PurpleBlob = styled.div`
+//   width: calc(15% + 15vw);
+//   position: absolute;
+//   right: calc(4rem + 4vw);
+//   top: calc(3rem + 3vw);
+//   z-index: 6;
+//   opacity: 0.8;
+// `
 
 const MainContent = styled.div`
   display: flex;
@@ -132,7 +132,7 @@ const Subtext = styled.h5`
 const CTA = styled.button`
   padding: 0.5rem 1rem;
   margin-top: 1rem;
-  border-radius: 20px;
+  border-radius: 0;
   cursor: pointer;
   font-size: calc(0.5rem + 0.5vw);
   font-weight: 700;
@@ -175,8 +175,8 @@ const DeveloperSvg = styled.img`
   @media only Screen and (max-width: 48em) {
     align-self: flex-start;
     position: absolute;
-    bottom: 2rem;
-    left: 0;
+    bottom: 0;
+    left: 2rem;
     opacity: 0.35;
   }
 
