@@ -15,7 +15,8 @@ const move = keyframes`
 
 const HeroContainer = styled.div`
   width: 100vw;
-  height: 45vw;
+  height: 55vw;
+
   background-color: var(--black);
   color: var(--white);
   display: flex;
@@ -73,6 +74,7 @@ const MainContent = styled.div`
   justify-content: center;
   align-items: center;
   width: 100vw;
+
   padding: 0 calc(5rem + 5vw);
 
   @media only Screen and (max-width: 48em) {
