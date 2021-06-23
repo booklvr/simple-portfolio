@@ -1,10 +1,12 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import wave from '../../assets/wave.svg'
+import wave2 from '../../assets/wave2.svg'
 import app from '../../assets/app.svg'
 import presentation from '../../assets/presentation.svg'
 import creationProcess from '../../assets/creation_process.svg'
 import sittingMan from '../../assets/sitting_man.svg'
+import sphere from '../../assets/sphere.svg'
 
 const move = keyframes`
   0%{transform: translateY(-5px)}
@@ -14,6 +16,7 @@ const move = keyframes`
 
 const AboutContainer = styled.div`
   width: 100vw;
+  min-height: 70vh;
   position: relative;
   display: flex;
   flex-direction: row;
@@ -21,6 +24,7 @@ const AboutContainer = styled.div`
   align-items: flex-end;
   padding-bottom: 10rem;
   background: rgb(239, 247, 249);
+  overflow-x: hidden;
   background: linear-gradient(
     120deg,
     rgba(239, 247, 249, 1) 0%,
@@ -64,9 +68,10 @@ const TitleContainer = styled.div`
   left: calc(5rem + 8vw);
   top: calc(9rem + 13vw);
 
-  @media only Screen and (max-width: 52em) {
-    left: 50%;
-    transform: translateX(-50%);
+  @media only Screen and (max-width: 48em) {
+    position: static;
+    /* left: 50%;
+    transform: translateX(-50%); */
   }
 `
 
@@ -85,7 +90,7 @@ const CurvedLine = styled.div`
 const Main = styled.div`
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: flex-end;
   width: 70vw;
   margin-top: calc(12rem + 25vw);
   position: relative;
@@ -98,32 +103,45 @@ const Main = styled.div`
   }
 `
 
-const LeftSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-right: calc(2rem + 5vw);
-  min-width: calc(40% + 10vw);
-`
+// const LeftSection = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   padding-right: calc(2rem + 5vw);
+//   min-width: calc(40% + 10vw);
+// `
 
-const CreationProcessSVG = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: ${move} 2.5s ease infinite;
+// const CreationProcessSVG = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   animation: ${move} 2.5s ease infinite;
 
-  @media only Screen and (max-width: 48em) {
-    position: absolute;
-    margin-top: 9rem;
-    opacity: 80%;
-    padding: 0;
-    max-width: 50vw;
-  }
+//   @media only Screen and (max-width: 48em) {
+//     position: absolute;
+//     margin-top: 9rem;
+//     opacity: 80%;
+//     padding: 0;
+//     max-width: 50vw;
+//   }
 
-  @media only Screen and (max-width: 40em) {
-    margin-top: 10rem;
-    opacity: 60%;
-    padding: 0;
-    max-width: 60vw;
+//   @media only Screen and (max-width: 40em) {
+//     margin-top: 10rem;
+//     opacity: 60%;
+//     padding: 0;
+//     max-width: 60vw;
+//   }
+// `
+
+const Sphere = styled.div`
+  position: absolute;
+  right: 0;
+  top: 40%;
+  left: 70%;
+  opacity: 50%;
+  width: 50vw;
+
+  img {
+    width: 100%;
   }
 `
 
@@ -172,21 +190,22 @@ const AboutSection = () => {
   return (
     <AboutContainer id='about'>
       <WaveTop src={wave} alt='wave' width='400'></WaveTop>
-      <WaveBottom src={wave} alt='wave2' width='400'></WaveBottom>
+      <WaveBottom src={wave2} alt='wave2' width='400'></WaveBottom>
       <Human>
         <img src={sittingMan} alt='sitting man' />
       </Human>
-      <TitleContainer>
-        <Title>About Me</Title>
-        <CurvedLine />
-      </TitleContainer>
-      <Main>
-        <LeftSection>
-          <CreationProcessSVG>
-            <img src={app} alt='' />
-          </CreationProcessSVG>
-        </LeftSection>
+      <Sphere>
+        <img src={sphere} alt='' />
+      </Sphere>
 
+      <Main>
+        {/* <LeftSection>
+          
+        </LeftSection> */}
+        <TitleContainer>
+          <Title>About Me</Title>
+          <CurvedLine />
+        </TitleContainer>
         <AboutText>
           <Text>
             I am here to help you or your company develop your digital presence
