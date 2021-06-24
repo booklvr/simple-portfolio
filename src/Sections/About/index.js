@@ -8,44 +8,38 @@ import creationProcess from '../../assets/creation_process.svg'
 import sittingMan from '../../assets/sitting_man.svg'
 import sphere from '../../assets/sphere.svg'
 
-const move = keyframes`
-  0%{transform: translateY(-5px)}
-  50%{transform: translateY(10px) translateX(10px)}
-  100%{transform: translateY(-5px)}}
-`
-
 const AboutContainer = styled.div`
   width: 100vw;
-  min-height: 70vh;
   position: relative;
-  display: flex;
-  flex-direction: row;
+  display: block;
   justify-content: center;
-  align-items: flex-end;
-  padding-bottom: 10rem;
   background: rgb(239, 247, 249);
-  overflow-x: hidden;
+  overflow: hidden;
+  padding: 12.25px 0;
+  min-height: 75vh;
+
   background: linear-gradient(
     120deg,
     rgba(239, 247, 249, 1) 0%,
     rgba(210, 224, 228, 1) 100%
   );
 
-  @media only Screen and (max-width: 48em) {
+  /* @media only Screen and (max-width: 48em) {
     min-height: 40rem;
-  }
+  } */
 `
 
 const WaveTop = styled.img`
   width: 100%;
   position: absolute;
-  top: -1rem;
+  top: -1px;
 `
 
 const WaveBottom = styled.img`
   width: 100%;
   position: absolute;
-  bottom: -1rem;
+  bottom: -3;
+  z-index: 9;
 `
 
 const Human = styled.div`
@@ -53,6 +47,7 @@ const Human = styled.div`
   top: 0;
   right: calc(7rem + 14vw);
   width: 25%;
+  z-index: 10;
 
   @media only Screen and (max-width: 48em) {
     right: calc(7rem + 5vw);
@@ -63,10 +58,25 @@ const Human = styled.div`
   }
 `
 
+const Sphere = styled.div`
+  position: absolute;
+  width: 50%;
+  right: 0;
+  /* top: 40%; */
+  bottom: 10%;
+  /* left: 70%; */
+  opacity: 50%;
+
+  z-index: 10;
+  /* img {
+    width: 100%;
+  } */
+`
+
 const TitleContainer = styled.div`
   position: absolute;
-  left: calc(5rem + 8vw);
-  top: calc(9rem + 13vw);
+  left: 0;
+  top: 0;
 
   @media only Screen and (max-width: 48em) {
     position: static;
@@ -76,7 +86,7 @@ const TitleContainer = styled.div`
 `
 
 const Title = styled.h1`
-  font-size: calc(2rem + 1vw);
+  font-size: calc(3rem + 1vw);
 `
 
 const CurvedLine = styled.div`
@@ -90,78 +100,27 @@ const CurvedLine = styled.div`
 const Main = styled.div`
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   width: 70vw;
-  margin-top: calc(12rem + 25vw);
+  margin: 0 auto;
+  padding-top: calc(12rem + 12vw);
   position: relative;
+  z-index: 11;
 
   @media only Screen and (max-width: 48em) {
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     width: 100vw;
   }
 `
 
-// const LeftSection = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   padding-right: calc(2rem + 5vw);
-//   min-width: calc(40% + 10vw);
-// `
-
-// const CreationProcessSVG = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   animation: ${move} 2.5s ease infinite;
-
-//   @media only Screen and (max-width: 48em) {
-//     position: absolute;
-//     margin-top: 9rem;
-//     opacity: 80%;
-//     padding: 0;
-//     max-width: 50vw;
-//   }
-
-//   @media only Screen and (max-width: 40em) {
-//     margin-top: 10rem;
-//     opacity: 60%;
-//     padding: 0;
-//     max-width: 60vw;
-//   }
-// `
-
-const Sphere = styled.div`
-  position: absolute;
-  right: 0;
-  top: 40%;
-  left: 70%;
-  opacity: 50%;
-  width: 50vw;
-
-  img {
-    width: 100%;
-  }
-`
-
 const AboutText = styled.div`
   position: relative;
-  min-height: 100%;
   display: flex;
   flex-direction: column;
-  padding-bottom: 5rem;
 
   @media only Screen and (max-width: 48em) {
-    width: 80vw;
-    padding-bottom: 25rem;
-    padding-right: 0;
-  }
-
-  @media only Screen and (max-width: 40em) {
-    width: 80vw;
-    padding-bottom: 15rem;
-    padding-right: 0;
   }
 `
 
@@ -189,19 +148,15 @@ const Square = styled.div`
 const AboutSection = () => {
   return (
     <AboutContainer id='about'>
-      <WaveTop src={wave} alt='wave' width='400'></WaveTop>
-      <WaveBottom src={wave2} alt='wave2' width='400'></WaveBottom>
       <Human>
         <img src={sittingMan} alt='sitting man' />
       </Human>
       <Sphere>
         <img src={sphere} alt='' />
       </Sphere>
+      <WaveTop src={wave} alt='wave' width='400'></WaveTop>
 
       <Main>
-        {/* <LeftSection>
-          
-        </LeftSection> */}
         <TitleContainer>
           <Title>About Me</Title>
           <CurvedLine />
@@ -221,6 +176,7 @@ const AboutSection = () => {
           </div>
         </AboutText>
       </Main>
+      <WaveBottom src={wave2} alt='wave2' width='400'></WaveBottom>
     </AboutContainer>
   )
 }

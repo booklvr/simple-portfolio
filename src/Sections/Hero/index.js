@@ -15,7 +15,7 @@ const move = keyframes`
 
 const HeroContainer = styled.div`
   width: 100vw;
-  height: 55vw;
+  height: 60vw;
 
   background-color: var(--black);
   color: var(--white);
@@ -190,18 +190,6 @@ const DeveloperSvg = styled.img`
 const HeroSection = () => {
   return (
     <HeroContainer id='home'>
-      {/* <Blobs>
-        <GreyBlob>
-          {' '}
-          <img src={Grey} alt='grey blob' />
-        </GreyBlob>
-        <WhiteBlob>
-          <img src={White} alt='white blob' />
-        </WhiteBlob>
-        <PurpleBlob>
-          <img src={Purple} alt='purple blob' />
-        </PurpleBlob>
-      </Blobs> */}
       <MainContent>
         <LeftBlock>
           <Topic>

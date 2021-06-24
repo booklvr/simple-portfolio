@@ -5,7 +5,7 @@ const ProjectsContainer = styled.div`
   min-height: 80vh;
   background-color: var(--black);
   width: 100vw;
-  margin-top: -1rem;
+  /* margin-top: -1rem; */
 `
 
 const ProjectSection = () => {
