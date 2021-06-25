@@ -5,7 +5,7 @@ import Arrow from '../../assets/arrowRight.svg'
 // import Grey from '../../assets/grey-blob.svg'
 // import White from '../../assets/white-blob.svg'
 // import Purple from '../../assets/purple-blob.svg'
-import Developer from '../../assets/developer.svg'
+import Developer from '../../assets/developer2.svg'
 
 const move = keyframes`
   0% {transform: translateY(-5px); }
@@ -137,7 +137,8 @@ const CTA = styled.button`
   border-radius: 0;
   cursor: pointer;
   font-size: calc(0.5rem + 0.5vw);
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 600;
   display: flex;
   justify-content: center;
   align-items: center;

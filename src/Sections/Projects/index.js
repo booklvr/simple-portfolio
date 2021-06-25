@@ -5,11 +5,13 @@ const ProjectsContainer = styled.div`
   min-height: 80vh;
   background-color: var(--black);
   width: 100vw;
+
+  color: white;
   /* margin-top: -1rem; */
 `
 
 const ProjectSection = () => {
-  return <ProjectsContainer>projects</ProjectsContainer>
+  return <ProjectsContainer></ProjectsContainer>
 }
 
 export default ProjectSection

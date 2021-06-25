@@ -12,6 +12,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: var(--black);
 `
 
 const Home = () => {
@@ -19,8 +20,9 @@ const Home = () => {
     <Container>
       <HeroSection />
       <AboutSection />
-      <ServicesSection />
       <ProjectSection />
+      <ServicesSection />
+
       <ContactSection />
     </Container>
   )

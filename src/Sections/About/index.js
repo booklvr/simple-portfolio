@@ -2,43 +2,39 @@ import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import wave from '../../assets/wave.svg'
 import wave2 from '../../assets/wave2.svg'
-import app from '../../assets/app.svg'
-import presentation from '../../assets/presentation.svg'
-import creationProcess from '../../assets/creation_process.svg'
 import sittingMan from '../../assets/sitting_man.svg'
 import sphere from '../../assets/sphere.svg'
+import man from '../../assets/man.svg'
 
 const AboutContainer = styled.div`
   width: 100vw;
   position: relative;
-  display: block;
-  justify-content: center;
-  background: rgb(239, 247, 249);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   overflow: hidden;
-  padding: 12.25px 0;
-  min-height: 75vh;
-
+  /* padding: 12.25px 0; */
+  min-height: 90vh;
+  background: rgb(239, 247, 249);
   background: linear-gradient(
     120deg,
     rgba(239, 247, 249, 1) 0%,
     rgba(210, 224, 228, 1) 100%
   );
 
-  /* @media only Screen and (max-width: 48em) {
-    min-height: 40rem;
-  } */
+  @media only Screen and (max-width: 48em) {
+    min-height: 70vh;
+  }
 `
 
 const WaveTop = styled.img`
   width: 100%;
-  position: absolute;
-  top: -1px;
+  /* position: absolute; */
+  /* top: -1px; */
 `
 
 const WaveBottom = styled.img`
   width: 100%;
-  position: absolute;
-  bottom: -3;
   z-index: 9;
 `
 
@@ -58,19 +54,33 @@ const Human = styled.div`
   }
 `
 
+const Man = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: calc(5rem + 5vw);
+  width: 20%;
+  z-index: 10;
+`
+
 const Sphere = styled.div`
   position: absolute;
-  width: 50%;
-  right: 0;
+  width: 45vw;
+  max-width: calc(30rem + 5vw);
+  right: -5rem;
   /* top: 40%; */
-  bottom: 10%;
+  bottom: 0;
   /* left: 70%; */
   opacity: 50%;
 
   z-index: 10;
-  /* img {
-    width: 100%;
-  } */
+
+  @media only Screen and (max-width: 48em) {
+    width: calc(50vw);
+  }
+
+  @media only Screen and (max-width: 40em) {
+    width: calc(60vw);
+  }
 `
 
 const TitleContainer = styled.div`
@@ -87,6 +97,10 @@ const TitleContainer = styled.div`
 
 const Title = styled.h1`
   font-size: calc(3rem + 1vw);
+
+  @media only Screen and (max-width: 48em) {
+    font-size: calc(2rem + 2vw);
+  }
 `
 
 const CurvedLine = styled.div`
@@ -99,19 +113,21 @@ const CurvedLine = styled.div`
 
 const Main = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  width: 70vw;
+  width: 80vw;
   margin: 0 auto;
-  padding-top: calc(12rem + 12vw);
   position: relative;
   z-index: 11;
+  padding-top: 10rem;
 
   @media only Screen and (max-width: 48em) {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     width: 100vw;
+    padding: calc(3rem + 3vw);
+    padding-bottom: 2;
   }
 `
 
@@ -119,15 +135,18 @@ const AboutText = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+  width: calc(45vw);
 
   @media only Screen and (max-width: 48em) {
+    width: 80vw;
   }
 `
 
 const Text = styled.h4`
-  font-size: calc(0.5rem + 1vw);
+  font-size: calc(0.6rem + 1vw);
   line-height: 1.5;
   color: var(--nav2);
+  font-weight: 600;
 
   @media only Screen and (max-width: 48em) {
     color: var(--black);
@@ -143,6 +162,10 @@ const Square = styled.div`
   background-color: var(--black);
   margin-right: 0.5rem;
   margin-top: 1rem;
+
+  @media only Screen and (max-width: 48em) {
+    display: none;
+  }
 `
 
 const AboutSection = () => {
@@ -152,8 +175,11 @@ const AboutSection = () => {
         <img src={sittingMan} alt='sitting man' />
       </Human>
       <Sphere>
-        <img src={sphere} alt='' />
+        <img src={sphere} alt='sphere' />
       </Sphere>
+      <Man>
+        <img src={man} alt='man' />
+      </Man>
       <WaveTop src={wave} alt='wave' width='400'></WaveTop>
 
       <Main>
