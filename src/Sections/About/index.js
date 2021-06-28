@@ -2,9 +2,9 @@ import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import wave from '../../assets/wave.svg'
 import wave2 from '../../assets/wave2.svg'
-import sittingMan from '../../assets/sitting_man.svg'
+import sittingMan from '../../assets/sittingMan.svg'
 import sphere from '../../assets/sphere.svg'
-import man from '../../assets/man.svg'
+import standingMan from '../../assets/standingMan.svg'
 
 const AboutContainer = styled.div`
   width: 100vw;
@@ -178,7 +178,7 @@ const AboutSection = () => {
         <img src={sphere} alt='sphere' />
       </Sphere>
       <Man>
-        <img src={man} alt='man' />
+        <img src={standingMan} alt='man' />
       </Man>
       <WaveTop src={wave} alt='wave' width='400'></WaveTop>
 

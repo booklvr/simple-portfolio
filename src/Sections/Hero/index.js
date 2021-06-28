@@ -23,6 +23,7 @@ const HeroContainer = styled.div`
   justify-content: center;
   position: relative;
 
+
   @media only Screen and (max-width: 48em) {
     height: 70vw;
     display: block;

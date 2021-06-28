@@ -35,7 +35,7 @@ html{
         padding:0;
         border: 0;
         outline: 0;
-        background: var(--background);
+        background: var(--black);
 
         overflow-x: hidden;
     }
