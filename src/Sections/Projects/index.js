@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import sitOnLedgeLong from '../../assets/sitOnLedgeLong.svg'
+import sitOnLedgeLong from '../../assets/sittingOnLedgeLongest.svg'
 import Slider from 'react-slick'
 import Card from '../../components/Card'
 
@@ -15,8 +15,6 @@ const ProjectsContainer = styled.div`
   /* background-color: darkblue; */
 
   position: relative;
-  display: block;
-  object-fit: cover;
 
   /* display: flex;
   flex-direction: column;
@@ -33,17 +31,23 @@ const ProjectsContainer = styled.div`
 `
 
 const SitOnLedge = styled.div`
-  position: absolute;
+  height: 40vh;
 
-  width: 110vw;
   top: 5rem;
-  right: -5rem;
+  right: 5rem;
+  display: block;
+
+  /* background: white; */
   /* min-height: calc(20rem + 60vw); */
 
-  /* image {
-    height: 100%;
+  width: 50%;
+
+  img {
+    position: absolute;
+    height: 60%;
     width: auto;
-  } */
+    right: 5rem;
+  }
 
   /* right: -5vw;
   top: 5rem; */
@@ -63,8 +67,6 @@ const SitOnLedge = styled.div`
     /* right: -6rem; */
   }
 `
-
-const Main = styled.div``
 
 const TitleContainer = styled.div`
   position: absolute;
@@ -128,9 +130,7 @@ const Carousel = styled.div`
     }
   }
 
-  .slick-slider .slick-dots
-
-  .slick-slider .slick-dots button:before {
+  .slick-slider .slick-dots .slick-slider .slick-dots button:before {
     color: var(--white);
     font-size: calc(1.5rem + 0.25vw);
   }
