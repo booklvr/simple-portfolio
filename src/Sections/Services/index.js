@@ -29,13 +29,13 @@ const ServicesContainer = styled.div`
 const LayingDown = styled.div`
   position: absolute;
   top: 5px;
-  right: 11vw;
+  left: 11vw;
   width: 25%;
   z-index: 10;
 
-  img {
+  /* img {
     transform: rotateY(180deg);
-  }
+  } */
 
   @media only Screen and (max-width: 48em) {
     right: calc(7rem + 5vw);
@@ -48,14 +48,13 @@ const LayingDown = styled.div`
 
 const Sphere = styled.div`
   position: absolute;
-  width: 45vw;
-  max-width: calc(30rem + 5vw);
+  /* width: 43vw; */
+  width: calc(30rem + 5vw);
   left: -5rem;
   /* top: 40%; */
   bottom: 0;
   /* left: 70%; */
   opacity: 70%;
-  
 
   z-index: 10;
 
@@ -105,7 +104,7 @@ const TitleContainer = styled.div`
 const WaveTop = styled.img`
   width: 100%;
 
-  transform: rotateY(180deg);
+  /* transform: rotateY(180deg); */
   /* position: absolute; */
   /* top: -1px; */
 `
