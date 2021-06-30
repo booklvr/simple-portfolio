@@ -2,6 +2,7 @@
 import styled from 'styled-components'
 import wave3 from '../../assets/wave3.svg'
 import wave2 from '../../assets/wave2.svg'
+import wave4 from '../../assets/wave4.svg'
 import layingDown from '../../assets/layingDown.svg'
 import sphere from '../../assets/sphere.svg'
 
@@ -14,6 +15,7 @@ const ServicesContainer = styled.div`
   overflow: hidden;
   /* padding: 12.25px 0; */
   min-height: 90vh;
+  /* background-color: var(--black); */
   background: rgb(239, 247, 249);
   background: linear-gradient(
     120deg,
@@ -114,7 +116,18 @@ const WaveBottom = styled.img`
   z-index: 9;
 `
 
-const Main = styled.div``
+const ServiceSection = styled.div`
+  height: 30rem;
+  width: 100%;
+  position: relative;
+
+  background: rgb(239, 247, 249);
+  background: linear-gradient(
+    120deg,
+    rgba(239, 247, 249, 1) 0%,
+    rgba(210, 224, 228, 1) 100%
+  );
+`
 
 const ServicesSection = () => {
   return (
@@ -126,8 +139,14 @@ const ServicesSection = () => {
         <img src={sphere} alt='sphere' />
       </Sphere>
       <WaveTop src={wave3} alt='wave' width='400'></WaveTop>
-      <Main>Sections</Main>
-      <WaveBottom src={wave2} alt='wave2' width='400'></WaveBottom>
+      <ServiceSection>
+        <WaveBottom src={wave2} alt='wave2' width='400'></WaveBottom>
+        <WaveTop src={wave4} alt='wave4' width='400'></WaveTop>
+      </ServiceSection>
+      <ServiceSection></ServiceSection>
+      <ServiceSection>
+        <WaveBottom src={wave2} alt='wave2' width='400'></WaveBottom>
+      </ServiceSection>
     </ServicesContainer>
   )
 }
