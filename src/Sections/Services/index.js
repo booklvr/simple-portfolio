@@ -1,9 +1,18 @@
 // This is the services section.  It details the possible services offered
 import styled from 'styled-components'
-import wave3 from '../../assets/wave3.svg'
-import wave2 from '../../assets/wave2.svg'
+import wavetop1 from '../../assets/wavetop1.svg'
+import wavebot1 from '../../assets/wavebot1.svg'
 import wave4 from '../../assets/wave4.svg'
+import wavebot2 from '../../assets/wavebot2.svg'
+import wavebot3 from '../../assets/wavebot3.svg'
+import wavebot4 from '../../assets/wavebot4.svg'
+import wavebot5 from '../../assets/wavebot5.svg'
+import wavetop3 from '../../assets/wavetop3.svg'
+import wavetop4 from '../../assets/wavetop4.svg'
+import wavetop5 from '../../assets/wavetop5.svg'
 import layingDown from '../../assets/layingDown.svg'
+import standWithLaptop from '../../assets/standWithLaptop.svg'
+import sitFrontFace from '../../assets/sitFrontFace.svg'
 import sphere from '../../assets/sphere.svg'
 
 const ServicesContainer = styled.div`
@@ -14,7 +23,7 @@ const ServicesContainer = styled.div`
   justify-content: space-between;
   overflow: hidden;
   /* padding: 12.25px 0; */
-  min-height: 90vh;
+  /* min-height: 60vh; */
   /* background-color: var(--black); */
   background: rgb(239, 247, 249);
   background: linear-gradient(
@@ -23,9 +32,9 @@ const ServicesContainer = styled.div`
     rgba(210, 224, 228, 1) 100%
   );
 
-  @media only Screen and (max-width: 48em) {
+  /* @media only Screen and (max-width: 48em) {
     min-height: 70vh;
-  }
+  } */
 `
 
 const LayingDown = styled.div`
@@ -48,59 +57,90 @@ const LayingDown = styled.div`
   }
 `
 
+const StandWithLaptop = styled.div`
+  position: absolute;
+  top: 7vw;
+  right: 7vw;
+  width: 25%;
+  z-index: 10;
+  height: 100%;
+
+  img {
+    height: 65%;
+  }
+
+  /* @media only Screen and (max-width: 48em) {
+    right: calc(7rem + 5vw);
+  } */
+
+  /* @media only Screen and (max-width: 40em) {
+    right: calc(3rem + 5vw);
+  } */
+`
+
+const SitFrontFace = styled.div`
+  position: absolute;
+  top: 6vw;
+  right: 50vw;
+  width: 25%;
+  z-index: 10;
+  height: 100%;
+  transform: translateX(50%);
+  img {
+    height: 50%;
+  }
+`
+
 const Sphere = styled.div`
   position: absolute;
-  /* width: 43vw; */
-  width: calc(30rem + 5vw);
-  left: -5rem;
-  /* top: 40%; */
-  bottom: 0;
-  /* left: 70%; */
+  width: calc(35vw);
+
   opacity: 70%;
 
   z-index: 10;
 
-  @media only Screen and (max-width: 48em) {
+  /* @media only Screen and (max-width: 48em) {
     width: calc(50vw);
   }
 
   @media only Screen and (max-width: 40em) {
     width: calc(60vw);
-  }
+  } */
 `
 
-// const Tube = styled.div`
-//   position: absolute;
-//   width: 50vw;
-//   max-width: calc(28rem + 5vw);
+const Sphere1 = styled(Sphere)`
+  bottom: -10vw;
+  left: -10vw;
+`
 
-//   /* top: 40%; */
-//   left: -5rem;
-//   bottom: 0;
-//   /* left: 70%; */
-//   opacity: 50%;
-
-//   z-index: 10;
-
-//   /* @media only Screen and (max-width: 48em) {
-//     width: calc(50vw);
-//   }
-
-//   @media only Screen and (max-width: 40em) {
-//     width: calc(60vw);
-//   } */
-// `
+const Sphere2 = styled(Sphere)`
+  bottom: 0;
+  right: -2vw;
+`
 
 const TitleContainer = styled.div`
   position: absolute;
-  left: 0;
-  top: 0;
+  right: 34vw;
+  z-index: 200;
+  color: white;
+  transform: translateX(50%);
+  z-index: 1000;
+`
+
+const Title = styled.h1`
+  font-size: calc(3rem + 1vw);
 
   @media only Screen and (max-width: 48em) {
-    position: static;
-    /* left: 50%;
-    transform: translateX(-50%); */
+    font-size: calc(2rem + 2vw);
   }
+`
+
+const CurvedLine = styled.div`
+  width: 9rem;
+  height: 2rem;
+  border: 5px solid var(--purple);
+  border-color: var(--purple) transparent transparent transparent;
+  border-radius: 200% / 80px 110px 0 0;
 `
 
 const WaveTop = styled.img`
@@ -126,7 +166,7 @@ const ServiceSection = styled.div`
   height: 44.4vw;
   width: 100%;
   position: relative;
-  border: 1px solid orange;
+  /* border: 1px solid orange; */
 
   background: rgb(239, 247, 249);
   background: linear-gradient(
@@ -134,16 +174,43 @@ const ServiceSection = styled.div`
     rgba(239, 247, 249, 1) 0%,
     rgba(210, 224, 228, 1) 100%
   );
-  background: pink;
+  /* background: pink; */
 `
 
-const TextContainerOne = styled.div`
+const TextContainer = styled.div`
   position: absolute;
-  left: 22vw;
-  top: 50%;
+
   height: 10vw;
   width: 23vw;
   transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: black;
+`
+
+const TextContainerOne = styled(TextContainer)`
+  left: 30vw;
+  top: 55%;
+`
+
+const TextContainerTwo = styled(TextContainer)`
+  right: 15vw;
+  top: 5%;
+  height: 10vw;
+  width: 23vw;
+  z-index: 100;
+  color: white;
+`
+
+const TextContainerThree = styled(TextContainer)`
+  left: 15vw;
+  top: 60%;
+`
+
+const Heading = styled.h4`
+  font-size: calc(1rem + 1vw);
 `
 
 const Text = styled.div`
@@ -159,30 +226,53 @@ const Text = styled.div`
 const ServicesSection = () => {
   return (
     <ServicesContainer>
-      <Sphere>
-        <img src={sphere} alt='sphere' />
-      </Sphere>
+      <TitleContainer>
+        <Title>Skills</Title>
+        <CurvedLine />
+      </TitleContainer>
 
       <ServiceSection>
-        <WaveTop src={wave3} alt='wave' width='400'></WaveTop>
+        <WaveTop src={wavetop1} alt='wave' width='400'></WaveTop>
         <LayingDown>
           <img src={layingDown} alt='sitting man' />
         </LayingDown>
         <TextContainerOne>
+          <Heading>Design</Heading>
           <Text>
-            Working with the best designers to bring you creative and designs.
+            I work with some incredible designers who are good at making
+            designs. They are cool.
           </Text>
         </TextContainerOne>
+        <StandWithLaptop>
+          <img src={standWithLaptop} alt='standWithLaptop' />
+        </StandWithLaptop>
+        <Sphere1>
+          <img src={sphere} alt='sphere' />
+        </Sphere1>
+        <WaveBottom src={wavebot4} alt='wave2' width='400'></WaveBottom>
+      </ServiceSection>
 
-        <WaveBottom src={wave2} alt='wave2' width='400'></WaveBottom>
-      </ServiceSection>
       <ServiceSection>
-        <WaveTop src={wave4} alt='wave' width='400'></WaveTop>
-        <WaveBottom src={wave2} alt='wave2' width='400'></WaveBottom>
-      </ServiceSection>
-      <ServiceSection>
-        <WaveTop src={wave3} alt='wave' width='400'></WaveTop>
-        <WaveBottom src={wave2} alt='wave2' width='400'></WaveBottom>
+        <TextContainerTwo>
+          <Heading>Frontend</Heading>
+          <Text>
+            Using modern web frameworks like react, I will turn your design into
+            a reality.
+          </Text>
+        </TextContainerTwo>
+        <TextContainerThree>
+          <Heading>Backend</Heading>
+          <Text>My code is really cool you will like it!</Text>
+        </TextContainerThree>
+        <SitFrontFace>
+          <img src={sitFrontFace} alt='sitting man' />
+        </SitFrontFace>
+
+        <WaveTop src={wavetop5} alt='wave' width='400'></WaveTop>
+        <WaveBottom src={wavebot5} alt='wave2' width='400'></WaveBottom>
+        <Sphere2>
+          <img src={sphere} alt='sphere' />
+        </Sphere2>
       </ServiceSection>
     </ServicesContainer>
   )

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import wave from '../../assets/wave.svg'
-import wave2 from '../../assets/wave2.svg'
+import wavebot1 from '../../assets/wavebot1.svg'
 import sittingMan from '../../assets/sittingMan.svg'
 import sphere from '../../assets/sphere.svg'
 import standingMan from '../../assets/standingMan.svg'
@@ -202,7 +202,7 @@ const AboutSection = () => {
           </div>
         </AboutText>
       </Main>
-      <WaveBottom src={wave2} alt='wave2' width='400'></WaveBottom>
+      <WaveBottom src={wavebot1} alt='wave' width='400'></WaveBottom>
     </AboutContainer>
   )
 }
