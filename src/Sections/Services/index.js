@@ -59,32 +59,21 @@ const LayingDown = styled.div`
 
 const StandWithLaptop = styled.div`
   position: absolute;
-  top: 7vw;
-  right: 7vw;
-  width: 25%;
+  top: 2.8vw;
+  right: 6vw;
+  width: 26%;
   z-index: 10;
-  height: 100%;
-
-  img {
-    height: 65%;
-  }
-
-  /* @media only Screen and (max-width: 48em) {
-    right: calc(7rem + 5vw);
-  } */
-
-  /* @media only Screen and (max-width: 40em) {
-    right: calc(3rem + 5vw);
-  } */
+  /* height: 100 */
+  /* background-color: pink; */
 `
 
 const SitFrontFace = styled.div`
   position: absolute;
-  top: 6vw;
+  top: 5.5vw;
   right: 50vw;
   width: 25%;
   z-index: 10;
-  height: 100%;
+  height: 80%;
   transform: translateX(50%);
   img {
     height: 50%;
@@ -98,13 +87,14 @@ const Sphere = styled.div`
   opacity: 70%;
 
   z-index: 10;
+  display: none;
 
-  /* @media only Screen and (max-width: 48em) {
-    width: calc(50vw);
+  @media only Screen and (max-width: 48em) {
+    width: calc(30vw);
   }
 
-  @media only Screen and (max-width: 40em) {
-    width: calc(60vw);
+  /* @media only Screen and (max-width: 40em) {
+    width: calc(20vw);
   } */
 `
 
@@ -161,9 +151,15 @@ const WaveBottom = styled.img`
   z-index: 9;
 `
 
+const BlackBackground = styled.div`
+  width: 100%;
+  height: 11.2vw;
+  background-color: var(--black);
+`
+
 const ServiceSection = styled.div`
   height: calc(2rem + 45vw);
-  height: 44.4vw;
+  height: 55.6vw;
   width: 100%;
   position: relative;
   /* border: 1px solid orange; */
@@ -180,33 +176,31 @@ const ServiceSection = styled.div`
 const TextContainer = styled.div`
   position: absolute;
 
-  height: 10vw;
-  width: 23vw;
+  height: 12vw;
+  width: 35vw;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: flex-start;
   color: black;
+  background-color: orange;
 `
 
 const TextContainerOne = styled(TextContainer)`
-  left: 30vw;
-  top: 55%;
+  left: 15vw;
+  top: 20vw;
 `
 
 const TextContainerTwo = styled(TextContainer)`
   right: 15vw;
-  top: 5%;
-  height: 10vw;
-  width: 23vw;
+  top: -5vw;
   z-index: 100;
   color: white;
 `
 
 const TextContainerThree = styled(TextContainer)`
   left: 15vw;
-  top: 60%;
+  top: 50%;
 `
 
 const Heading = styled.h4`
@@ -216,11 +210,13 @@ const Heading = styled.h4`
 const Text = styled.div`
   width: 100%;
   height: 100%;
+  margin-top: 1rem;
   font-size: calc(0.5rem + 1vw);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: yellow;
 `
 
 const ServicesSection = () => {
@@ -251,7 +247,7 @@ const ServicesSection = () => {
         </Sphere1>
         <WaveBottom src={wavebot4} alt='wave2' width='400'></WaveBottom>
       </ServiceSection>
-
+      <BlackBackground />
       <ServiceSection>
         <TextContainerTwo>
           <Heading>Frontend</Heading>
