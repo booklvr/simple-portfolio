@@ -22,6 +22,7 @@ const ServicesContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
+  z-index: 100;
   /* padding: 12.25px 0; */
   /* min-height: 60vh; */
   /* background-color: var(--black); */
@@ -59,9 +60,9 @@ const LayingDown = styled.div`
 
 const StandWithLaptop = styled.div`
   position: absolute;
-  top: 2.8vw;
-  right: 6vw;
-  width: 26%;
+  top: 7.9vw;
+  right: 12vw;
+  width: 18%;
   z-index: 10;
   /* height: 100 */
   /* background-color: pink; */
@@ -69,11 +70,10 @@ const StandWithLaptop = styled.div`
 
 const SitFrontFace = styled.div`
   position: absolute;
-  top: 5.5vw;
+  top: 7vw;
   right: 50vw;
-  width: 25%;
   z-index: 10;
-  height: 80%;
+  height: 70%;
   transform: translateX(50%);
   img {
     height: 50%;
@@ -111,14 +111,19 @@ const Sphere2 = styled(Sphere)`
 const TitleContainer = styled.div`
   position: absolute;
   right: 34vw;
-  z-index: 200;
+  top: 5vw;
   color: white;
   transform: translateX(50%);
   z-index: 1000;
+
+  @media only Screen and (max-width: 48em) {
+    top: 0;
+  }
 `
 
 const Title = styled.h1`
   font-size: calc(3rem + 1vw);
+  z-index: 100;
 
   @media only Screen and (max-width: 48em) {
     font-size: calc(2rem + 2vw);
@@ -153,8 +158,16 @@ const WaveBottom = styled.img`
 
 const BlackBackground = styled.div`
   width: 100%;
-  height: 11.2vw;
+  height: 15.2vw;
   background-color: var(--black);
+`
+
+const BlackBackgroundHalf = styled(BlackBackground)`
+  height: 5.6vw;
+
+  @media only Screen and (max-width: 48em) {
+    height: 11.2vw;
+  }
 `
 
 const ServiceSection = styled.div`
@@ -162,7 +175,6 @@ const ServiceSection = styled.div`
   height: 55.6vw;
   width: 100%;
   position: relative;
-  /* border: 1px solid orange; */
 
   background: rgb(239, 247, 249);
   background: linear-gradient(
@@ -177,34 +189,47 @@ const TextContainer = styled.div`
   position: absolute;
 
   height: 12vw;
-  width: 35vw;
+  width: 40vw;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  color: black;
-  background-color: orange;
+  align-items: center;
+  color: var(--nav2);
+
+  /* background-color: orange; */
+
+  @media only Screen and (max-width: 48em) {
+    width: 50vw;
+  }
 `
 
 const TextContainerOne = styled(TextContainer)`
   left: 15vw;
-  top: 20vw;
+  top: 27vw;
 `
 
 const TextContainerTwo = styled(TextContainer)`
-  right: 15vw;
-  top: -5vw;
+  right: 10vw;
+  top: -8vw;
   z-index: 100;
   color: white;
+
+  @media only Screen and (max-width: 48em) {
+    right: 15vw;
+  }
 `
 
 const TextContainerThree = styled(TextContainer)`
   left: 15vw;
-  top: 50%;
+  top: 34vw;
 `
 
 const Heading = styled.h4`
   font-size: calc(1rem + 1vw);
+
+  @media only Screen and (max-width: 48em) {
+    font-size: calc(1rem + 0.5vw);
+  }
 `
 
 const Text = styled.div`
@@ -215,13 +240,22 @@ const Text = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
-  background-color: yellow;
+  align-items: center;
+  /* background-color: yellow; */
+  font-size: calc(0.6rem + 1vw);
+  line-height: 1.5;
+  font-weight: 600;
+  text-align: center;
+
+  @media only Screen and (max-width: 48em) {
+    margin-top: 0.5rem;
+  }
 `
 
 const ServicesSection = () => {
   return (
     <ServicesContainer>
+      <BlackBackgroundHalf />
       <TitleContainer>
         <Title>Skills</Title>
         <CurvedLine />
@@ -233,10 +267,10 @@ const ServicesSection = () => {
           <img src={layingDown} alt='sitting man' />
         </LayingDown>
         <TextContainerOne>
-          <Heading>Design</Heading>
+          <Heading>Full Stack Developer</Heading>
           <Text>
-            I work with some incredible designers who are good at making
-            designs. They are cool.
+            As a full stack developer I can build your website from start to
+            finish.
           </Text>
         </TextContainerOne>
         <StandWithLaptop>
@@ -252,13 +286,16 @@ const ServicesSection = () => {
         <TextContainerTwo>
           <Heading>Frontend</Heading>
           <Text>
-            Using modern web frameworks like react, I will turn your design into
-            a reality.
+            On the frontend, I use HTML, SASS, the React framework, Redeux, and
+            other libraries like Bootstrap to create stunning websites.
           </Text>
         </TextContainerTwo>
         <TextContainerThree>
           <Heading>Backend</Heading>
-          <Text>My code is really cool you will like it!</Text>
+          <Text>
+            On the backend I use NodeJS, MongoDb, nGinx, and Firebase, to bring
+            your website to life.
+          </Text>
         </TextContainerThree>
         <SitFrontFace>
           <img src={sitFrontFace} alt='sitting man' />
