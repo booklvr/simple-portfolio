@@ -254,7 +254,7 @@ const Text = styled.div`
 
 const ServicesSection = () => {
   return (
-    <ServicesContainer>
+    <ServicesContainer id='services'>
       <BlackBackgroundHalf />
       <TitleContainer>
         <Title>Skills</Title>
@@ -263,9 +263,7 @@ const ServicesSection = () => {
 
       <ServiceSection>
         <WaveTop src={wavetop1} alt='wave' width='400'></WaveTop>
-        <LayingDown>
-          <img src={layingDown} alt='sitting man' />
-        </LayingDown>
+
         <TextContainerOne>
           <Heading>Full Stack Developer</Heading>
           <Text>
@@ -273,9 +271,7 @@ const ServicesSection = () => {
             finish.
           </Text>
         </TextContainerOne>
-        <StandWithLaptop>
-          <img src={standWithLaptop} alt='standWithLaptop' />
-        </StandWithLaptop>
+
         <Sphere1>
           <img src={sphere} alt='sphere' />
         </Sphere1>
@@ -297,9 +293,6 @@ const ServicesSection = () => {
             your website to life.
           </Text>
         </TextContainerThree>
-        <SitFrontFace>
-          <img src={sitFrontFace} alt='sitting man' />
-        </SitFrontFace>
 
         <WaveTop src={wavetop5} alt='wave' width='400'></WaveTop>
         <WaveBottom src={wavebot5} alt='wave2' width='400'></WaveBottom>
@@ -312,3 +305,15 @@ const ServicesSection = () => {
 }
 
 export default ServicesSection
+
+// <SitFrontFace>
+//           <img src={sitFrontFace} alt='sitting man' />
+//         </SitFrontFace>
+
+// <StandWithLaptop>
+//           <img src={standWithLaptop} alt='standWithLaptop' />
+//         </StandWithLaptop>
+
+// <LayingDown>
+//           <img src={layingDown} alt='sitting man' />
+//         </LayingDown>

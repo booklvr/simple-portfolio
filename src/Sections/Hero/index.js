@@ -15,7 +15,7 @@ const move = keyframes`
 
 const HeroContainer = styled.div`
   width: 100vw;
-  height: 60vw;
+  min-height: calc(100vh - 80px);
 
   background-color: var(--black);
   color: var(--white);
@@ -23,10 +23,10 @@ const HeroContainer = styled.div`
   justify-content: center;
   position: relative;
 
-
   @media only Screen and (max-width: 48em) {
     height: 70vw;
     display: block;
+    padding: 5rem 0;
   }
 
   @media only Screen and (max-width: 420px) {
@@ -34,41 +34,6 @@ const HeroContainer = styled.div`
     padding-bottom: 2rem;
   }
 `
-
-// const Blobs = styled.div`
-//   width: 100%;
-//   position: absolute;
-//   right: 0;
-
-//   @media only Screen and (max-width: 48em) {
-//     opacity: 0.5;
-//   }
-// `
-
-// const GreyBlob = styled.div`
-//   width: calc(12% + 12vw);
-//   position: absolute;
-//   right: calc(10rem + 5vw);
-//   top: calc(5rem + 5vw);
-//   z-index: 7;
-// `
-
-// const WhiteBlob = styled.div`
-//   width: calc(15% + 15vw);
-//   position: absolute;
-//   right: calc(2rem + 2vw);
-//   top: calc(2rem + 2vw);
-//   z-index: 5;
-// `
-
-// const PurpleBlob = styled.div`
-//   width: calc(15% + 15vw);
-//   position: absolute;
-//   right: calc(4rem + 4vw);
-//   top: calc(3rem + 3vw);
-//   z-index: 6;
-//   opacity: 0.8;
-// `
 
 const MainContent = styled.div`
   display: flex;
@@ -130,6 +95,10 @@ const Title = styled.h1`
 const Subtext = styled.h5`
   font-size: calc(0.5rem + 0.5rem);
   color: var(--nav2);
+
+  @media only Screen and (max-width: 40em) {
+    margin: 2rem 0;
+  }
 `
 
 const CTA = styled.button`
@@ -179,13 +148,25 @@ const DeveloperSvg = styled.img`
   @media only Screen and (max-width: 48em) {
     align-self: flex-start;
     position: absolute;
-    bottom: 0;
+    bottom: 10rem;
     left: 2rem;
     opacity: 0.35;
   }
 
+  @media only Screen and (max-width: 44em) {
+    bottom: 2rem;
+  }
+
   @media only screen and (max-width: 40em) {
-    display: none;
+    opacity: 0.125;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: none;
+    /* top: 50%; */
+    /* transform: translateY(-50%); */
+    width: 100%;
   }
 `
 
@@ -194,19 +175,15 @@ const HeroSection = () => {
     <HeroContainer id='home'>
       <MainContent>
         <LeftBlock>
-          <Topic>
-            <Circle /> <span>Full Stack Developer</span>
-          </Topic>
-          <Title>Transforming your digital presence</Title>
+          <Title>Full Stack Developer</Title>
           <Subtext>
             I work with individuals and small businesses to develop online
-            solutions
+            solutions.
           </Subtext>
           <CTA>
             Get in touch &nbsp; <img src={Arrow} alt='CTA' width='400' />
           </CTA>
         </LeftBlock>
-
         <DeveloperSvg src={Developer} alt='Mobile Svg' width='400' />
       </MainContent>
     </HeroContainer>
@@ -214,3 +191,7 @@ const HeroSection = () => {
 }
 
 export default HeroSection
+
+// <Topic>
+//   <Circle /> <span>Full Stack Developer</span>
+// </Topic>

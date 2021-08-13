@@ -84,14 +84,9 @@ const Sphere = styled.div`
 `
 
 const TitleContainer = styled.div`
-  position: absolute;
-  left: 0;
-  top: 0;
-
+  margin-right: 2rem;
   @media only Screen and (max-width: 48em) {
-    position: static;
-    /* left: 50%;
-    transform: translateX(-50%); */
+    margin: 2rem 0;
   }
 `
 
@@ -99,7 +94,7 @@ const Title = styled.h1`
   font-size: calc(3rem + 1vw);
 
   @media only Screen and (max-width: 48em) {
-    font-size: calc(2rem + 2vw);
+    font-size: calc(2rem + 1vw);
   }
 `
 
@@ -113,7 +108,8 @@ const CurvedLine = styled.div`
 
 const Main = styled.div`
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
   width: 80vw;
   margin: 0 auto;
@@ -123,7 +119,7 @@ const Main = styled.div`
 
   @media only Screen and (max-width: 48em) {
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     width: 100vw;
     padding: calc(3rem + 3vw);
@@ -155,33 +151,9 @@ const Text = styled.h4`
   /* margin-top: 2rem; */
 `
 
-const Square = styled.div`
-  display: inline-block;
-  width: 1rem;
-  height: 1rem;
-  background-color: var(--black);
-  margin-right: 0.5rem;
-  margin-top: 1rem;
-
-  @media only Screen and (max-width: 48em) {
-    display: none;
-  }
-`
-
 const AboutSection = () => {
   return (
     <AboutContainer id='about'>
-      <Human>
-        <img src={sittingMan} alt='sitting man' />
-      </Human>
-      <Sphere>
-        <img src={sphere} alt='sphere' />
-      </Sphere>
-      <Man>
-        <img src={standingMan} alt='man' />
-      </Man>
-      <WaveTop src={wave} alt='wave' width='400'></WaveTop>
-
       <Main>
         <TitleContainer>
           <Title>About Me</Title>
@@ -189,26 +161,58 @@ const AboutSection = () => {
         </TitleContainer>
         <AboutText>
           <Text>
-            Hello.  My Name is a Nick.  Over the past 5 years coding has developed into a passion of mine, specifically in the realm of web development and the creation of web apps.  As an English teacher I have used my passion for code to create fun and interactive web apps for my students and colleagues and now I would like to pursue web development full time.  I am dedicating myself to bettering myself as a developer and problem solver.   
-            
+            Hello. My Name is a Nick. Over the past 5 years coding has developed
+            into a passion of mine, specifically in the realm of web development
+            and the creation of web apps. As an English teacher I have used my
+            passion for code to create fun and interactive web apps for my
+            students and colleagues and now I would like to pursue web
+            development full time. I am dedicating myself to bettering myself as
+            a developer and problem solver.
           </Text>
-          <div>
-            <Square style={{ backgroundColor: 'var(--purple)' }} />
-            <Square style={{ backgroundColor: 'var(--grey)' }} />
-            <Square style={{ backgroundColor: 'var(--black)' }} />
-          </div>
         </AboutText>
       </Main>
-      <WaveBottom src={wavebot1} alt='wave' width='400'></WaveBottom>
     </AboutContainer>
   )
 }
 
 export default AboutSection
 
+// I am here to help you or your company develop your digital presence
+// in an increasingly competitive world. I want to work with you and to
+// help you to introduce yourself, to grow, and to stand out by
+// building a creative website together. I am here to make your vision
+// become reality.
 
-            // I am here to help you or your company develop your digital presence
-            // in an increasingly competitive world. I want to work with you and to
-            // help you to introduce yourself, to grow, and to stand out by
-            // building a creative website together. I am here to make your vision
-            // become reality.
+// <Human>
+//   <img src={sittingMan} alt='sitting man' />
+// </Human>
+
+// <Man>
+//         <img src={standingMan} alt='man' />
+//       </Man>
+
+// <div>
+//   <Square style={{ backgroundColor: 'var(--purple)' }} />
+//   <Square style={{ backgroundColor: 'var(--grey)' }} />
+//   <Square style={{ backgroundColor: 'var(--black)' }} />
+// </div>
+
+// <WaveTop src={wave} alt='wave' width='400'></WaveTop>
+// <WaveBottom src={wavebot1} alt='wave' width='400'></WaveBottom>
+
+// <Sphere>
+//         <img src={sphere} alt='sphere' />
+//       </Sphere>
+
+// const Square = styled.div`
+//   display: inline-block;
+//   width: 1rem;
+//   height: 1rem;
+//   background-color: var(--black);
+//   margin-right: 0.5rem;
+//   margin-top: 1rem;
+
+//   @media only Screen and (max-width: 48em) {
+//     display: none;
+//   }
+// `
