@@ -189,11 +189,8 @@ const AboutSection = () => {
         </TitleContainer>
         <AboutText>
           <Text>
-            I am here to help you or your company develop your digital presence
-            in an increasingly competitive world. I want to work with you and to
-            help you to introduce yourself, to grow, and to stand out by
-            building a creative website together. I am here to make your vision
-            become reality.
+            Hello.  My Name is a Nick.  Over the past 5 years coding has developed into a passion of mine, specifically in the realm of web development and the creation of web apps.  As an English teacher I have used my passion for code to create fun and interactive web apps for my students and colleagues and now I would like to pursue web development full time.  I am dedicating myself to bettering myself as a developer and problem solver.   
+            
           </Text>
           <div>
             <Square style={{ backgroundColor: 'var(--purple)' }} />
@@ -208,3 +205,10 @@ const AboutSection = () => {
 }
 
 export default AboutSection
+
+
+            // I am here to help you or your company develop your digital presence
+            // in an increasingly competitive world. I want to work with you and to
+            // help you to introduce yourself, to grow, and to stand out by
+            // building a creative website together. I am here to make your vision
+            // become reality.
