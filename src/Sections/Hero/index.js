@@ -10,11 +10,11 @@ import Developer from '../../assets/developer2.svg'
 const move = keyframes`
   0% {transform: translateY(-5px); }
   50% { transform: translateY(10px);}
-  100% {transform: translateY(-5px);}
+100% {transform: translateY(-5px);}
 `
 
 const HeroContainer = styled.div`
-  width: 100vw;
+  min-width: 100vw;
   min-height: calc(100vh - 80px);
 
   background-color: var(--black);
@@ -59,7 +59,7 @@ const LeftBlock = styled.div`
   line-height: 1.5;
 
   @media only Screen and (max-width: 48em) {
-    width: 80%;
+    width: 100%;
     text-align: center;
     align-items: center;
     justify-content: space-around;

@@ -10,7 +10,7 @@ const Nav = styled.nav`
   margin-top: -80px;
   justify-content: center;
   align-items: center;
-  background-color: var(--nav);
+  background-color: var(--black);
   color: var(--white);
   position: sticky;
   top: 0;
@@ -209,7 +209,7 @@ const Navbar = ({ toggle, isOpen }) => {
           </NavItem>
           <NavItem>
             <NavLink
-              to='services'
+              to='skills'
               smooth={true}
               duration={500}
               spy={true}
