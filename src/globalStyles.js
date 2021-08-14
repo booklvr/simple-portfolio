@@ -8,7 +8,7 @@ ${'' /* Variables */}
    /* Colors */
   --background: #eff7f9;
   --black:#000000FF;
-  --purple:#603F83FF;
+  --purple: #6449E7;
   --grey:#C7D3D4FF;
   --white:#fff;
   --nav:#35353f;
@@ -35,7 +35,7 @@ html{
         // padding:0;
         border: 0;
         outline: 0;
-        background: var(--black);
+        
 
         overflow-x: hidden;
     }

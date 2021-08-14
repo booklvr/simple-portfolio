@@ -2,11 +2,11 @@
 import React, { useState } from 'react'
 import HeroSection from '../../Sections/Hero'
 import AboutSection from '../../Sections/About'
-import ServicesSection from '../../Sections/Services'
+import SkillsSection from '../../Sections/Skills'
 import ProjectSection from '../../Sections/Projects'
 import ContactSection from '../../Sections/Contact'
 
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import Navbar from '../../components/Navbar'
 import Sidebar from '../../components/Sidebar'
 
@@ -16,7 +16,20 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: var(--black);
+  background: white;
+
+  padding: 0 calc(5rem + 5vw);
+  background: rgb(239, 247, 249);
+  background: linear-gradient(
+    120deg,
+    rgba(195, 214, 233, 0.5) 0%,
+    rgba(249, 249, 249, 0.5) 50%,
+    rgba(195, 214, 233, 0.5) 100%
+  );
+
+  @media only Screen and (max-width: 48em) {
+    margin: 0 2rem;
+  }
 `
 
 const Home = () => {
@@ -33,7 +46,7 @@ const Home = () => {
       <HeroSection />
       <AboutSection />
       <ProjectSection />
-      <ServicesSection />
+      <SkillsSection />
 
       <ContactSection />
     </Container>

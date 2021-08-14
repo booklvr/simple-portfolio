@@ -1,129 +1,21 @@
 import React from 'react'
-import styled, { keyframes } from 'styled-components'
-import wave from '../../assets/wave.svg'
-import wavebot1 from '../../assets/wavebot1.svg'
-import sittingMan from '../../assets/sittingMan.svg'
-import sphere from '../../assets/sphere.svg'
-import standingMan from '../../assets/standingMan.svg'
+import styled from 'styled-components/macro'
+import SectionTitle from '../../components/SectionTitle'
+// import wave from '../../assets/wave.svg'
+// import wavebot1 from '../../assets/wavebot1.svg'
+// import sittingMan from '../../assets/sittingMan.svg'
+// import sphere from '../../assets/sphere.svg'
+// import standingMan from '../../assets/standingMan.svg'
 
 const AboutContainer = styled.div`
-  width: 100vw;
-  position: relative;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-  /* padding: 12.25px 0; */
-  min-height: 90vh;
-  background: rgb(239, 247, 249);
-  background: linear-gradient(
-    120deg,
-    rgba(239, 247, 249, 1) 0%,
-    rgba(210, 224, 228, 1) 100%
-  );
-
-  @media only Screen and (max-width: 48em) {
-    min-height: 70vh;
-  }
-`
-
-const WaveTop = styled.img`
-  width: 100%;
-  /* position: absolute; */
-  /* top: -1px; */
-`
-
-const WaveBottom = styled.img`
-  width: 100%;
-  z-index: 9;
-`
-
-const Human = styled.div`
-  position: absolute;
-  top: 0;
-  right: calc(7rem + 14vw);
-  width: 25%;
-  z-index: 10;
-
-  @media only Screen and (max-width: 48em) {
-    right: calc(7rem + 5vw);
-  }
-
-  @media only Screen and (max-width: 40em) {
-    right: calc(3rem + 5vw);
-  }
-`
-
-const Man = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: calc(5rem + 5vw);
-  width: 20%;
-  z-index: 10;
-`
-
-const Sphere = styled.div`
-  position: absolute;
-  width: 45vw;
-  max-width: calc(30rem + 5vw);
-  right: -5rem;
-  /* top: 40%; */
-  bottom: 0;
-  /* left: 70%; */
-  opacity: 50%;
-
-  z-index: 10;
-
-  @media only Screen and (max-width: 48em) {
-    width: calc(50vw);
-  }
-
-  @media only Screen and (max-width: 40em) {
-    width: calc(60vw);
-  }
-`
-
-const TitleContainer = styled.div`
-  margin-right: 2rem;
-  @media only Screen and (max-width: 48em) {
-    margin: 2rem 0;
-  }
-`
-
-const Title = styled.h1`
-  font-size: calc(3rem + 1vw);
-
-  @media only Screen and (max-width: 48em) {
-    font-size: calc(2rem + 1vw);
-  }
-`
-
-const CurvedLine = styled.div`
-  width: 9rem;
-  height: 2rem;
-  border: 5px solid var(--purple);
-  border-color: var(--purple) transparent transparent transparent;
-  border-radius: 200% / 80px 110px 0 0;
-`
-
-const Main = styled.div`
-  display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 80vw;
-  margin: 0 auto;
-  position: relative;
-  z-index: 11;
-  padding-top: 10rem;
 
   @media only Screen and (max-width: 48em) {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    padding: calc(3rem + 3vw);
-    padding-bottom: 2;
   }
 `
 
@@ -131,16 +23,16 @@ const AboutText = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  width: calc(45vw);
+  width: 70%;
 
   @media only Screen and (max-width: 48em) {
     width: 80vw;
   }
 `
 
-const Text = styled.h4`
-  font-size: calc(0.6rem + 1vw);
-  line-height: 1.5;
+const Text = styled.p`
+  font-size: calc(0.6rem + 0.6vw);
+  line-height: 2;
   color: var(--nav2);
   font-weight: 600;
 
@@ -154,23 +46,16 @@ const Text = styled.h4`
 const AboutSection = () => {
   return (
     <AboutContainer id='about'>
-      <Main>
-        <TitleContainer>
-          <Title>About Me</Title>
-          <CurvedLine />
-        </TitleContainer>
-        <AboutText>
-          <Text>
-            Hello. My Name is a Nick. Over the past 5 years coding has developed
-            into a passion of mine, specifically in the realm of web development
-            and the creation of web apps. As an English teacher I have used my
-            passion for code to create fun and interactive web apps for my
-            students and colleagues and now I would like to pursue web
-            development full time. I am dedicating myself to bettering myself as
-            a developer and problem solver.
-          </Text>
-        </AboutText>
-      </Main>
+      <SectionTitle title='About Me'></SectionTitle>
+      <AboutText>
+        <Text>
+          Hello. My Name is a Nick. Over the past 5 years coding has developed
+          into a passion of mine, specifically in the realm of web development
+          and the creation of web apps. I honed my as skills an English , where
+          I built fun and interactive web apps for my students and colleagues. I
+          now develop full time and am looking for my next project.
+        </Text>
+      </AboutText>
     </AboutContainer>
   )
 }
@@ -216,3 +101,5 @@ export default AboutSection
 //     display: none;
 //   }
 // `
+
+// <CurvedLine />
