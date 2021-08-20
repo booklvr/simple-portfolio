@@ -1,8 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import styled from 'styled-components/macro'
-import logo from '../../assets/logo.svg'
+import styled, { css } from 'styled-components/macro'
+import React, { useState, useEffect, useRef } from 'react'
+
+// import logo from '../../assets/logo.svg'
+import logoBlack from '../../assets/logo-black.svg'
+import logoWhite from '../../assets/logo-white.svg'
 import { Link as LinkR } from 'react-router-dom'
 import { Link as LinkS, animateScroll as scroll } from 'react-scroll'
+import useScrollPosition from '../../hooks/useScrollPosition'
+// import { useScrollPosition } from '../../hooks/useScrollPosition'
 
 const Nav = styled.nav`
   display: flex;
@@ -10,12 +15,39 @@ const Nav = styled.nav`
   margin-top: -80px;
   justify-content: center;
   align-items: center;
-  background-color: var(--black);
-  color: var(--white);
   position: sticky;
   top: 0;
-  z-index: 1000;
   width: 100vw;
+
+  ${(props) =>
+    (props.show &&
+      css`
+        opacity: ;
+        z-index: 1000;
+        transition: all 0.4s ease-in;
+      `) ||
+    css`
+      opacity: 0;
+      z-index: -10;
+      transition: all 1s ease-in;
+    `};
+
+  ${(props) =>
+    (props.color === 'black' &&
+      css`
+        color: var(--white);
+        background-color: var(--black);
+      `) ||
+    css`
+      color: var(--black);
+      background-color: var(--background);
+      /* top: 10px;
+      width: calc(100vw - 2rem); */
+      justify-content: center;
+      align-items: center;
+      box-shadow: 8px 8px 15px #adadad;
+      /* border-radius: 10px; */
+    `};
 `
 
 const NavbarContainer = styled.div`
@@ -24,6 +56,9 @@ const NavbarContainer = styled.div`
   height: 80px;
   z-index: 1;
   width: 100%;
+
+  padding: ${({ color }) =>
+    color === 'black' ? '0 calc(5rem + 5vw)' : '0 calc(3rem + 5vw)'};
   padding: 0 calc(5rem + 5vw);
 
   @media only Screen and (max-width: 48em) {
@@ -39,7 +74,7 @@ const NavLogo = styled(LinkR)`
   height: auto;
   cursor: pointer;
   text-decoration: none;
-  color: #fff;
+  color: ${({ color }) => (color === 'black' ? 'white' : 'black')};
 
   img {
     height: 60px;
@@ -53,6 +88,9 @@ const NavMenu = styled.ul`
   display: flex;
   align-items: center;
   list-style: none;
+
+  color: ${({ color }) =>
+    color === 'black' ? 'var(--white)' : 'var(--black)'};
   @media screen and (max-width: 768px) {
     display: none;
   }
@@ -67,15 +105,23 @@ const NavItem = styled.li`
 `
 
 const NavLink = styled(LinkS)`
-  color: var(--white);
   background: transparent;
   display: flex;
   align-items: center;
   cursor: pointer;
   text-decoration: none;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
 
+  /* box-shadow: 4px 4px 8px #adadad, -4px -4px 8px #ffffff; */
+  box-shadow: ${({ color }) =>
+    color === 'black' ? 0 : '4px 4px 8px #adadad, -4px -4px 8px #ffffff'};
+  /* color: ${({ color }) =>
+    color === 'black' ? 'var(--white)' : 'var(--black)'}; */
+  /* ${(props) => (props.color === 'black' && css``) || css``}; */
   &.active {
-    border-bottom: 3px solid var(--purple);
+    /* border-bottom: 3px solid var(--primary); */
+    box-shadow: 4px 4px 8px var(--primary), -4px -4px 8px #ffffff;
   }
 `
 
@@ -86,11 +132,27 @@ const NavLinkR = styled(LinkR)`
   align-items: center;
   cursor: pointer;
   text-decoration: none;
+  padding: 0.5rem 1rem;
+  ${(props) =>
+    (props.color === 'black' &&
+      css`
+        color: var(--white);
+      `) ||
+    css`
+      color: var(--black) !important;
+      box-shadow: 4px 4px 8px #adadad, -4px -4px 8px #ffffff;
+      border-radius: 10px;
+    `};
 `
 
 const NavLinkButton = styled(NavLink)`
-  background-color: var(--purple);
   padding: 0.5rem 1rem;
+
+  ${(props) =>
+    props.color === 'black' &&
+    css`
+      background-color: var(--primary);
+    `};
 `
 
 const HamburgerButton = styled.button`
@@ -115,14 +177,20 @@ const HamburgerButton = styled.button`
 const HamburgerSpan = styled.span`
   width: 2rem;
   height: 2px;
-  background-color: ${(props) => (props.isOpen ? 'transparent' : 'white')};
+
+  background-color: ${(props) =>
+    props.isOpen ? 'transparent' : props.color === 'black' ? 'white' : 'black'};
   position: relative;
+  /* background-color: black; */
 
   &::before,
   &::after {
     content: '';
-    background-color: var(--white);
-    color: white;
+    background-color: ${(props) =>
+      props.color === 'black' ? 'white' : 'black'};
+    /* background-color: white; */
+    /* background-color: black; */
+    /* color: white; */
     width: 2rem;
     height: 2px;
     /* display: inline-block; */
@@ -143,46 +211,59 @@ const HamburgerSpan = styled.span`
   }
 `
 
-// const MobileMenu = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-//   padding: 2rem 0;
-//   position: absolute;
-//   top: 100%;
-//   left: 0;
-//   right: 0;
-//   opacity: ${(props) => (props.clicked ? '1' : 0)};
-//   visibility: ${(props) => (props.clicked ? 'visible' : 'hidden')};
-
-//   background: rgba(53, 53, 63, 0.95);
-//   border-radius: 0;
-//   margin: 0.5rem;
-//   overflow-x: hidden;
-
-//   a {
-//     color: var(--white);
-//     font-weight: 600;
-//     font-size: 1.5rem;
-//     margin: 1.5rem;
-//     cursor: pointer;
-//   }
-// `
-
 const Navbar = ({ toggle, isOpen }) => {
+  // const getScrollYPosition = () => {
+  //   return window.scrollY
+  // }
+
+  // const previousPosition = useRef(getScrollYPosition())
+
   const toggleHome = () => {
     scroll.scrollToTop()
   }
 
+  // const [buttonEffect, setButtonEffect] = useState(true)
+  const [showNav, setShowNav] = useState(true)
+  const [color, setColor] = useState('black')
+
+  // const changeProps = () => {
+  //   setButtonEffect(!buttonEffect)
+  // }
+  const effect = (scrollDirection, color) => {
+    console.log('in the fucking effect this time')
+    color === 'black' ? setColor('black') : setColor('white')
+    scrollDirection === 'up' ? setShowNav(true) : setShowNav(false)
+  }
+  // get the scroll direction and set the navbar color
+  // ** takes in a callback, and a setTimeout limit;
+  useScrollPosition(effect, 300)
+
+  const navLinkCallBack = () => {
+    if (!showNav) {
+      setShowNav(true)
+    }
+    console.log('afterTimeout')
+    console.log('showNav', showNav)
+  }
+
+  const handleNavLinkClick = () => {
+    console.log('before timeout')
+    console.log('showNav', showNav)
+    setTimeout(navLinkCallBack, 1000)
+  }
+
   return (
-    <Nav>
-      <NavbarContainer>
-        <NavLogo to='/' onClick={toggleHome}>
-          <img src={logo} alt='Logo' />
+    <Nav show={showNav} color={color}>
+      <NavbarContainer color={color}>
+        <NavLogo to='/' onClick={toggleHome} color={color}>
+          {(color === 'black' && <img src={logoWhite} alt='Logo' />) || (
+            <img src={logoBlack} alt='Logo' />
+          )}
+
           <h3>Nick de Waal</h3>
         </NavLogo>
-        <NavMenu>
+
+        <NavMenu color={color}>
           <NavItem>
             <NavLink
               to='about'
@@ -191,6 +272,8 @@ const Navbar = ({ toggle, isOpen }) => {
               spy={true}
               exact='true'
               offset={-80}
+              color={color}
+              onClick={handleNavLinkClick}
             >
               About
             </NavLink>
@@ -203,6 +286,8 @@ const Navbar = ({ toggle, isOpen }) => {
               spy={true}
               exact='true'
               offset={-80}
+              color={color}
+              onClick={handleNavLinkClick}
             >
               Projects
             </NavLink>
@@ -215,6 +300,8 @@ const Navbar = ({ toggle, isOpen }) => {
               spy={true}
               exact='true'
               offset={-80}
+              color={color}
+              onClick={handleNavLinkClick}
             >
               Services
             </NavLink>
@@ -223,6 +310,7 @@ const Navbar = ({ toggle, isOpen }) => {
             <NavLinkR
               to='/resume'
               style={{ textDecoration: 'none', color: 'white' }}
+              color={color}
             >
               Resume
             </NavLinkR>
@@ -235,13 +323,14 @@ const Navbar = ({ toggle, isOpen }) => {
               spy={true}
               exact='true'
               offset={-80}
+              color={color}
             >
               Contact
             </NavLinkButton>
           </NavItem>
         </NavMenu>
-        <HamburgerButton onClick={toggle} isOpen={isOpen}>
-          <HamburgerSpan isOpen={isOpen} />
+        <HamburgerButton onClick={toggle} isOpen={isOpen} color={color}>
+          <HamburgerSpan isOpen={isOpen} color={color} />
         </HamburgerButton>
       </NavbarContainer>
     </Nav>

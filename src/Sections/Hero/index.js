@@ -16,7 +16,6 @@ const move = keyframes`
 const HeroContainer = styled.div`
   min-width: 100vw;
   min-height: calc(100vh - 80px);
-
   background-color: var(--black);
   color: var(--white);
   display: flex;
@@ -76,20 +75,14 @@ const Topic = styled.div`
   font-weight: 700;
   padding: 0.5rem 1rem;
   font-size: calc(0.4rem + 0.4vw);
-`
-
-const Circle = styled.span`
-  display: inline-block;
-  width: 1rem;
-  height: 1rem;
-  background-color: var(--purple);
-  margin-right: 0.5rem;
+  color: var(--fontLight);
 `
 
 const Title = styled.h1`
   font-size: calc(2rem + 1vw);
   line-height: 1.2;
   padding: 0.5rem 0;
+  color: var(--fontMain);
 `
 
 const Subtext = styled.h5`

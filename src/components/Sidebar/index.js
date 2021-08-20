@@ -1,14 +1,19 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
+import React, { useState } from 'react'
 import { Link as LinkS } from 'react-scroll'
 import { Link as LinkR } from 'react-router-dom'
-import { FaTimes } from 'react-icons/fa'
+// import { FaTimes } from 'react-icons/fa'
+import useScrollPosition from '../../hooks/useScrollPosition'
 
 const SidebarContainer = styled.aside`
   position: fixed;
   z-index: 999;
   width: 100%;
   height: 100%;
-  background: #0d0d0d;
+  background-color: ${(props) =>
+    props.color === 'black' ? 'black !important' : 'white !important'};
+  /* background: ${(props) => (props.color === 'black' ? 'black' : 'white')} */
+  /* background: black; */
   display: grid;
   align-items: center;
   margin-top: 80px;
@@ -16,11 +21,12 @@ const SidebarContainer = styled.aside`
   left: 0;
   transition: 0.3s ease-in-out;
   opacity: ${({ isOpen }) => (isOpen ? '100%' : '0')};
-  top: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
+  top: ${({ isOpen }) => (isOpen ? '0' : '-120%')};
 `
 
 const SidebarWrapper = styled.div`
-  color: #fff;
+  color: ${(props) =>
+    props.color === 'black' ? 'var(--white)' : 'var(--black)'};
 `
 
 const SidebarMenu = styled.ul`
@@ -90,9 +96,19 @@ const SidebarRouteBtn = styled(LinkR)`
 `
 
 const Sidebar = ({ isOpen, toggle }) => {
+  const [color, setColor] = useState('black')
+
+  const effect = (scrollDirection, color) => {
+    console.log('in the fucking effect')
+    color === 'black' ? setColor('black') : setColor('white')
+  }
+  // get the scroll direction and set the navbar color
+  // ** takes in a callback, and a setTimeout limit;
+  useScrollPosition(effect, 300)
+
   return (
-    <SidebarContainer isOpen={isOpen} onClick={toggle}>
-      <SidebarWrapper>
+    <SidebarContainer isOpen={isOpen} color={color} onClick={toggle}>
+      <SidebarWrapper color={color}>
         <SidebarMenu>
           <SidebarLink to='about' onClick={toggle}>
             About

@@ -9,16 +9,13 @@ const CARD = styled.div`
 
   max-width: 60rem;
   padding: 2rem 1rem;
-
-  /* box-shadow: 2px 2px 8px rgba(96, 63, 131, 1); */
-  /* clip-path: inset(-3px -15px -15px -3px); */
-  z-index: 100;
-  /* margin: ${(props) =>
-    props.reverse ? '2rem 0 5rem 26rem' : '2rem 26rem 5rem 0'}; */
-
-  border: 2px solid black;
   margin-bottom: 3rem;
-  position: relative;
+  background: linear-gradient(145deg, #dadaff, #b8b8d8);
+  background: var(--background);
+  border-radius: 10px;
+
+  
+  box-shadow: 8px 8px 15px #adadad, -8px -8px 15px #ffffff;
 
   @media only Screen and (max-width: 48em) {
     /* background-color: red; */
@@ -53,11 +50,12 @@ const TagContainer = styled.div`
 `
 
 const Tag = styled.div`
-  background-color: var(--nav2);
+  background-color: var(--fontMain);
   color: white;
   font-size: 0.75rem;
   padding: 0.2rem 0.5rem;
   margin: 0.4rem 0.2rem 0;
+  border-radius: 10px;
 `
 
 const ThumbnailLink = styled.a`
@@ -92,16 +90,16 @@ const TitleContainer = styled.div`
 const SubHeading = styled.h5`
   font-size: 0.75rem;
   font-weight: 600;
-  color: black;
+  color: var(--primary);
   margin-bottom: 5px;
 `
 
 const Title = styled.h4`
-  font-size: calc(1.4rem + 0.5vw);
+  font-size: calc(2rem);
 
   /* transform: skew(-44deg); */
-  color: var(--black);
-  border-bottom: 2px solid black;
+  color: var(--fontMain);
+  border-bottom: 2px solid var(--primary);
   margin-bottom: 1rem;
 `
 
@@ -138,29 +136,30 @@ const CardButton = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.2s;
+  transition: all 0.1s;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  background-color: var(--purple);
-  color: var(--white);
+  background: var(--background);
+  color: var(--primary);
+  border-radius: 10px;
+  box-shadow: 8px 8px 15px #adadad, -8px -8px 15px #ffffff;
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.02) translate(-2px, -2px);
+    box-shadow: 5px 5px 10px var(--darkShadow), 0px 0px 5px var(--lightShadow);
   }
   &:active {
     transform: scale(0.9);
   }
 
   &:last-of-type {
-    background-color: var(--purple);
-    color: white;
     margin-left: 1rem;
   }
 `
 
 const index = ({ title, text, image, link, git, tags, reverse }) => {
-  console.log('reverse', reverse)
+  
   const thumbnail = require(`../../assets/${image}.png`).default
   return (
     <CARD reverse={reverse}>
