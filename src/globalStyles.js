@@ -6,13 +6,22 @@ ${'' /* Variables */}
 
 :root{
    /* Colors */
-  --background: #eff7f9;
+  --background: #f7f7f7;
   --black:#000000FF;
   --purple: #6449E7;
   --grey:#C7D3D4FF;
   --white:#fff;
   --nav:#35353f;
   --nav2:#3f3d56;
+  --primary: #303f9f;
+  --primaryLight: #7986cd;
+//   --primary: #1a237e;
+  --darkShadow: rgba(136, 143, 140);
+  --lightShadow: rgba(255, 255, 255);
+  --fontMain: #231f20;
+  --fontLight: #767676;
+  --fontMedium: #505050;
+  --fontMain: #efeff4;
 }
 
 *,*::before,*::after{

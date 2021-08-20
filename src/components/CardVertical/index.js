@@ -102,7 +102,7 @@ const CardButton = styled.a`
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  background-color: var(--purple);
+  background-color: var(--primary);
   color: var(--white);
 
   &:hover {
@@ -113,7 +113,7 @@ const CardButton = styled.a`
   }
 
   &:last-of-type {
-    background-color: var(--purple);
+    background-color: var(--primary);
     color: white;
     margin-left: 1rem;
   }
@@ -133,8 +133,8 @@ const CardVertical = ({ title, text, image, link, git, tags }) => {
       </ThumbnailLink>
       <Text>{text}</Text>
       <TagContainer>
-        {tags.map((tag) => (
-          <Tag>{tag}</Tag>
+        {tags.map((tag, index) => (
+          <Tag key={index}>{tag}</Tag>
         ))}
       </TagContainer>
       <ButtonContainer>

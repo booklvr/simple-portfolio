@@ -1,5 +1,5 @@
 // This is home page, It will contain all the sections required in this page
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import HeroSection from '../../Sections/Hero'
 import AboutSection from '../../Sections/About'
 import SkillsSection from '../../Sections/Skills'
@@ -16,16 +16,16 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: white;
+  background: var(--background);
 
   padding: 0 calc(5rem + 5vw);
-  background: rgb(239, 247, 249);
+  /* background: rgb(242, 245, 244);
   background: linear-gradient(
-    120deg,
+    180deg,
     rgba(195, 214, 233, 0.5) 0%,
-    rgba(249, 249, 249, 0.5) 50%,
+    rgba(249, 249, 249, 0.8) 50%,
     rgba(195, 214, 233, 0.5) 100%
-  );
+  ); */
 
   @media only Screen and (max-width: 48em) {
     margin: 0 2rem;

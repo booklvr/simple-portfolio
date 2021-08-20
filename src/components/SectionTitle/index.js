@@ -8,7 +8,7 @@ const SectionTitleContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  margin: 3rem 0 2rem;
+  margin: 5rem 0 4rem;
 
   @media only Screen and (max-width: 40em) {
     flex-direction: column;
@@ -18,7 +18,7 @@ const SectionTitleContainer = styled.div`
 `
 
 const Title = styled.h1`
-  font-size: calc(2rem + 1vw);
+  font-size: calc(2rem + 0.5vw);
   font-weight: 300;
   color: black;
   padding: 0 1rem;
@@ -26,9 +26,10 @@ const Title = styled.h1`
 
 const TitleLine = styled.div`
   flex: 1;
-  height: 2px;
-  background-color: black;
-
+  height: 30px;
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: -4px -4px 6px #ffffff, inset 4px 4px 8px #adadad;
   @media only Screen and (max-width: 48em) {
     width: 20rem;
     max-height: 2px;
