@@ -1,11 +1,13 @@
 import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes } from 'styled-components/macro'
+import { Link as LinkS } from 'react-scroll'
 
 import Arrow from '../../assets/arrowRight.svg'
 // import Grey from '../../assets/grey-blob.svg'
 // import White from '../../assets/white-blob.svg'
 // import Purple from '../../assets/purple-blob.svg'
-import Developer from '../../assets/developer2.svg'
+// import Developer from '../../assets/developer2.svg'
+import coding from '../../assets/coding.svg'
 
 const move = keyframes`
   0% {transform: translateY(-5px); }
@@ -14,152 +16,162 @@ const move = keyframes`
 `
 
 const HeroContainer = styled.div`
-  min-width: 100vw;
-  min-height: calc(100vh - 80px);
+  width: 100vw;
+  height: 100vh;
   background-color: var(--black);
   color: var(--white);
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  position: relative;
+  padding: 0 calc(5rem + 5vw);
 
-  @media only Screen and (max-width: 48em) {
-    height: 70vw;
-    display: block;
-    padding: 5rem 0;
-  }
-
-  @media only Screen and (max-width: 420px) {
-    height: auto;
-    padding-bottom: 2rem;
+  @media only Screen and (max-width: 64em) {
+    margin-top: -2rem;
+    padding: 0 2rem;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
   }
 `
 
 const MainContent = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-
-  padding: 0 calc(5rem + 5vw);
-
-  @media only Screen and (max-width: 48em) {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-  }
-`
-
-const LeftBlock = styled.div`
-  display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
   width: 50%;
   line-height: 1.5;
 
+  @media only screen and (max-width: 64em) {
+    width: 100%;
+    /* text-align: left; */
+    align-items: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    /* flex: 1; */
+    /* margin: auto 0; */
+  }
+
   @media only Screen and (max-width: 48em) {
     width: 100%;
-    text-align: center;
-    align-items: center;
-    justify-content: space-around;
-    margin-top: calc(2.5rem + 2.5vw);
-    filter: drop-shadow(2px 4px 6px var(--black));
+    /* text-align: left;
+    align-items: flex-start; */
   }
 `
 
-const Topic = styled.div`
+
+
+const HelloText = styled.h4`
+  color: var(--primary);
+  font-size: 1.2rem;
+  text-transform: lowercase;
+`
+
+const TitleNameContainer = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
-  background-color: var(--nav);
-  font-weight: 700;
-  padding: 0.5rem 1rem;
-  font-size: calc(0.4rem + 0.4vw);
-  color: var(--fontLight);
+  justify-content: flex-start;
+
+  @media only Screen and (max-width: 64em) {
+    justify-content: center;
+  }
+`
+
+const TitleLine = styled.div`
+  display: block;
+  background-color: white;
+  width: 3rem;
+  height: 0.125rem;
+  margin-right: 1rem;
+`
+
+const TitleLineLeft = styled(TitleLine)`
+  display: none;
+  margin-left: 1rem;
+  margin-right: 0;
+  @media only Screen and (max-width: 64em) {
+    display: block;
+  }
+`
+
+const TitleName = styled.h3`
+  font-size: 1.75rem;
+  font-weight: 300;
+  padding: 0.5rem 0;
+
+  @media only Screen and (max-width: 40em) {
+    font-size: 1.3rem;
+  }
 `
 
 const Title = styled.h1`
-  font-size: calc(2rem + 1vw);
+  font-size: 3.2rem;
   line-height: 1.2;
-  padding: 0.5rem 0;
   color: var(--fontMain);
+
+  @media only Screen and (max-width: 64em) {
+    text-align: center;
+    font-size: 3rem;
+  }
+
+  @media only Screen and (max-width: 48em) {
+    font-size: 2.5rem;
+  }
 `
 
 const Subtext = styled.h5`
-  font-size: calc(0.5rem + 0.5rem);
+  font-size: 1rem;
   color: var(--nav2);
 
+  @media only Screen and (max-width: 64em) {
+    text-align: center;
+  }
+
   @media only Screen and (max-width: 40em) {
-    margin: 2rem 0;
+    display: none;
   }
 `
 
-const CTA = styled.button`
-  padding: 0.5rem 1rem;
-  margin-top: 1rem;
-  border-radius: 0;
-  cursor: pointer;
-  font-size: calc(0.5rem + 0.5vw);
-  font-size: 1rem;
-  font-weight: 600;
+const CTA = styled(LinkS)`
+  background: transparent;
   display: flex;
-  justify-content: center;
   align-items: center;
-  transition: all 0.2s;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease-out;
+  background-color: var(--primary);
+  margin-top: 1rem;
 
   &:hover {
+    color: white;
     transform: scale(1.1);
   }
+
   &:active {
     transform: scale(0.9);
   }
 
-  img {
-    width: 1.5rem;
-  }
-
   @media only Screen and (max-width: 48em) {
-    position: absolute;
-    right: 0;
-    bottom: calc(-8rem + -4vw);
-  }
-
-  @media only Screen and (max-width: 40rem) {
-    position: static;
-    right: none;
-    bottom: none;
+    font-size: 1.2rem;
+    width: 10rem;
+    padding: 0.5rem 0;
   }
 `
 
 const DeveloperSvg = styled.img`
-  max-width: 100%;
-  width: calc(30% + 20vw);
+  width: 50%;
   z-index: 7;
   height: auto;
   animation: ${move} 2.5s ease infinite;
 
-  @media only Screen and (max-width: 48em) {
-    align-self: flex-start;
-    position: absolute;
-    bottom: 10rem;
-    left: 2rem;
-    opacity: 0.35;
-  }
-
-  @media only Screen and (max-width: 44em) {
-    bottom: 2rem;
-  }
-
-  @media only screen and (max-width: 40em) {
-    opacity: 0.125;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    animation: none;
-    /* top: 50%; */
-    /* transform: translateY(-50%); */
-    width: 100%;
+  @media only Screen and (max-width: 64em) {
+    width: 60vw;
+    opacity: 0.8;
+    /* margin-bottom: 2rem; */
   }
 `
 
@@ -167,18 +179,19 @@ const HeroSection = () => {
   return (
     <HeroContainer id='home'>
       <MainContent>
-        <LeftBlock>
-          <Title>Full Stack Developer</Title>
-          <Subtext>
-            I work with individuals and small businesses to develop online
-            solutions.
-          </Subtext>
-          <CTA>
-            Get in touch &nbsp; <img src={Arrow} alt='CTA' width='400' />
-          </CTA>
-        </LeftBlock>
-        <DeveloperSvg src={Developer} alt='Mobile Svg' width='400' />
+        <HelloText>Hello I am</HelloText>
+        <TitleNameContainer>
+          <TitleLine />
+          <TitleName>Nick de Waal</TitleName>
+          <TitleLineLeft />
+        </TitleNameContainer>
+        <Title>Full Stack Developer</Title>
+        <Subtext>
+          I am passionate about clean code and innovative solutions.
+        </Subtext>
+        <CTA>Contact</CTA>
       </MainContent>
+      <DeveloperSvg src={coding} alt='Mobile Svg' />
     </HeroContainer>
   )
 }
