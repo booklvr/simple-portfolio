@@ -1,5 +1,5 @@
-import styled from 'styled-components/macro'
-import React, { useState } from 'react'
+import styled, { css } from 'styled-components/macro'
+import React, { useState, useEffect } from 'react'
 import { Link as LinkS } from 'react-scroll'
 import { Link as LinkR } from 'react-router-dom'
 // import { FaTimes } from 'react-icons/fa'
@@ -11,12 +11,12 @@ const SidebarContainer = styled.aside`
   width: 100%;
   height: 100%;
   background-color: ${(props) =>
-    props.color === 'black' ? 'black !important' : 'white !important'};
+    props.color === 'black' ? 'var(--black)' : 'var(--background)'};
   /* background: ${(props) => (props.color === 'black' ? 'black' : 'white')} */
   /* background: black; */
   display: grid;
   align-items: center;
-  margin-top: 80px;
+  /* margin-top: 80px; */
 
   left: 0;
   transition: 0.3s ease-in-out;
@@ -30,100 +30,129 @@ const SidebarWrapper = styled.div`
 `
 
 const SidebarMenu = styled.ul`
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(6, 80px);
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`
 
-  @media Screen and (max-width: 480px) {
-    grid-template-rows: repeat(6, 60px);
+const whiteLink = css`
+  color: var(--black);
+  width: 15rem;
+  padding: 1rem;
+  background-color: var(--background);
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 4px 4px 8px #adadad, -4px -4px 8px #ffffff;
+
+  // color: ${({ focus }) => (focus ? `var(--primary)` : 'var(--black)')};
+
+  &:hover {
+    box-shadow: 6px 6px 15px var(--fontMedium), -6px -6px 15px #ffffff;
+    transform: translate(-2px, -1px);
   }
+
+  &:active {
+    box-shadow: 2px 2px 5px #adadad, -2px -2px 5px #ffffff;
+    transform: translate(1px, 2px);
+  }
+`
+
+const blackLink = css`
+  color: var(--white);
+  background-color: black;
+
+  &:hover {
+    color: var(--primary);
+    transition: 0.2s ease-in-out;
+  }
+
+  ${(props) =>
+    props.focus &&
+    css`
+      background-color: var(--primary);
+      color: white;
+
+      &:hover {
+        color: var(--white);
+        transform: scale(1.1);
+      }
+
+      &:active {
+        transform: scale(0.9);
+      }
+    `}
+`
+
+const linkStyles = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  list-style: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
 `
 
 const SidebarLink = styled(LinkS)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  text-decoration: none;
-  list-style: none;
-  transition: 0.2s ease-in-out;
-  text-decoration: none;
-  color: #fff;
-  cursor: pointer;
+  ${linkStyles}
 
-  &:hover {
-    color: #01bf71;
-    transition: 0.2s ease-in-out;
-  }
-`
-const SideBtnWrap = styled.div`
-  display: flex;
-  justify-content: center;
+  ${(props) => (props.color === 'black' ? blackLink : whiteLink)}
 `
 
 const SidebarRoute = styled(LinkR)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  text-decoration: none;
-  list-style: none;
-  transition: 0.2s ease-in-out;
-  text-decoration: none;
-  color: #fff;
-  cursor: pointer;
-`
+  ${linkStyles}
 
-const SidebarRouteBtn = styled(LinkR)`
-  border-radius: 50px;
-  background: #01bf71;
-  white-space: nowrap;
-  padding: 15px 64px;
-  color: #010606;
-  font-size: 16px;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  text-decoration: none;
-
-  &:hover {
-    transition: all 0.2s ease-in-out;
-    background: #fff;
-    color: #010606;
-  }
+  ${(props) => (props.color === 'black' ? blackLink : whiteLink)};
 `
 
 const Sidebar = ({ isOpen, toggle }) => {
+  const getBackgroundColor = () => {
+    const inHeroSection = window.scrollY < window.innerHeight - 80
+
+    console.log('inHeroSection', inHeroSection)
+
+    if (inHeroSection) {
+      setColor('black')
+    } else {
+      setColor('white')
+    }
+  }
+
   const [color, setColor] = useState('black')
 
-  const effect = (scrollDirection, color) => {
-    console.log('in the fucking effect')
-    color === 'black' ? setColor('black') : setColor('white')
-  }
-  // get the scroll direction and set the navbar color
-  // ** takes in a callback, and a setTimeout limit;
-  useScrollPosition(effect, 300)
+  useEffect(() => {
+    getBackgroundColor()
+    document.body.style.overflow = isOpen ? 'hidden' : 'unset'
+  }, [isOpen])
 
   return (
     <SidebarContainer isOpen={isOpen} color={color} onClick={toggle}>
       <SidebarWrapper color={color}>
         <SidebarMenu>
-          <SidebarLink to='about' onClick={toggle}>
+          <SidebarLink to='about' onClick={toggle} color={color}>
             About
           </SidebarLink>
-          <SidebarLink to='projects' onClick={toggle}>
+          <SidebarLink to='projects' onClick={toggle} color={color}>
             Projects
           </SidebarLink>
-          <SidebarLink to='skills' onClick={toggle}>
+          <SidebarLink to='skills' onClick={toggle} color={color}>
             Skills
           </SidebarLink>
-          <SidebarRoute to={'/resume'}>Resume</SidebarRoute>
+          <SidebarRoute to={'/resume'} color={color}>
+            Resume
+          </SidebarRoute>
+          <SidebarLink to='contact' onClick={toggle} color={color} focus={true}>
+            Contact
+          </SidebarLink>
         </SidebarMenu>
-        <SideBtnWrap>
-          <SidebarRouteBtn to='contact'>Contact</SidebarRouteBtn>
-        </SideBtnWrap>
       </SidebarWrapper>
     </SidebarContainer>
   )

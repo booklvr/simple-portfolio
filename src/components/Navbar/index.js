@@ -12,7 +12,7 @@ import useScrollPosition from '../../hooks/useScrollPosition'
 const Nav = styled.nav`
   display: flex;
   height: 80px;
-  margin-top: -80px;
+  /* margin-top: -80px; */
   justify-content: center;
   align-items: center;
   position: sticky;
@@ -22,14 +22,23 @@ const Nav = styled.nav`
   ${(props) =>
     (props.show &&
       css`
-        opacity: ;
+        opacity: 1;
         z-index: 1000;
-        transition: all 0.4s ease-in;
+        transition-property: opacity, z-index;
+        transition-duration: 0.4s, 0.4s, 0.2s;
+        transition-timing-function: ease-in;
+        /* transition-delay: 1s, 1s, 1s; */
+        /* transition: opacity 0.4s, z-index 0.4s, ease-in; */
       `) ||
     css`
       opacity: 0;
       z-index: -10;
-      transition: all 1s ease-in;
+      /* transition: all 1s ease-in; */
+      transition-property: opacity, z-index, box-shadow;
+      transition-duration: 1s, 1s, 0.5s;
+      transition-timing-function: ease-in;
+      transition-delay: 0.5s, 0.5s, 0s;
+      /* transition-delay: 1s; */
     `};
 
   ${(props) =>
@@ -41,12 +50,16 @@ const Nav = styled.nav`
     css`
       color: var(--black);
       background-color: var(--background);
-      /* top: 10px;
-      width: calc(100vw - 2rem); */
       justify-content: center;
       align-items: center;
       box-shadow: 8px 8px 15px #adadad;
-      /* border-radius: 10px; */
+    `};
+
+  ${(props) =>
+    props.isOpen &&
+    css`
+      opacity: 1;
+      z-index: 1000;
     `};
 `
 
@@ -56,9 +69,6 @@ const NavbarContainer = styled.div`
   height: 80px;
   z-index: 1;
   width: 100%;
-
-  padding: ${({ color }) =>
-    color === 'black' ? '0 calc(5rem + 5vw)' : '0 calc(3rem + 5vw)'};
   padding: 0 calc(5rem + 5vw);
 
   @media only Screen and (max-width: 48em) {
@@ -77,7 +87,7 @@ const NavLogo = styled(LinkR)`
   color: ${({ color }) => (color === 'black' ? 'white' : 'black')};
 
   img {
-    height: 60px;
+    height: 50px;
     width: auto;
     z-index: 1000;
     margin-right: 0.5rem;
@@ -104,7 +114,7 @@ const NavItem = styled.li`
   padding: 0 0.75rem;
 `
 
-const NavLink = styled(LinkS)`
+const linkStyle = css`
   background: transparent;
   display: flex;
   align-items: center;
@@ -112,37 +122,46 @@ const NavLink = styled(LinkS)`
   text-decoration: none;
   border-radius: 10px;
   padding: 0.5rem 1rem;
+  transition: all 0.2s ease-out;
+`
 
-  /* box-shadow: 4px 4px 8px #adadad, -4px -4px 8px #ffffff; */
-  box-shadow: ${({ color }) =>
-    color === 'black' ? 0 : '4px 4px 8px #adadad, -4px -4px 8px #ffffff'};
-  /* color: ${({ color }) =>
-    color === 'black' ? 'var(--white)' : 'var(--black)'}; */
-  /* ${(props) => (props.color === 'black' && css``) || css``}; */
+const blackLinkStyle = css``
+
+const whiteLinkStyle = css`
+  box-shadow: 4px 4px 8px #adadad, -4px -4px 8px #ffffff;
+  color: var(--black) !important;
+
   &.active {
-    /* border-bottom: 3px solid var(--primary); */
     box-shadow: 4px 4px 8px var(--primary), -4px -4px 8px #ffffff;
+  }
+
+  &:hover {
+    box-shadow: ${({ color }) =>
+      color === 'black'
+        ? 0
+        : '6px 6px 15px var(--fontMedium), -6px -6px 15px #ffffff'};
+    transform: translate(-2px, -1px);
+    &.active {
+      box-shadow: 6px 6px 15px var(--primary), -6px -6px 15px #ffffff;
+    }
+  }
+
+  &:active {
+    box-shadow: 2px 2px 5px #adadad, -2px -2px 5px #ffffff;
+    transform: translate(1px, 2px);
   }
 `
 
+const NavLink = styled(LinkS)`
+  ${linkStyle}
+
+  ${(props) => (props.color === 'black' ? blackLinkStyle : whiteLinkStyle)}
+`
+
 const NavLinkR = styled(LinkR)`
-  color: var(-white);
-  background: transparent;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  ${(props) =>
-    (props.color === 'black' &&
-      css`
-        color: var(--white);
-      `) ||
-    css`
-      color: var(--black) !important;
-      box-shadow: 4px 4px 8px #adadad, -4px -4px 8px #ffffff;
-      border-radius: 10px;
-    `};
+  ${linkStyle}
+
+  ${(props) => (props.color === 'black' ? blackLinkStyle : whiteLinkStyle)}
 `
 
 const NavLinkButton = styled(NavLink)`
@@ -226,11 +245,7 @@ const Navbar = ({ toggle, isOpen }) => {
   const [showNav, setShowNav] = useState(true)
   const [color, setColor] = useState('black')
 
-  // const changeProps = () => {
-  //   setButtonEffect(!buttonEffect)
-  // }
   const effect = (scrollDirection, color) => {
-    console.log('in the fucking effect this time')
     color === 'black' ? setColor('black') : setColor('white')
     scrollDirection === 'up' ? setShowNav(true) : setShowNav(false)
   }
@@ -252,15 +267,14 @@ const Navbar = ({ toggle, isOpen }) => {
     setTimeout(navLinkCallBack, 1000)
   }
 
+  // <h3>Nick de Waal</h3>
   return (
-    <Nav show={showNav} color={color}>
+    <Nav show={showNav} color={color} isOpen={isOpen}>
       <NavbarContainer color={color}>
         <NavLogo to='/' onClick={toggleHome} color={color}>
           {(color === 'black' && <img src={logoWhite} alt='Logo' />) || (
             <img src={logoBlack} alt='Logo' />
           )}
-
-          <h3>Nick de Waal</h3>
         </NavLogo>
 
         <NavMenu color={color}>
@@ -303,7 +317,7 @@ const Navbar = ({ toggle, isOpen }) => {
               color={color}
               onClick={handleNavLinkClick}
             >
-              Services
+              Skills
             </NavLink>
           </NavItem>
           <NavItem>

@@ -1,17 +1,17 @@
 // This is home page, It will contain all the sections required in this page
-import React, { useState, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import HeroSection from '../../Sections/Hero'
 import AboutSection from '../../Sections/About'
 import SkillsSection from '../../Sections/Skills'
 import ProjectSection from '../../Sections/Projects'
 import ContactSection from '../../Sections/Contact'
 
-import styled from 'styled-components/macro'
+import styled, { css } from 'styled-components/macro'
 import Navbar from '../../components/Navbar'
 import Sidebar from '../../components/Sidebar'
 
 const Container = styled.div`
-  margin-top: 80px;
+  /* margin-top: 80px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,6 +19,12 @@ const Container = styled.div`
   background: var(--background);
 
   padding: 0 calc(5rem + 5vw);
+
+  /* ${(props) =>
+    props.isOpen &&
+    css`
+      overflow: hidden;
+    `} */
   /* background: rgb(242, 245, 244);
   background: linear-gradient(
     180deg,
@@ -28,7 +34,7 @@ const Container = styled.div`
   ); */
 
   @media only Screen and (max-width: 48em) {
-    margin: 0 2rem;
+    padding: 0 2rem;
   }
 `
 
@@ -39,8 +45,18 @@ const Home = () => {
     setIsOpen(!isOpen)
   }
 
+  // useEffect(() => {
+  //   if (isOpen) {
+  //     document.body.style.position = 'fixed'
+  //     document.body.style.top = `-${window.scrollY}px`
+  //   } else {
+  //     document.body.style.position = ''
+  //     document.body.style.top = ''
+  //   }
+  // }, [isOpen])
+
   return (
-    <Container>
+    <Container isOpen={isOpen}>
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <Navbar toggle={toggle} isOpen={isOpen} />
       <HeroSection />

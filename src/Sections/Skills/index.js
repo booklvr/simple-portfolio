@@ -4,7 +4,7 @@ import SectionTitle from '../../components/SectionTitle'
 
 const SkillsSectionContainer = styled.div`
   width: 100%;
-  
+  height: 100vh;
 `
 
 const SkillsSection = () => {
