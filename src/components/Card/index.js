@@ -7,19 +7,14 @@ const CARD = styled.div`
   justify-content: space-between;
   align-items: stretch;
 
-  max-width: 60rem;
+  max-width: 50rem;
   padding: 2rem 1rem;
   margin-bottom: 3rem;
   background: linear-gradient(145deg, #dadaff, #b8b8d8);
   background: var(--background);
-  border-radius: 10px;
+  border-radius: 20px;
 
-  
-  box-shadow: 8px 8px 15px #adadad, -8px -8px 15px #ffffff;
-
-  @media only Screen and (max-width: 48em) {
-    /* background-color: red; */
-  }
+  box-shadow: 6px 6px 20px #adadad, -5px -5px 50px #ffffff;
 
   @media only Screen and (max-width: 40em) {
     background-color: yellow;
@@ -50,12 +45,12 @@ const TagContainer = styled.div`
 `
 
 const Tag = styled.div`
-  background-color: var(--fontMain);
+  background-color: var(--nav2);
   color: white;
   font-size: 0.75rem;
-  padding: 0.2rem 0.5rem;
+  padding: 0.3rem 0.5rem;
   margin: 0.4rem 0.2rem 0;
-  border-radius: 10px;
+  border-radius: 5px;
 `
 
 const ThumbnailLink = styled.a`
@@ -73,7 +68,7 @@ const CardContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: ${(props) => (props.reverse ? 'flex-end' : 'flex-start')};
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 48%;
 
   @media only Screen and (min-width: 70em) {
@@ -98,18 +93,19 @@ const Title = styled.h4`
   font-size: calc(2rem);
 
   /* transform: skew(-44deg); */
-  color: var(--fontMain);
+  color: var(--black);
   border-bottom: 2px solid var(--primary);
   margin-bottom: 1rem;
 `
 
 const Text = styled.p`
   /* padding: 0 calc(1rem + 1vw); */
-  color: var(--nav2);
-  font-size: calc(1rem);
+  color: var(--fontLight);
+  font-size: 1rem;
   text-align: ${(props) => (props.reverse ? 'right' : 'left')};
   font-weight: 600;
-  line-height: 1.5;
+  line-height: 1.25;
+  flex: 1;
 
   @media only Screen and (min-width: 60em) {
     line-height: 2;
@@ -120,19 +116,15 @@ const Text = styled.p`
 const ButtonContainer = styled.div`
   display: flex;
   width: 100%;
-
   justify-content: space-between;
 `
 
 const CardButton = styled.a`
-  padding: 1rem 1rem;
   margin-top: 1rem;
-  width: 100%;
-  border-radius: 0;
-  cursor: pointer;
-  font-size: calc(0.5rem + 0.5vw);
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: calc(1rem + 0.5vw);
+  color: var(--black);
+  width: 8rem;
+  padding: 0.5rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -141,7 +133,6 @@ const CardButton = styled.a`
   text-decoration: none;
   cursor: pointer;
   background: var(--background);
-  color: var(--primary);
   border-radius: 10px;
   box-shadow: 8px 8px 15px #adadad, -8px -8px 15px #ffffff;
 
@@ -159,7 +150,6 @@ const CardButton = styled.a`
 `
 
 const index = ({ title, text, image, link, git, tags, reverse }) => {
-  
   const thumbnail = require(`../../assets/${image}.png`).default
   return (
     <CARD reverse={reverse}>

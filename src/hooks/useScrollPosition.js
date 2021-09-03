@@ -16,7 +16,7 @@ const getScrollDirection = (currPos, prevPos) => {
 }
 
 const setColorTheme = (currPos) =>
-  currPos < window.innerHeight - 80 ? 'black' : 'white'
+  currPos < window.innerHeight - 30 ? 'black' : 'white'
 
 function useScrollPosition(effect, wait) {
   const previousPosition = useRef(getScrollYPosition)

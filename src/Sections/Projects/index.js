@@ -4,7 +4,6 @@ import styled from 'styled-components/macro'
 // import Slider from 'react-slick'
 import Card from '../../components/Card'
 import CardVertical from '../../components/CardVertical'
-import SectionTitle from '../../components/SectionTitle'
 
 // import '../../../node_modules/slick-carousel/slick/slick.css'
 // import '../../../node_modules/slick-carousel/slick/slick-theme.css'
@@ -16,19 +15,38 @@ const ProjectsContainer = styled.div`
   width: 100%;
   min-height: 100vh;
   color: white;
+  margin-top: 5rem;
+
+  @media only Screen and (max-width: 42em) {
+    margin-top: 2rem;
+  }
+`
+
+const ProjectsHeader = styled.h2`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  color: var(--black);
+  margin-bottom: 3rem;
+
+  @media only Screen and (max-width: 42em) {
+    font-size: 2.5rem;
+    margin: 2rem 0;
+  }
 `
 
 const ProjectCardContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 
   /* margin: 1rem; */
   /* margin-top: 3rem; */
 
-  @media only Screen and (max-width: 100em) {
+  @media only Screen and (max-width: 62em) {
     flex-direction: column;
   }
 `
@@ -36,7 +54,7 @@ const ProjectCardContainer = styled.div`
 const ProjectSection = () => {
   return (
     <ProjectsContainer id='projects'>
-      <SectionTitle reverse={true} title="Things I've Developed"></SectionTitle>
+      <ProjectsHeader>Projects</ProjectsHeader>
       <ProjectCardContainer>
         <Card
           reverse={true}
@@ -101,7 +119,7 @@ const ProjectSection = () => {
 
         <Card
           title='ConnectFour'
-          text='This site uses connect four, a tic-tac-toe-like game in which players alternately place pieces on a vertical board where the first player to achieve a line of four connected pieces wins the game.  It is adapted as a tool to teach English as students must call out some target language to choose their column.'
+          text='This site uses connect four, a game where opponents must connect 4 of their tiles in a row by dropping them down columns.  It is adapted as a tool to teach English as students must call out some target language to choose their column.'
           image='connectfour_thumbnail'
           link='https://connectfour.classpoint.ca'
           git='https://github.com/booklvr/connectFour'
@@ -209,8 +227,3 @@ const ProjectSection = () => {
 
 export default ProjectSection
 
-// <SitOnLedge>
-//   <img src={sitOnLedgeLong} alt='man on ledge' />
-// </SitOnLedge>
-
-// <CurvedLine />
