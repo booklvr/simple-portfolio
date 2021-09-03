@@ -137,19 +137,31 @@ const Sidebar = ({ isOpen, toggle }) => {
     <SidebarContainer isOpen={isOpen} color={color} onClick={toggle}>
       <SidebarWrapper color={color}>
         <SidebarMenu>
-          <SidebarLink to='about' onClick={toggle} color={color}>
+          <SidebarLink to='about' onClick={toggle} color={color} offset={-100}>
             About
           </SidebarLink>
-          <SidebarLink to='projects' onClick={toggle} color={color}>
-            Projects
-          </SidebarLink>
-          <SidebarLink to='skills' onClick={toggle} color={color}>
+          <SidebarLink to='skills' onClick={toggle} color={color} offset={-120}>
             Skills
           </SidebarLink>
+          <SidebarLink
+            to='projects'
+            onClick={toggle}
+            color={color}
+            offset={-80}
+          >
+            Projects
+          </SidebarLink>
+
           <SidebarRoute to={'/resume'} color={color}>
             Resume
           </SidebarRoute>
-          <SidebarLink to='contact' onClick={toggle} color={color} focus={true}>
+          <SidebarLink
+            to='contact'
+            onClick={toggle}
+            color={color}
+            focus={true}
+            offset={-80}
+          >
             Contact
           </SidebarLink>
         </SidebarMenu>

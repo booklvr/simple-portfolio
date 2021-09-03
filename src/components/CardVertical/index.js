@@ -5,12 +5,16 @@ const CardVerticalContainer = styled.div`
   display: none;
   flex-direction: column;
   align-items: center;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   padding: 2rem;
   margin-bottom: 3rem;
+  border-radius: 10px;
+  background-color: var(--white);
+  box-shadow: 8px 8px 15px #adadad, -8px -8px 15px #ffffff;
 
   @media only Screen and (max-width: 40em) {
     display: flex;
+    padding: 1rem;
   }
 `
 
@@ -45,6 +49,7 @@ const Tag = styled.div`
   font-size: 0.75rem;
   padding: 0.2rem 0.5rem;
   margin: 0.2rem 0.2rem;
+  border-radius: 5px;
 `
 
 const TitleContainer = styled.div`
@@ -57,7 +62,7 @@ const TitleContainer = styled.div`
 const SubHeading = styled.h5`
   font-size: 0.75rem;
   font-weight: 600;
-  color: black;
+  color: var(--primary);
   margin-bottom: 5px;
 `
 
@@ -71,12 +76,12 @@ const Title = styled.h4`
 
 const Text = styled.p`
   /* padding: 0 calc(1rem + 1vw); */
-  color: var(--nav2);
+  color: var(--fontLight);
   font-size: calc(0.9rem);
   text-align: center;
   font-weight: 600;
   line-height: 1.5;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 `
 
 const ButtonContainer = styled.div`
@@ -87,7 +92,7 @@ const ButtonContainer = styled.div`
 `
 
 const CardButton = styled.a`
-  padding: 1rem 1rem;
+  padding: 1rem;
   margin-top: 1rem;
   width: 100%;
   border-radius: 0;
@@ -102,8 +107,10 @@ const CardButton = styled.a`
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  background-color: var(--primary);
-  color: var(--white);
+  background-color: var(--white);
+  color: var(--black);
+  border-radius: 10px;
+  box-shadow: 8px 8px 15px #adadad, -8px -8px 15px #ffffff;
 
   &:hover {
     transform: scale(1.1);
@@ -113,8 +120,6 @@ const CardButton = styled.a`
   }
 
   &:last-of-type {
-    background-color: var(--primary);
-    color: white;
     margin-left: 1rem;
   }
 `

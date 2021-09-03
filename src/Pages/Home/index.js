@@ -1,10 +1,10 @@
 // This is home page, It will contain all the sections required in this page
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import HeroSection from '../../Sections/Hero'
-import AboutSection from '../../Sections/About'
-import SkillsSection from '../../Sections/Skills'
 import ProjectSection from '../../Sections/Projects'
 import ContactSection from '../../Sections/Contact'
+import AboutSkillsSections from '../../Sections/AboutSkills'
+import TestimonialsSection from '../../Sections/Testimonials'
 
 import styled, { css } from 'styled-components/macro'
 import Navbar from '../../components/Navbar'
@@ -18,7 +18,7 @@ const Container = styled.div`
   align-items: center;
   background: var(--background);
 
-  padding: 0 calc(5rem + 5vw);
+  padding: 0 calc(5rem + 5vw) 2rem;
 
   /* ${(props) =>
     props.isOpen &&
@@ -45,25 +45,14 @@ const Home = () => {
     setIsOpen(!isOpen)
   }
 
-  // useEffect(() => {
-  //   if (isOpen) {
-  //     document.body.style.position = 'fixed'
-  //     document.body.style.top = `-${window.scrollY}px`
-  //   } else {
-  //     document.body.style.position = ''
-  //     document.body.style.top = ''
-  //   }
-  // }, [isOpen])
-
   return (
     <Container isOpen={isOpen}>
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <Navbar toggle={toggle} isOpen={isOpen} />
       <HeroSection />
-      <AboutSection />
+      <AboutSkillsSections />
       <ProjectSection />
-      <SkillsSection />
-
+      <TestimonialsSection />
       <ContactSection />
     </Container>
   )

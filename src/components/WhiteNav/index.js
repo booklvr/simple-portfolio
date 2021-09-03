@@ -87,8 +87,6 @@ const NavLink = styled(LinkS)`
   justify-content: center;
   cursor: pointer;
   text-decoration: none;
-  /* border-radius: 5px;
-  /* width: 6rem; */
   height: 2rem;
   text-align: center;
   /* box-shadow: 8px 8px 15px #adadad, -8px -8px 15px #ffffff; */
