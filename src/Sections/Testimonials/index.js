@@ -1,29 +1,39 @@
 import styled from 'styled-components/macro'
 
 import React, { useState } from 'react'
-
-import ProfilePicture from '../../components/ProfilePicture'
-
-import kim from '../../assets/kim.png'
-import heajong from '../../assets/heajong.png'
+import Carousel from '../../components/Carousel'
 
 const TestimonialsContainer = styled.div`
-  padding-top: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+
+  @media only Screen and (max-width: 42em) {
+    margin-top: 4rem;
+    margin-bottom: 4.5rem;
+  }
 `
 
 const TestimonialsHeader = styled.h2`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 3rem;
-  color: var(--black);
+  font-size: 6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: var(--tlShadow), var(--brShadow);
+  color: var(--background);
+  margin-bottom: 2rem;
 
   @media only Screen and (max-width: 42em) {
+    font-size: 3rem;
+  }
+
+  @media only Screen and (max-width: 40em) {
     font-size: 2.5rem;
   }
 `
@@ -44,28 +54,22 @@ const TestimonialsContent = styled.div`
 const TestimonialsText = styled.div`
   position: relative;
   width: 100%;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 3rem 1rem;
   font-size: 1rem;
+  font-weight: 600;
   border-radius: 10px;
-  line-height: 1.5;
+  line-height: 2;
+  color: var(--fontMedium);
   box-shadow: 8px 8px 15px #adadad, -8px -8px 15px #ffffff;
+
+  @media only Screen and (max-width: 42em) {
+    padding: 0.5rem;
+  }
 `
 
 const TestimonialName = styled.h4`
-  font-size: 1.5rem;
-`
-
-const TestimonialsImagesRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin: 3rem 0;
-
-  @media only Screen and (max-width: 42em) {
-    margin: 2rem 0;
-  }
+  font-size: 2rem;
+  color: var(--black);
 `
 
 const TextImageContainer = styled.div`
@@ -75,8 +79,7 @@ const TextImageContainer = styled.div`
   border-radius: 50%;
   box-shadow: 6px 6px 10px #adadad, -8px -8px 10px #ffffff;
 
-  overflow: hidden;
-  cursor: pointer;
+  /* overflow: hidden; */
   shape-outside: content-box;
   float: left;
   width: 8.5rem;
@@ -84,7 +87,7 @@ const TextImageContainer = styled.div`
   padding: 0.5rem;
   background: transparent;
   margin-top: -3.5rem;
-  margin-left: -3.5rem;
+  margin-left: -1rem;
   margin-right: 1rem;
   margin-bottom: 1rem;
   shape-margin: 2rem;
@@ -98,7 +101,7 @@ const TextImageContainer = styled.div`
     width: 5rem;
     height: 5rem;
     margin-top: -2rem;
-    margin-left: -2rem;
+    margin-left: -1.5rem;
     shape-margin: 1rem;
   }
 `
@@ -107,6 +110,37 @@ const TextImage = styled.img`
   height: 100%;
   width: 100%;
   border-radius: 50%;
+`
+
+const CarouselContainer = styled.div`
+  display: block;
+  width: 50rem;
+  height: 10rem;
+  margin-bottom: 3rem;
+
+  @media only Screen and (max-width: 42em) {
+    margin-bottom: 0;
+  }
+
+  @media only Screen and (max-width: 1000px) {
+    max-width: 40rem;
+  }
+
+  @media only Screen and (max-width: 600px) {
+    max-width: 30rem;
+  }
+
+  @media only Screen and (max-width: 480px) {
+    max-width: 20rem;
+  }
+
+  @media only Screen and (max-width: 360px) {
+    max-width: 18rem;
+  }
+
+  @media only Screen and (max-width: 320px) {
+    max-width: 15rem;
+  }
 `
 
 const TestimonialData = [
@@ -122,16 +156,36 @@ const TestimonialData = [
     quote:
       'It was my first time teaching English this year, and I needed a way to practice new vocabulary with the students.  Nick created the game Connect Four for me which we could use in the classroom.  The students really enjoyed it.',
   },
-  //   {
-  //     name: 'Sahi Jin',
-  //     image: 'heajong',
-  //     quote: 'nick is the best and i really liked working with him',
-  //   },
-  //   {
-  //     name: 'Nick',
-  //     image: 'kim',
-  //     quote: 'this is another really good quote',
-  //   },
+  {
+    name: 'Heareong Jo',
+    image: 'heajong',
+    quote:
+      'It was my first time teaching English this year, and I needed a way to practice new vocabulary with the students.  Nick created the game Connect Four for me which we could use in the classroom.  The students really enjoyed it.',
+  },
+  {
+    name: 'Heareong Jo',
+    image: 'heajong',
+    quote:
+      'It was my first time teaching English this year, and I needed a way to practice new vocabulary with the students.  Nick created the game Connect Four for me which we could use in the classroom.  The students really enjoyed it.',
+  },
+  {
+    name: 'Heareong Jo',
+    image: 'heajong',
+    quote:
+      'It was my first time teaching English this year, and I needed a way to practice new vocabulary with the students.  Nick created the game Connect Four for me which we could use in the classroom.  The students really enjoyed it.',
+  },
+  {
+    name: 'Heareong Jo',
+    image: 'heajong',
+    quote:
+      'It was my first time teaching English this year, and I needed a way to practice new vocabulary with the students.  Nick created the game Connect Four for me which we could use in the classroom.  The students really enjoyed it.',
+  },
+  {
+    name: 'Heareong Jo',
+    image: 'heajong',
+    quote:
+      'It was my first time teaching English this year, and I needed a way to practice new vocabulary with the students.  Nick created the game Connect Four for me which we could use in the classroom.  The students really enjoyed it.',
+  },
 ]
 
 const TestimonialsSection = () => {
@@ -145,20 +199,17 @@ const TestimonialsSection = () => {
     require(`../../assets/${TestimonialData[slideIndex].image}.png`).default
 
   return (
-    <TestimonialsContainer>
+    <TestimonialsContainer id='testimonials'>
       <TestimonialsHeader>Testimonials</TestimonialsHeader>
+
       <TestimonialsContent>
-        <TestimonialsImagesRow>
-          {TestimonialData.map((testimonial, index) => (
-            <ProfilePicture
-              key={index}
-              index={index}
-              current={index === slideIndex ? true : false}
-              image={testimonial.image}
-              handleClick={handleClick}
-            />
-          ))}
-        </TestimonialsImagesRow>
+        <CarouselContainer>
+          <Carousel
+            data={TestimonialData}
+            handleClick={handleClick}
+            slideIndex={slideIndex}
+          />
+        </CarouselContainer>
         <TestimonialsText>
           <TextImageContainer>
             <TextImage src={thumbnail}></TextImage>

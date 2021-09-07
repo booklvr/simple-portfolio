@@ -18,11 +18,23 @@ const PictureContainer = styled.div`
       : '6px 6px 10px #adadad, -8px -8px 10px #ffffff'};
 
   cursor: pointer;
+  margin: 1rem;
+
+  &:hover {
+    transform: scale(1.02) translate(-2px, -2px);
+    box-shadow: ${(props) =>
+      props.current
+        ? '5px 5px 10px var(--primary), 0px 0px 5px var(--lightShadow)'
+        : '5px 5px 10px var(--darkShadow), 0px 0px 5px var(--lightShadow)'};
+  }
+  &:active {
+    transform: scale(0.9);
+    box-shadow: 6px 6px 10px var(--primary), -8px -8px 10px #ffffff;
+  }
 
   @media only Screen and (max-width: 42em) {
     width: 4rem;
     height: 4rem;
-    margin: 0.5rem;
   }
 `
 

@@ -87,7 +87,7 @@ const NavLogo = styled(LinkR)`
   color: ${({ color }) => (color === 'black' ? 'white' : 'black')};
 
   img {
-    height: 50px;
+    height: 3rem;
     width: auto;
     z-index: 1000;
     margin-right: 0.5rem;
@@ -299,26 +299,40 @@ const Navbar = ({ toggle, isOpen }) => {
               duration={500}
               spy={true}
               exact='true'
-              offset={-80}
+              offset={-100}
               color={color}
               onClick={handleNavLinkClick}
             >
               Projects
             </NavLink>
           </NavItem>
+
           <NavItem>
             <NavLink
-              to='skills'
+              to='testimonials'
               smooth={true}
               duration={500}
               spy={true}
               exact='true'
-              offset={-80}
+              offset={-100}
               color={color}
               onClick={handleNavLinkClick}
             >
-              Skills
+              Testimonials
             </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLinkButton
+              to='contact'
+              smooth={true}
+              duration={500}
+              spy={true}
+              exact='true'
+              offset={-140}
+              color={color}
+            >
+              Contact
+            </NavLinkButton>
           </NavItem>
           <NavItem>
             <NavLinkR
@@ -328,19 +342,6 @@ const Navbar = ({ toggle, isOpen }) => {
             >
               Resume
             </NavLinkR>
-          </NavItem>
-          <NavItem>
-            <NavLinkButton
-              to='contact'
-              smooth={true}
-              duration={500}
-              spy={true}
-              exact='true'
-              offset={-80}
-              color={color}
-            >
-              Contact
-            </NavLinkButton>
           </NavItem>
         </NavMenu>
         <HamburgerButton onClick={toggle} isOpen={isOpen} color={color}>

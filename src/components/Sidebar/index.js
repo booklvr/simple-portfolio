@@ -2,8 +2,6 @@ import styled, { css } from 'styled-components/macro'
 import React, { useState, useEffect } from 'react'
 import { Link as LinkS } from 'react-scroll'
 import { Link as LinkR } from 'react-router-dom'
-// import { FaTimes } from 'react-icons/fa'
-import useScrollPosition from '../../hooks/useScrollPosition'
 
 const SidebarContainer = styled.aside`
   position: fixed;
@@ -12,11 +10,11 @@ const SidebarContainer = styled.aside`
   height: 100%;
   background-color: ${(props) =>
     props.color === 'black' ? 'var(--black)' : 'var(--background)'};
-  /* background: ${(props) => (props.color === 'black' ? 'black' : 'white')} */
-  /* background: black; */
-  display: grid;
+
+  display: flex;
+  justify-content: center;
   align-items: center;
-  /* margin-top: 80px; */
+  padding-top: 80px;
 
   left: 0;
   transition: 0.3s ease-in-out;
@@ -47,8 +45,6 @@ const whiteLink = css`
 
   box-shadow: 4px 4px 8px #adadad, -4px -4px 8px #ffffff;
 
-  // color: ${({ focus }) => (focus ? `var(--primary)` : 'var(--black)')};
-
   &:hover {
     box-shadow: 6px 6px 15px var(--fontMedium), -6px -6px 15px #ffffff;
     transform: translate(-2px, -1px);
@@ -68,22 +64,6 @@ const blackLink = css`
     color: var(--primary);
     transition: 0.2s ease-in-out;
   }
-
-  ${(props) =>
-    props.focus &&
-    css`
-      background-color: var(--primary);
-      color: white;
-
-      &:hover {
-        color: var(--white);
-        transform: scale(1.1);
-      }
-
-      &:active {
-        transform: scale(0.9);
-      }
-    `}
 `
 
 const linkStyles = css`
@@ -137,33 +117,38 @@ const Sidebar = ({ isOpen, toggle }) => {
     <SidebarContainer isOpen={isOpen} color={color} onClick={toggle}>
       <SidebarWrapper color={color}>
         <SidebarMenu>
-          <SidebarLink to='about' onClick={toggle} color={color} offset={-100}>
+          <SidebarLink to='about' onClick={toggle} color={color} offset={0}>
             About
           </SidebarLink>
-          <SidebarLink to='skills' onClick={toggle} color={color} offset={-120}>
-            Skills
-          </SidebarLink>
+
           <SidebarLink
             to='projects'
             onClick={toggle}
             color={color}
-            offset={-80}
+            offset={-100}
           >
             Projects
           </SidebarLink>
 
-          <SidebarRoute to={'/resume'} color={color}>
-            Resume
-          </SidebarRoute>
+          <SidebarLink
+            to='testimonials'
+            onClick={toggle}
+            color={color}
+            offset={-120}
+          >
+            Testimonials
+          </SidebarLink>
           <SidebarLink
             to='contact'
             onClick={toggle}
             color={color}
-            focus={true}
-            offset={-80}
+            offset={-150}
           >
             Contact
           </SidebarLink>
+          <SidebarRoute to={'/resume'} color={color}>
+            Resume
+          </SidebarRoute>
         </SidebarMenu>
       </SidebarWrapper>
     </SidebarContainer>

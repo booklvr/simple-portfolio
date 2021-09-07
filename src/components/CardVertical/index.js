@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import React from 'react'
 
 const CardVerticalContainer = styled.div`
@@ -7,8 +7,9 @@ const CardVerticalContainer = styled.div`
   align-items: center;
   /* border: 2px solid black; */
   padding: 2rem;
-  margin-bottom: 3rem;
-  border-radius: 10px;
+
+  margin-top: 3rem;
+  border-radius: 20px;
   background-color: var(--white);
   box-shadow: 8px 8px 15px #adadad, -8px -8px 15px #ffffff;
 
@@ -37,14 +38,13 @@ const TagContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-
-  @media only Screen and (max-width: 36em) {
-    padding: 0;
-  }
+  padding: 0.5rem;
+  border-radius: 10px;
+  box-shadow: inset 4px 4px 8px #adadad, inset -4px -4px 8px #ffffff;
 `
 
 const Tag = styled.div`
-  background-color: var(--nav2);
+  background-color: var(--fontMedium);
   color: white;
   font-size: 0.75rem;
   padding: 0.2rem 0.5rem;
@@ -76,7 +76,7 @@ const Title = styled.h4`
 
 const Text = styled.p`
   /* padding: 0 calc(1rem + 1vw); */
-  color: var(--fontLight);
+  color: var(--fontMedium);
   font-size: calc(0.9rem);
   text-align: center;
   font-weight: 600;

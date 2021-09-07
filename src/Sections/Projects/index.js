@@ -13,12 +13,17 @@ const ProjectsContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  min-height: 100vh;
-  color: white;
+  /* padding-top: 10rem; */
+  margin-bottom: 5rem;
   margin-top: 5rem;
 
+  @media only Screen and (max-width: 64em) {
+    margin-top: 0rem;
+  }
+
   @media only Screen and (max-width: 42em) {
-    margin-top: 2rem;
+    margin-bottom: 4.5rem;
+    /* padding-top: 1.5rem; */
   }
 `
 
@@ -26,13 +31,17 @@ const ProjectsHeader = styled.h2`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 3rem;
-  color: var(--black);
-  margin-bottom: 3rem;
+  font-size: 6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: var(--tlShadow), var(--brShadow);
+  color: var(--background);
 
   @media only Screen and (max-width: 42em) {
-    font-size: 2.5rem;
-    margin: 2rem 0;
+    font-size: 4rem;
+  }
+  @media only Screen and (max-width: 40em) {
+    font-size: 3.5rem;
   }
 `
 
@@ -226,4 +235,3 @@ const ProjectSection = () => {
 }
 
 export default ProjectSection
-

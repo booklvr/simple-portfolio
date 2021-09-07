@@ -41,6 +41,10 @@ const ResumeHeaderContainer = styled.div`
   padding: 0 20px 20px;
   width: 100%;
 
+  @media only Screen and (max-width: 42em) {
+    padding: 0 10px 20px;
+  }
+
   a {
     text-decoration: none;
     color: #000;
@@ -56,6 +60,10 @@ const PageNumberContainer = styled.div`
 
   p {
     margin: 0 20px;
+
+    @media only Screen and (max-width: 42em) {
+      margin: 0 5px;
+    }
   }
   svg {
     height: 20px;

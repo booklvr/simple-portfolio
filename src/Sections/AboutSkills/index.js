@@ -8,20 +8,22 @@ const AboutSkillsContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  align-items: center;
   width: 100%;
-  /* min-height: 50vh; */
-  padding-top: 5rem;
+  height: calc(100vh - 5rem);
+  /* padding-bottom: 10rem; */
 
-  /* background-color: pink; */
-
-  @media only Screen and (max-width: 62em) {
+  @media only Screen and (max-width: 64em) {
     flex-direction: column;
+    height: revert;
+    padding-top: 5rem;
+    padding-bottom: 8.5rem;
   }
 `
 
 const AboutSkillsSections = () => {
   return (
-    <AboutSkillsContainer>
+    <AboutSkillsContainer id='about'>
       <AboutSection />
       <Skills />
     </AboutSkillsContainer>

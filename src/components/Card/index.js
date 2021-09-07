@@ -9,15 +9,16 @@ const CARD = styled.div`
 
   max-width: 50rem;
   padding: 2rem 1rem;
-  margin-bottom: 3rem;
+  /* margin-bottom: 3rem; */
   background: linear-gradient(145deg, #dadaff, #b8b8d8);
   background: var(--background);
   border-radius: 20px;
 
   box-shadow: 6px 6px 20px #adadad, -5px -5px 50px #ffffff;
 
+  margin-top: 3rem;
+
   @media only Screen and (max-width: 40em) {
-    background-color: yellow;
     display: none;
   }
 `
@@ -37,15 +38,19 @@ const CardThumbnailContainer = styled.div`
 const TagContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
-  padding: 0 1rem;
+  width: 90%;
+  margin-top: 2rem;
+  padding: 0.5rem 0.5rem;
+
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
+  box-shadow: inset 4px 4px 8px #adadad, inset -4px -4px 8px #ffffff;
 `
 
 const Tag = styled.div`
-  background-color: var(--nav2);
+  background-color: var(--fontMedium);
   color: white;
   font-size: 0.75rem;
   padding: 0.3rem 0.5rem;
@@ -59,7 +64,7 @@ const ThumbnailLink = styled.a`
 
 const Thumbnail = styled.img`
   border: 2px solid var(--nav2);
-  margin: 0 auto 1rem;
+  margin: 0 auto;
   width: 90%;
   object-fit: cover;
 `
@@ -90,17 +95,17 @@ const SubHeading = styled.h5`
 `
 
 const Title = styled.h4`
-  font-size: calc(2rem);
+  font-size: 2rem;
 
   /* transform: skew(-44deg); */
   color: var(--black);
-  border-bottom: 2px solid var(--primary);
+  /* border-bottom: 2px solid var(--primary); */
   margin-bottom: 1rem;
 `
 
 const Text = styled.p`
   /* padding: 0 calc(1rem + 1vw); */
-  color: var(--fontLight);
+  color: var(--fontMedium);
   font-size: 1rem;
   text-align: ${(props) => (props.reverse ? 'right' : 'left')};
   font-weight: 600;
