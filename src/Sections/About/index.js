@@ -8,8 +8,9 @@ const AboutContainer = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 
-  @media only Screen and (max-width: 48em) {
+  @media only Screen and (max-width: 64em) {
     align-items: center;
+    padding-top: 2rem;
   }
 `
 
@@ -17,22 +18,17 @@ const AboutHeader = styled.h2`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 3rem;
-  color: var(--black);
-  margin-bottom: 1rem;
-  
+  font-size: 6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: var(--tlShadow), var(--brShadow);
+  color: var(--background);
+  margin-bottom: 3rem;
 
   @media only Screen and (max-width: 42em) {
-    font-size: 2.5rem;
+    font-size: 4rem;
+    margin-bottom: 2rem;
   }
-`
-
-const AboutSubHeader = styled.h4`
-  color: var(--fontMedium);
-  font-size: 1.2rem;
-  text-transform: lowercase;
-  border-bottom: 3px solid var(--primary);
-  margin-bottom: 1rem;
 `
 
 const AboutText = styled.div`

@@ -1,24 +1,25 @@
 import styled, { css } from 'styled-components/macro'
 import React, { useState } from 'react'
-
+import emailjs from 'emailjs-com'
 import logoBlack from '../../assets/logo-black.svg'
-import { FaEnvelope, FaUser } from 'react-icons/fa'
+import { FaEnvelope, FaUser, FaAt } from 'react-icons/fa'
 
 const ContactSectionContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  /* height: calc(100vh - 80px); */
   color: white;
-  margin-top: 5rem;
-  margin-bottom: 3rem;
+  margin-top: 6rem;
+  margin-bottom: 10rem;
 
-  /* @media only Screen and (max-width: 42em) {
+  @media only Screen and (max-width: 42em) {
     margin-top: 4rem;
-  } */
+  }
 `
 
-const ContentContainer = styled.form`
+const ContentContainer = styled.div`
   background-color: var(--background);
   position: relative;
 
@@ -34,13 +35,14 @@ const ContentContainer = styled.form`
 `
 
 const ContactLogoContainer = styled.div`
-  width: 8rem;
-  height: 8rem;
+  width: 8.5rem;
+  height: 8.5rem;
   margin-top: -3.5rem;
   display: flex;
   justify-content: center;
+  background-color: var(--background);
   align-items: center;
-  padding: 2rem;
+  /* padding: 2rem; */
   border-radius: 50%;
   box-shadow: 8px 8px 15px #adadad, -8px -8px 15px #ffffff;
   @media only Screen and (max-width: 42em) {
@@ -51,11 +53,8 @@ const ContactLogoContainer = styled.div`
 `
 
 const ContactLogo = styled.img`
-  height: 4rem;
-  width: 4rem;
-
-  @media only Screen and (max-width: 42em) {
-  }
+  height: 4.5rem;
+  width: 4.5rem;
 `
 
 const ContactHeader = styled.h2`
@@ -107,15 +106,20 @@ const LogoStyle = css`
   width: 50px;
   line-height: 50px;
   color: var(--primary);
+  top: 1rem;
 `
 
 const UserLogo = styled(FaUser)`
   ${LogoStyle}
 `
 
+const AtLogo = styled(FaAt)`
+  ${LogoStyle};
+`
+
 const EnvelopeLogo = styled(FaEnvelope)`
-  ${LogoStyle}
-  top: 3.25rem;
+  ${LogoStyle};
+  top: 1.1rem;
 `
 
 const Input = styled.input`
@@ -129,6 +133,7 @@ const Input = styled.input`
   background: var(--background);
   border-radius: 10px;
   box-shadow: inset 4px 4px 5px #adadad, inset -5px -5px 10px #ffffff;
+  margin-bottom: 2rem;
 
   &:focus ~ label {
     position: absolute;
@@ -136,13 +141,21 @@ const Input = styled.input`
     left: 0.75rem;
     color: var(--fontLight);
   }
+
+  @media only Screen and (max-width: 48em) {
+    margin-bottom: 1rem;
+
+    &:focus ~ label {
+      font-size: 0.75rem;
+      top: -0.8rem;
+    }
+  }
 `
 
 const TextArea = styled.textarea`
   width: 100%;
   height: 10rem;
   padding: 1rem 3rem 1rem;
-  margin-top: 2rem;
   font-size: 18px;
   color: var(--fontMedium);
   background: var(--background);
@@ -154,9 +167,14 @@ const TextArea = styled.textarea`
 
   &:focus ~ label {
     position: absolute;
-    top: 0.9rem;
+    top: -1.1rem;
     left: 0.75rem;
     color: var(--fontLight);
+
+    @media only Screen and (max-width: 48em) {
+      font-size: 0.75rem;
+      top: -0.8rem;
+    }
   }
 `
 
@@ -178,19 +196,47 @@ const EmailLabel = styled.label`
       top: -1.1rem;
       left: 0.75rem;
       color: var(--fontLight);
+
+      @media only Screen and (max-width: 48em) {
+        font-size: 0.75rem;
+        top: -0.8rem;
+      }
+    `};
+`
+
+const NameLabel = styled.label`
+  ${Label};
+  top: 1rem;
+  ${(props) =>
+    props.name &&
+    css`
+      position: absolute;
+      top: -1.1rem;
+      left: 0.75rem;
+      color: var(--fontLight);
+
+      @media only Screen and (max-width: 48em) {
+        font-size: 0.75rem;
+        top: -0.8rem;
+      }
     `};
 `
 
 const MessageLabel = styled.label`
   ${Label};
-  top: 3.1rem;
+  top: 1rem;
   ${(props) =>
     props.message &&
     css`
       position: absolute;
-      top: 0.9rem;
+      top: -1.1rem;
       left: 0.75rem;
       color: var(--fontLight);
+
+      @media only Screen and (max-width: 48em) {
+        font-size: 0.75rem;
+        top: -0.8rem;
+      }
     `};
 `
 
@@ -218,8 +264,29 @@ const SubmitButton = styled.button`
 `
 
 const ContactSection = () => {
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
+
+  function sendEmail(e) {
+    e.preventDefault()
+
+    emailjs
+      .sendForm(
+        'service_qh4hvyi',
+        'template_mty3dh8',
+        e.target,
+        'user_YHHPfi54ZsQh2hsYTZofX'
+      )
+      .then(
+        (result) => {
+          console.log(result.text)
+        },
+        (error) => {
+          console.log(error.text)
+        }
+      )
+  }
 
   return (
     <ContactSectionContainer id='contact'>
@@ -228,9 +295,19 @@ const ContactSection = () => {
           <ContactLogo src={logoBlack} />
         </ContactLogoContainer>
         <ContactHeader>Contact</ContactHeader>
-        <FormContainer>
+        <FormContainer onSubmit={sendEmail}>
           <Field>
             <UserLogo />
+            <Input
+              type='text'
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+            <NameLabel name={name}>name</NameLabel>
+          </Field>
+          <Field>
+            <AtLogo />
             <Input
               type='email'
               value={email}
@@ -247,7 +324,9 @@ const ContactSection = () => {
             ></TextArea>
             <MessageLabel message={message}>message</MessageLabel>
           </Field>
-          <SubmitButton>Send</SubmitButton>
+          <SubmitButton type='submit' value='Send'>
+            Send
+          </SubmitButton>
         </FormContainer>
       </ContentContainer>
     </ContactSectionContainer>

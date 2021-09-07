@@ -15,7 +15,7 @@ const SkillsSectionContainer = styled.div`
   align-items: center;
   margin-left: 3rem;
 
-  @media only Screen and (max-width: 62em) {
+  @media only Screen and (max-width: 64em) {
     margin: 0;
     margin-top: 3rem;
     align-items: center;
@@ -29,8 +29,8 @@ const SkillsInnerContainer = styled.div`
   flex-direction: column;
 
   @media only Screen and (max-width: 42em) {
-    width: 100vw;
-    padding: 1rem;
+    width: 100%;
+    /* padding: 1rem; */
   }
 
   /* @media only Screen and (max-width: 21em) {
@@ -52,6 +52,7 @@ const SkillsHeader = styled.h2`
 
   @media only Screen and (max-width: 42em) {
     font-size: 2.5rem;
+    padding: 2rem 0;
   }
 `
 
@@ -61,6 +62,12 @@ const SkillRowCentered = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 3rem;
+
+  @media only Screen and (max-width: 42em) {
+    .center-row {
+      height: 5rem;
+    }
+  }
 
   &:first-of-type {
     margin-bottom: 1rem;
@@ -75,6 +82,18 @@ const SkillRowCentered = styled.div`
     @media only Screen and (max-width: 45em) {
       margin-top: 1.5rem;
     }
+  }
+`
+
+const SkillRowCenterSpacer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 3rem;
+
+  @media only Screen and (max-width: 42em) {
+    min-height: 5rem;
   }
 `
 
@@ -140,7 +159,7 @@ const SkillsSection = () => {
             HTML5
           </Skill>
         </SkillRowSpaceBetween>
-        <SkillRowCentered />
+        <SkillRowCenterSpacer />
         <SkillRowSpaceBetween>
           <Skill>
             <SkillLogo src={redux} />

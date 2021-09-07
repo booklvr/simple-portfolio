@@ -20,8 +20,10 @@ ${'' /* Variables */}
   --lightShadow: rgba(255, 255, 255);
   --fontWhite: #231f20;
   --fontLight: #767676;
-  --fontMedium: #505050;
-//   --fontBlack: #efeff4;
+  --fontMedium: #35353f;
+
+    --brShadow: 6px 6px 15px rgba(0,0,0,0.5);
+  --tlShadow: -6px -6px 15px rgba(255,255,255,0.8);
 }
 
 *,*::before,*::after{
@@ -78,4 +80,12 @@ html{
         // width: 100%;
         height: auto;
     }
+
+    .slick-prev, .slick-next {
+        font-size: 15px !important;
+      }
+      
+       .slick-prev:before, .slick-next:before  {
+        content: '' !important;
+      }
 `

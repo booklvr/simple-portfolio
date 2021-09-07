@@ -2,11 +2,6 @@ import React from 'react'
 import styled, { keyframes } from 'styled-components/macro'
 import { Link as LinkS } from 'react-scroll'
 
-import Arrow from '../../assets/arrowRight.svg'
-// import Grey from '../../assets/grey-blob.svg'
-// import White from '../../assets/white-blob.svg'
-// import Purple from '../../assets/purple-blob.svg'
-// import Developer from '../../assets/developer2.svg'
 import coding from '../../assets/coding.svg'
 
 const move = keyframes`
@@ -44,22 +39,15 @@ const MainContent = styled.div`
 
   @media only screen and (max-width: 64em) {
     width: 100%;
-    /* text-align: left; */
     align-items: center;
     padding: 2rem 0;
     margin-top: 2rem;
-    /* flex: 1; */
-    /* margin: auto 0; */
   }
 
   @media only Screen and (max-width: 48em) {
     width: 100%;
-    /* text-align: left;
-    align-items: flex-start; */
   }
 `
-
-
 
 const HelloText = styled.h4`
   color: var(--primary);
@@ -171,7 +159,6 @@ const DeveloperSvg = styled.img`
   @media only Screen and (max-width: 64em) {
     width: 60vw;
     opacity: 0.8;
-    /* margin-bottom: 2rem; */
   }
 `
 
@@ -189,7 +176,9 @@ const HeroSection = () => {
         <Subtext>
           I am passionate about clean code and innovative solutions.
         </Subtext>
-        <CTA>Contact</CTA>
+        <CTA to='contact' offset={-140}>
+          Contact
+        </CTA>
       </MainContent>
       <DeveloperSvg src={coding} alt='Mobile Svg' />
     </HeroContainer>
@@ -198,6 +187,3 @@ const HeroSection = () => {
 
 export default HeroSection
 
-// <Topic>
-//   <Circle /> <span>Full Stack Developer</span>
-// </Topic>
