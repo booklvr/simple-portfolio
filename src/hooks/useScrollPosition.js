@@ -5,9 +5,6 @@ const getScrollYPosition = () => {
 }
 
 const getScrollDirection = (currPos, prevPos) => {
-  console.log('get ScrollDirection')
-  console.log('curr', currPos)
-  console.log('prev', prevPos)
   if (currPos > prevPos) {
     return 'down'
   } else {
@@ -24,8 +21,6 @@ function useScrollPosition(effect, wait) {
   let throttleTimeout = null
 
   const callBack = () => {
-    console.log('handle Callback')
-
     const currentPosition = getScrollYPosition()
 
     const scrollDirection = getScrollDirection(
@@ -37,16 +32,12 @@ function useScrollPosition(effect, wait) {
 
     effect(scrollDirection, color)
 
-    // setScrollDirection(scrollDirection)
-    // setColorTheme(currentPosition)
-
     previousPosition.current = currentPosition
     throttleTimeout = null
   }
 
   useEffect(() => {
     const handleScroll = () => {
-      console.log('handle scroll')
       if (throttleTimeout === null) {
         throttleTimeout = setTimeout(callBack, wait)
       }

@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import emailjs from 'emailjs-com'
 import logoBlack from '../../assets/logo-black.svg'
 import { FaEnvelope, FaUser, FaAt } from 'react-icons/fa'
+import ScrollToTop from '../../components/ScrollToTop'
 
 const ContactSectionContainer = styled.div`
   display: flex;
@@ -12,7 +13,7 @@ const ContactSectionContainer = styled.div`
   /* height: calc(100vh - 80px); */
   color: white;
   margin-top: 6rem;
-  margin-bottom: 10rem;
+  margin-bottom: 5rem;
 
   @media only Screen and (max-width: 42em) {
     margin-top: 4rem;
@@ -22,7 +23,6 @@ const ContactSectionContainer = styled.div`
 const ContentContainer = styled.div`
   background-color: var(--background);
   position: relative;
-
   width: 30rem;
   border-radius: 10px;
   box-shadow: 8px 8px 15px #adadad, -8px -8px 15px #ffffff;
@@ -78,7 +78,7 @@ const ContactHeader = styled.h2`
   }
 `
 
-const FormContainer = styled.form`
+const Form = styled.form`
   margin-top: 2rem;
   width: 100%;
   padding: 1rem;
@@ -273,8 +273,8 @@ const ContactSection = () => {
 
     emailjs
       .sendForm(
-        'service_qh4hvyi',
-        'template_mty3dh8',
+        'gmail',
+        'portfolio-template',
         e.target,
         'user_YHHPfi54ZsQh2hsYTZofX'
       )
@@ -286,6 +286,7 @@ const ContactSection = () => {
           console.log(error.text)
         }
       )
+    e.target.reset()
   }
 
   return (
@@ -295,7 +296,7 @@ const ContactSection = () => {
           <ContactLogo src={logoBlack} />
         </ContactLogoContainer>
         <ContactHeader>Contact</ContactHeader>
-        <FormContainer onSubmit={sendEmail}>
+        <Form onSubmit={sendEmail}>
           <Field>
             <UserLogo />
             <Input
@@ -303,6 +304,7 @@ const ContactSection = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
+              name='name'
             />
             <NameLabel name={name}>name</NameLabel>
           </Field>
@@ -312,7 +314,7 @@ const ContactSection = () => {
               type='email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required
+              name='email'
             />
             <EmailLabel email={email}>email</EmailLabel>
           </Field>
@@ -321,14 +323,16 @@ const ContactSection = () => {
             <TextArea
               value={message}
               onChange={(e) => setMessage(e.target.value)}
+              name='message'
             ></TextArea>
             <MessageLabel message={message}>message</MessageLabel>
           </Field>
           <SubmitButton type='submit' value='Send'>
             Send
           </SubmitButton>
-        </FormContainer>
+        </Form>
       </ContentContainer>
+      <ScrollToTop />
     </ContactSectionContainer>
   )
 }

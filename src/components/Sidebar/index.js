@@ -97,7 +97,6 @@ const Sidebar = ({ isOpen, toggle }) => {
   const getBackgroundColor = () => {
     const inHeroSection = window.scrollY < window.innerHeight - 80
 
-    console.log('inHeroSection', inHeroSection)
 
     if (inHeroSection) {
       setColor('black')

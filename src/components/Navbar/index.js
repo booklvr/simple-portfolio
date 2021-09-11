@@ -1,18 +1,15 @@
 import styled, { css } from 'styled-components/macro'
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 
-// import logo from '../../assets/logo.svg'
 import logoBlack from '../../assets/logo-black.svg'
 import logoWhite from '../../assets/logo-white.svg'
 import { Link as LinkR } from 'react-router-dom'
 import { Link as LinkS, animateScroll as scroll } from 'react-scroll'
 import useScrollPosition from '../../hooks/useScrollPosition'
-// import { useScrollPosition } from '../../hooks/useScrollPosition'
 
 const Nav = styled.nav`
   display: flex;
   height: 80px;
-  /* margin-top: -80px; */
   justify-content: center;
   align-items: center;
   position: sticky;
@@ -27,18 +24,14 @@ const Nav = styled.nav`
         transition-property: opacity, z-index;
         transition-duration: 0.4s, 0.4s, 0.2s;
         transition-timing-function: ease-in;
-        /* transition-delay: 1s, 1s, 1s; */
-        /* transition: opacity 0.4s, z-index 0.4s, ease-in; */
       `) ||
     css`
       opacity: 0;
       z-index: -10;
-      /* transition: all 1s ease-in; */
       transition-property: opacity, z-index, box-shadow;
       transition-duration: 1s, 1s, 0.5s;
       transition-timing-function: ease-in;
       transition-delay: 0.5s, 0.5s, 0s;
-      /* transition-delay: 1s; */
     `};
 
   ${(props) =>
@@ -80,7 +73,6 @@ const NavLogo = styled(LinkR)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* width: 4rem; */
   height: auto;
   cursor: pointer;
   text-decoration: none;
@@ -200,19 +192,14 @@ const HamburgerSpan = styled.span`
   background-color: ${(props) =>
     props.isOpen ? 'transparent' : props.color === 'black' ? 'white' : 'black'};
   position: relative;
-  /* background-color: black; */
 
   &::before,
   &::after {
     content: '';
     background-color: ${(props) =>
       props.color === 'black' ? 'white' : 'black'};
-    /* background-color: white; */
-    /* background-color: black; */
-    /* color: white; */
     width: 2rem;
     height: 2px;
-    /* display: inline-block; */
     position: absolute;
     left: 0;
     cursor: pointer;
@@ -231,17 +218,10 @@ const HamburgerSpan = styled.span`
 `
 
 const Navbar = ({ toggle, isOpen }) => {
-  // const getScrollYPosition = () => {
-  //   return window.scrollY
-  // }
-
-  // const previousPosition = useRef(getScrollYPosition())
-
   const toggleHome = () => {
     scroll.scrollToTop()
   }
 
-  // const [buttonEffect, setButtonEffect] = useState(true)
   const [showNav, setShowNav] = useState(true)
   const [color, setColor] = useState('black')
 
@@ -257,19 +237,14 @@ const Navbar = ({ toggle, isOpen }) => {
     if (!showNav) {
       setShowNav(true)
     }
-    console.log('afterTimeout')
-    console.log('showNav', showNav)
   }
 
   const handleNavLinkClick = () => {
-    console.log('before timeout')
-    console.log('showNav', showNav)
     setTimeout(navLinkCallBack, 1000)
   }
 
-  // <h3>Nick de Waal</h3>
   return (
-    <Nav show={showNav} color={color} isOpen={isOpen}>
+    <Nav id='nav' show={showNav} color={color} isOpen={isOpen}>
       <NavbarContainer color={color}>
         <NavLogo to='/' onClick={toggleHome} color={color}>
           {(color === 'black' && <img src={logoWhite} alt='Logo' />) || (

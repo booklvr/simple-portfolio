@@ -11,6 +11,7 @@ const move = keyframes`
 `
 
 const HeroContainer = styled.div`
+  position: relative;
   width: 100vw;
   height: 100vh;
   background-color: var(--black);
@@ -18,7 +19,17 @@ const HeroContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  /* margin-top: -80px; */
   padding: 0 calc(5rem + 5vw);
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: 80px;
+    margin-top: -80px;
+    position: absolute;
+    background-color: var(--black);
+  }
 
   @media only Screen and (max-width: 64em) {
     margin-top: -2rem;
@@ -186,4 +197,3 @@ const HeroSection = () => {
 }
 
 export default HeroSection
-

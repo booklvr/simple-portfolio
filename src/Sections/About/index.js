@@ -43,16 +43,17 @@ const AboutText = styled.div`
 `
 
 const Text = styled.p`
-  font-size: calc(0.6rem + 0.6vw);
+  /* font-size: calc(0.6rem + 0.6vw); */
   line-height: 1.75;
-  color: var(--nav2);
-  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--fontMedium);
+  /* font-weight: 600; */
 
   @media only Screen and (max-width: 48em) {
+    font-weight: 300;
     color: var(--black);
-    line-height: 2;
+    font-size: 0.9rem;
   }
-  /* margin-top: 2rem; */
 `
 
 const AboutSection = () => {

@@ -80,6 +80,7 @@ const Carousel = ({ data, handleClick, slideIndex }) => {
           slidesToShow: 3,
           slidesToScroll: 1,
           centerPadding: '10px',
+          arrows: false,
         },
       },
       {
@@ -119,4 +120,3 @@ const Carousel = ({ data, handleClick, slideIndex }) => {
 }
 
 export default Carousel
-

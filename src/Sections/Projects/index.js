@@ -13,7 +13,6 @@ const ProjectsContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  /* padding-top: 10rem; */
   margin-bottom: 5rem;
   margin-top: 5rem;
 
@@ -69,7 +68,7 @@ const ProjectSection = () => {
           reverse={true}
           title='SpeedQuiz'
           text='This site facilitates a charades type game, intended for English students.  Students are given a list of words and they must help their teammates guess as many words as possible within a time limit, without saying the word.'
-          image='speedquiz_thumbnail'
+          video='speedquiz'
           link='https://speedquiz.classpoint.ca'
           git='https://github.com/booklvr/speedQuiz'
           tags={[
@@ -90,7 +89,7 @@ const ProjectSection = () => {
         <Card
           title='Classpoint'
           text='Classpoint helps teachers to keep track of their students points for classroom games.  Classlists are saved, and games can be set up as individual games, team games, or boys vs girls.'
-          image='classpoint_thumbnail'
+          video='classpoint'
           link='https://classpoint.ca'
           git='https://github.com/booklvr/class_point2'
           tags={[
@@ -112,7 +111,7 @@ const ProjectSection = () => {
           reverse={true}
           title='Scategories'
           text='Scattergories is a creative-thinking category-based game.  The objective is to score points by uniquely naming objects within a set of categories, given an initial letter, within a time limit.'
-          image='scategories_thumbnail'
+          video='scategories'
           link='https://scategories.classpoint.ca'
           git='https://github.com/booklvr/scategories-esl'
           tags={[
@@ -129,7 +128,7 @@ const ProjectSection = () => {
         <Card
           title='ConnectFour'
           text='This site uses connect four, a game where opponents must connect 4 of their tiles in a row by dropping them down columns.  It is adapted as a tool to teach English as students must call out some target language to choose their column.'
-          image='connectfour_thumbnail'
+          video='connectfour'
           link='https://connectfour.classpoint.ca'
           git='https://github.com/booklvr/connectFour'
           tags={[
@@ -151,7 +150,7 @@ const ProjectSection = () => {
         <CardVertical
           title='SpeedQuiz'
           text='This site facilitates a charades type game, intended for English students.  Students are given a list of words and they must help their teammates guess as many words as possible within a time limit, without saying the word.'
-          image='speedquiz_thumbnail'
+          video='speedquiz'
           link='https://speedquiz.classpoint.ca'
           git='https://github.com/booklvr/speedQuiz'
           tags={[
@@ -172,7 +171,7 @@ const ProjectSection = () => {
         <CardVertical
           title='Classpoint'
           text='Classpoint helps teachers to keep track of their students points for classroom games.  Classlists are saved, and games can be set up as individual games, team games, or boys vs girls.'
-          image='classpoint_thumbnail'
+          video='classpoint'
           link='https://classpoint.ca'
           git='https://github.com/booklvr/class_point2'
           tags={[
@@ -193,7 +192,7 @@ const ProjectSection = () => {
         <CardVertical
           title='Scategories'
           text='Scattergories is a creative-thinking category-based game.  The objective is to score points by uniquely naming objects within a set of categories, given an initial letter, within a time limit.'
-          image='scategories_thumbnail'
+          video='scategories'
           link='https://scategories.classpoint.ca'
           git='https://github.com/booklvr/scategories-esl'
           tags={[
@@ -210,7 +209,7 @@ const ProjectSection = () => {
         <CardVertical
           title='ConnectFour'
           text='This site uses connect four, a tic-tac-toe-like game in which players alternately place pieces on a vertical board where the first player to achieve a line of four connected pieces wins the game.  It is adapted as a tool to teach English as students must call out some target language to choose their column.'
-          image='connectfour_thumbnail'
+          video='connectfour'
           link='https://connectfour.classpoint.ca'
           git='https://github.com/booklvr/connectFour'
           tags={[

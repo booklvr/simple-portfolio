@@ -1,12 +1,15 @@
 import styled from 'styled-components/macro'
 import React from 'react'
+import VideoPlayer from '../VideoPlayer'
 
 const CardVerticalContainer = styled.div`
   display: none;
   flex-direction: column;
   align-items: center;
-  /* border: 2px solid black; */
   padding: 2rem;
+  max-width: 80%;
+  /* width: 100%; */
+  /* width: 70%; */
 
   margin-top: 3rem;
   border-radius: 20px;
@@ -19,21 +22,10 @@ const CardVerticalContainer = styled.div`
   }
 `
 
-const ThumbnailLink = styled.a`
-  text-align: center;
-`
-
-const Thumbnail = styled.img`
-  border: 2px solid var(--nav2);
-  margin: 0 auto 1rem;
-  width: 100%;
-  object-fit: cover;
-`
-
 const TagContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  /* width: 100%; */
 
   flex-direction: row;
   justify-content: center;
@@ -69,17 +61,15 @@ const SubHeading = styled.h5`
 const Title = styled.h4`
   font-size: calc(1.4rem + 0.5vw);
 
-  /* transform: skew(-44deg); */
   color: var(--black);
   margin-bottom: 1rem;
 `
 
 const Text = styled.p`
-  /* padding: 0 calc(1rem + 1vw); */
   color: var(--fontMedium);
-  font-size: calc(0.9rem);
+  font-size: 0.9rem;
   text-align: center;
-  font-weight: 600;
+  font-weight: 300;
   line-height: 1.5;
   margin-bottom: 1rem;
 `
@@ -96,7 +86,6 @@ const CardButton = styled.a`
   margin-top: 1rem;
   width: 100%;
   border-radius: 0;
-  cursor: pointer;
   font-size: calc(0.5rem + 0.5vw);
   font-size: 1rem;
   font-weight: 600;
@@ -124,8 +113,8 @@ const CardButton = styled.a`
   }
 `
 
-const CardVertical = ({ title, text, image, link, git, tags }) => {
-  const thumbnail = require(`../../assets/${image}.png`).default
+const CardVertical = ({ title, text, video, link, git, tags }) => {
+  // const videoSrc = require(`../../assets/${video}.mov`).default
 
   return (
     <CardVerticalContainer>
@@ -133,9 +122,7 @@ const CardVertical = ({ title, text, image, link, git, tags }) => {
         <SubHeading>Featured Project</SubHeading>
         <Title>{title}</Title>
       </TitleContainer>
-      <ThumbnailLink href={link} rel='noreferrer' target='_blank'>
-        <Thumbnail src={thumbnail} alt={title} />
-      </ThumbnailLink>
+      <VideoPlayer video={video} />
       <Text>{text}</Text>
       <TagContainer>
         {tags.map((tag, index) => (
@@ -155,3 +142,7 @@ const CardVertical = ({ title, text, image, link, git, tags }) => {
 }
 
 export default CardVertical
+
+// <ThumbnailLink href={link} rel='noreferrer' target='_blank'>
+//         <Thumbnail src={thumbnail} alt={title} />
+//       </ThumbnailLink>

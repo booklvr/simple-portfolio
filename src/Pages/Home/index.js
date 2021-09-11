@@ -6,7 +6,7 @@ import ContactSection from '../../Sections/Contact'
 import AboutSkillsSections from '../../Sections/AboutSkills'
 import TestimonialsSection from '../../Sections/Testimonials'
 
-import styled, { css } from 'styled-components/macro'
+import styled from 'styled-components/macro'
 import Navbar from '../../components/Navbar'
 import Sidebar from '../../components/Sidebar'
 
@@ -17,21 +17,9 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   background: var(--background);
+  /* overflow-x: hidden; */
 
   padding: 0 calc(5rem + 5vw) 2rem;
-
-  /* ${(props) =>
-    props.isOpen &&
-    css`
-      overflow: hidden;
-    `} */
-  /* background: rgb(242, 245, 244);
-  background: linear-gradient(
-    180deg,
-    rgba(195, 214, 233, 0.5) 0%,
-    rgba(249, 249, 249, 0.8) 50%,
-    rgba(195, 214, 233, 0.5) 100%
-  ); */
 
   @media only Screen and (max-width: 48em) {
     padding: 0 2rem;
@@ -46,7 +34,7 @@ const Home = () => {
   }
 
   return (
-    <Container isOpen={isOpen}>
+    <Container isOpen={isOpen} id='home'>
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <Navbar toggle={toggle} isOpen={isOpen} />
       <HeroSection />
