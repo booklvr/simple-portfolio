@@ -4,8 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
-./src/assets/connectfour.mov
-
+/src/assets/connectfour.mov
 # testing
 /coverage
 
