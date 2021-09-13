@@ -241,6 +241,7 @@ const MessageLabel = styled.label`
 `
 
 const SubmitButton = styled.button`
+  position: relative;
   width: 100%;
   height: 3rem;
   margin-top: 2rem;
@@ -263,30 +264,71 @@ const SubmitButton = styled.button`
   }
 `
 
+const FormSubmitMessage = styled.p`
+  ${Label}
+  top: -1.3rem;
+  left: 1rem;
+  color: var(--fontLight);
+  opacity: ${({ submitMessage }) => (submitMessage ? 1 : 0)};
+  transition: opacity 0.5s ease-in-out;
+  /* position: absolute;
+  color: var(--primary);
+  height: 1rem;
+  
+  pointer-events: none;
+  color: var(--fontMedium);
+  transition: all 0.2s ease-in; */
+  @media only Screen and (max-width: 48em) {
+    font-size: 0.75rem;
+    top: -0.8rem;
+  }
+  /* z-index: 100; */
+`
+
 const ContactSection = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
+  const [submitMessage, setSubmitMessage] = useState('')
 
   function sendEmail(e) {
     e.preventDefault()
 
-    emailjs
-      .sendForm(
-        'gmail',
-        'portfolio-template',
-        e.target,
-        'user_YHHPfi54ZsQh2hsYTZofX'
-      )
-      .then(
-        (result) => {
-          console.log(result.text)
-        },
-        (error) => {
-          console.log(error.text)
-        }
-      )
-    e.target.reset()
+    if (name !== '' && email !== '' && message !== '') {
+      emailjs
+        .sendForm(
+          'gmail',
+          'portfolio-template',
+          e.target,
+          'user_YHHPfi54ZsQh2hsYTZofX'
+        )
+        .then(
+          (result) => {
+            console.log(result.text)
+            setSubmitMessage('Message Sent Successfully')
+            setName('')
+            setEmail('')
+            setMessage('')
+            setTimeout(() => {
+              setSubmitMessage('')
+            }, 3000)
+          },
+          (error) => {
+            console.log(error.text)
+            setSubmitMessage(
+              'Apologies, there was an error sending the message.  Please try again.'
+            )
+            setTimeout(() => {
+              setSubmitMessage('')
+            }, 3000)
+          }
+        )
+    } else {
+      setSubmitMessage('Please fill out all form fields')
+      setTimeout(() => {
+        setSubmitMessage('')
+      }, 3000)
+    }
   }
 
   return (
@@ -327,7 +369,11 @@ const ContactSection = () => {
             ></TextArea>
             <MessageLabel message={message}>message</MessageLabel>
           </Field>
+
           <SubmitButton type='submit' value='Send'>
+            <FormSubmitMessage submitMessage={submitMessage}>
+              {submitMessage}
+            </FormSubmitMessage>
             Send
           </SubmitButton>
         </Form>

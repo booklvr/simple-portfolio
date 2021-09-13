@@ -130,8 +130,9 @@ const TextImage = styled.img`
 `
 
 const CarouselContainer = styled.div`
-  display: block;
-  max-width: 50rem;
+  display: flex;
+  justify-content: center;
+  width: 50rem;
   height: 10rem;
   margin-bottom: 3rem;
   /* overflow-x: hidden; */

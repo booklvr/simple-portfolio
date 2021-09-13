@@ -1,9 +1,33 @@
 import React from 'react'
+import styled from 'styled-components/macro'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import Slider from 'react-slick'
 import ProfilePicture from '../ProfilePicture'
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
+
+const SliderCarousel = styled(Slider)`
+  width: 100%;
+  height: 8rem;
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+
+  @media only Screen and (max-width: 48em) {
+    height: 6rem;
+  }
+
+  .slick-slide {
+    display: flex;
+    justify-content: center;
+
+    div {
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+`
 
 function NextArrow(props) {
   const { className, style, onClick } = props
@@ -55,13 +79,14 @@ const Carousel = ({ data, handleClick, slideIndex }) => {
   const settings = {
     className: 'center',
     centerMode: true,
-    centerPadding: '20px',
+    centerPadding: '10px',
     dots: true,
+    arrows: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 4,
     slidesToScroll: 1,
-    initialSlide: 0,
+    initialSlide: 2,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
@@ -104,7 +129,7 @@ const Carousel = ({ data, handleClick, slideIndex }) => {
     ],
   }
   return (
-    <Slider {...settings}>
+    <SliderCarousel {...settings}>
       {data.map((testimonial, index) => (
         <div key={index}>
           <ProfilePicture
@@ -115,7 +140,7 @@ const Carousel = ({ data, handleClick, slideIndex }) => {
           />
         </div>
       ))}
-    </Slider>
+    </SliderCarousel>
   )
 }
 

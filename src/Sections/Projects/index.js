@@ -82,7 +82,6 @@ const ProjectSection = () => {
             'NodeJs',
             'Express',
             'MongoDB',
-            'Parcel',
             'NGinx',
           ]}
         />
