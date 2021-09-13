@@ -8,13 +8,10 @@ const SidebarContainer = styled.aside`
   z-index: 999;
   width: 100%;
   height: 100%;
-  background-color: ${(props) =>
-    props.color === 'black' ? 'var(--black)' : 'var(--background)'};
-
-  display: flex;
-  justify-content: center;
+  background: #0d0d0d;
+  display: grid;
   align-items: center;
-  padding-top: 80px;
+  margin-top: 80px;
 
   left: 0;
   transition: 0.3s ease-in-out;

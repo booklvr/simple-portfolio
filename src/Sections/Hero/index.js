@@ -197,3 +197,7 @@ const HeroSection = () => {
 }
 
 export default HeroSection
+
+// <Topic>
+//   <Circle /> <span>Full Stack Developer</span>
+// </Topic>
