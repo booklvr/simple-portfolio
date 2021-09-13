@@ -304,7 +304,7 @@ const ContactSection = () => {
         )
         .then(
           (result) => {
-            console.log(result.text)
+            // console.log(result.text)
             setSubmitMessage('Message Sent Successfully')
             setName('')
             setEmail('')
@@ -314,7 +314,7 @@ const ContactSection = () => {
             }, 3000)
           },
           (error) => {
-            console.log(error.text)
+            // console.log(error.text)
             setSubmitMessage(
               'Apologies, there was an error sending the message.  Please try again.'
             )

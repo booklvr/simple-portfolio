@@ -156,7 +156,6 @@ const CardButton = styled.a`
 `
 
 const index = ({ title, text, video, link, git, tags, reverse }) => {
-  console.log('video', video)
   // const thumbnail = require(`../../assets/${image}.png`).default
   return (
     <CARD reverse={reverse}>

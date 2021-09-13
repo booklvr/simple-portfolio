@@ -8,7 +8,7 @@ const SidebarContainer = styled.aside`
   z-index: 999;
   width: 100%;
   height: 100%;
-  background: #0d0d0d;
+  background: var(--black);
   display: grid;
   align-items: center;
   margin-top: 80px;
@@ -93,7 +93,6 @@ const SidebarRoute = styled(LinkR)`
 const Sidebar = ({ isOpen, toggle }) => {
   const getBackgroundColor = () => {
     const inHeroSection = window.scrollY < window.innerHeight - 80
-
 
     if (inHeroSection) {
       setColor('black')

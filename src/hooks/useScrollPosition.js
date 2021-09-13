@@ -17,33 +17,54 @@ const setColorTheme = (currPos) =>
 
 function useScrollPosition(effect, wait) {
   const previousPosition = useRef(getScrollYPosition)
+  const throttleTimeout = useRef(null)
 
-  let throttleTimeout = null
+  throttleTimeout.current = null
 
-  const callBack = () => {
-    const currentPosition = getScrollYPosition()
+  // let throttleTimeout = null
 
-    const scrollDirection = getScrollDirection(
-      currentPosition,
-      previousPosition.current
-    )
+  // const callBack = () => {
+  //   const currentPosition = getScrollYPosition()
 
-    const color = setColorTheme(currentPosition)
+  //   const scrollDirection = getScrollDirection(
+  //     currentPosition,
+  //     previousPosition.current
+  //   )
 
-    effect(scrollDirection, color)
+  //   const color = setColorTheme(currentPosition)
 
-    previousPosition.current = currentPosition
-    throttleTimeout = null
-  }
+  //   effect(scrollDirection, color)
+
+  //   previousPosition.current = currentPosition
+  //   throttleTimeout.current = null
+  //   // throttleTimeout = null
+  // }
 
   useEffect(() => {
+    const callBack = () => {
+      const currentPosition = getScrollYPosition()
+
+      const scrollDirection = getScrollDirection(
+        currentPosition,
+        previousPosition.current
+      )
+
+      const color = setColorTheme(currentPosition)
+
+      effect(scrollDirection, color)
+
+      previousPosition.current = currentPosition
+      throttleTimeout.current = null
+      // throttleTimeout = null
+    }
+
     const handleScroll = () => {
-      if (throttleTimeout === null) {
-        throttleTimeout = setTimeout(callBack, wait)
+      if (throttleTimeout.current === null) {
+        throttleTimeout.current = setTimeout(callBack, wait)
       }
     }
     window.addEventListener('scroll', handleScroll)
-  }, [])
+  }, [wait, effect])
 }
 
 export default useScrollPosition
