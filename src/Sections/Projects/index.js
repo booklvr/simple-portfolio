@@ -4,10 +4,6 @@ import styled from 'styled-components/macro'
 // import Slider from 'react-slick'
 import Card from '../../components/Card'
 import CardVertical from '../../components/CardVertical'
-<<<<<<< HEAD
-=======
-import SectionTitle from '../../components/SectionTitle'
->>>>>>> 9fcf5a1f3b61f43dc7af880a9232c487034b0e41
 
 // import '../../../node_modules/slick-carousel/slick/slick.css'
 // import '../../../node_modules/slick-carousel/slick/slick-theme.css'
@@ -17,7 +13,6 @@ const ProjectsContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-<<<<<<< HEAD
   margin-bottom: 5rem;
   margin-top: 5rem;
 
@@ -47,21 +42,13 @@ const ProjectsHeader = styled.h2`
   @media only Screen and (max-width: 40em) {
     font-size: 3.5rem;
   }
-=======
-  min-height: 100vh;
-  color: white;
->>>>>>> 9fcf5a1f3b61f43dc7af880a9232c487034b0e41
 `
 
 const ProjectCardContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-<<<<<<< HEAD
   justify-content: space-around;
-=======
-  justify-content: center;
->>>>>>> 9fcf5a1f3b61f43dc7af880a9232c487034b0e41
   align-items: center;
 
   /* margin: 1rem; */

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import styled, { css } from 'styled-components/macro'
 import React, { useState } from 'react'
 
@@ -7,13 +6,6 @@ import logoWhite from '../../assets/logo-white.svg'
 import { Link as LinkR } from 'react-router-dom'
 import { Link as LinkS, animateScroll as scroll } from 'react-scroll'
 import useScrollPosition from '../../hooks/useScrollPosition'
-=======
-import React, { useEffect, useState } from 'react'
-import styled from 'styled-components/macro'
-import logo from '../../assets/logo.svg'
-import { Link as LinkR } from 'react-router-dom'
-import { Link as LinkS, animateScroll as scroll } from 'react-scroll'
->>>>>>> 9fcf5a1f3b61f43dc7af880a9232c487034b0e41
 
 const Nav = styled.nav`
   display: flex;
