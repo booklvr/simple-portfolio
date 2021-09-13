@@ -5,7 +5,6 @@ const useVideoPlayer = (videoElement) => {
     isPlaying: false,
     progress: 0,
     speed: 1,
-    isMuted: false,
   })
 
   const togglePlay = () => {
@@ -49,18 +48,9 @@ const useVideoPlayer = (videoElement) => {
     })
   }
 
-  const toggleMute = () => {
-    setPlayerState({
-      ...playerState,
-      isMuted: !playerState.isMuted,
-    })
-  }
+  
 
-  useEffect(() => {
-    playerState.isMuted
-      ? (videoElement.current.muted = true)
-      : (videoElement.current.muted = false)
-  }, [playerState.isMuted, videoElement])
+  
 
   return {
     playerState,
@@ -68,7 +58,6 @@ const useVideoPlayer = (videoElement) => {
     handleOnTimeUpdate,
     handleVideoProgress,
     handleVideoSpeed,
-    toggleMute,
   }
 }
 

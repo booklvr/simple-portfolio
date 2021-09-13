@@ -7,15 +7,7 @@ import React, { useRef, useState } from 'react'
 import useVideoPlayer from '../../hooks/useVideoPlayer'
 import useFullscreen from '../../hooks/useFullscreen'
 
-import {
-  FaAngleDown,
-  FaAngleUp,
-  FaPause,
-  FaPlay,
-  FaVolumeMute,
-  FaVolumeUp,
-  FaExpand,
-} from 'react-icons/fa'
+import { FaAngleDown, FaAngleUp } from 'react-icons/fa'
 
 import { BsPlay, BsPause, BsFullscreen } from 'react-icons/bs'
 
@@ -266,10 +258,9 @@ const VideoPlayer = ({ video, reverse }) => {
     handleOnTimeUpdate,
     handleVideoProgress,
     handleVideoSpeed,
-    toggleMute,
   } = useVideoPlayer(videoElement)
 
-  const [isFullscreen, setIsFullsceen] = useFullscreen(videoElement)
+  const [isFullScreen, setIsFullsceen] = useFullscreen(videoElement)
 
   const [speedMenu, setSpeedMenu] = useState(false)
 
@@ -327,7 +318,7 @@ const VideoPlayer = ({ video, reverse }) => {
               </VideoSpeedList>
             </VideoSpeedDropdown>
 
-            <ExpandButton onClick={setIsFullsceen}>
+            <ExpandButton isFullScreen={isFullScreen} onClick={setIsFullsceen}>
               <BsFullscreen />
             </ExpandButton>
           </VideoActions>
