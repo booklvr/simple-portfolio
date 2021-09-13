@@ -17,7 +17,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   background: var(--background);
-  /* overflow-x: hidden; */
+  /* overflow: hidden; */
 
   padding: 0 calc(5rem + 5vw) 2rem;
 

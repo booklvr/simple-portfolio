@@ -21,7 +21,7 @@ const ScrollToTopButton = styled(LinkS)`
 
 const ScrollToTop = () => {
   return (
-    <ScrollToTopButton to='home' smooth={true} duration={750} exact='true'>
+    <ScrollToTopButton to='home' smooth={true} duration={750} offset={50}>
       <ScrollUpIcon /> to top
     </ScrollToTopButton>
   )

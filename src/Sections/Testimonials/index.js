@@ -9,9 +9,10 @@ const TestimonialsContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* width: 100%; */
+  width: 100%;
   margin-top: 5rem;
   margin-bottom: 5rem;
+  /* overflow: hidden; */
 
   @media only Screen and (max-width: 42em) {
     margin-top: 4rem;

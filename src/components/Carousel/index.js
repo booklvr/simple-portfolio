@@ -7,14 +7,18 @@ import ProfilePicture from '../ProfilePicture'
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 
 const SliderCarousel = styled(Slider)`
-  width: 100%;
-  height: 8rem;
+  max-width: 100%;
+  height: 8rem !important;
   display: flex !important;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 
   @media only Screen and (max-width: 48em) {
     height: 6rem;
+  }
+
+  .slick-track {
+    overflow: hidden;
   }
 
   .slick-slide {
@@ -86,7 +90,7 @@ const Carousel = ({ data, handleClick, slideIndex }) => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    initialSlide: 2,
+    initialSlide: 0,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
@@ -104,8 +108,8 @@ const Carousel = ({ data, handleClick, slideIndex }) => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-          centerPadding: '10px',
           arrows: false,
+          dots: true,
         },
       },
       {
