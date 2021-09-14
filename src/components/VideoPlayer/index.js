@@ -261,6 +261,7 @@ const VideoPlayer = ({ video, reverse }) => {
   } = useVideoPlayer(videoElement)
 
   const [isFullScreen, setIsFullsceen] = useFullscreen(videoElement)
+  
 
   const [speedMenu, setSpeedMenu] = useState(false)
 
