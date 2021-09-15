@@ -43,11 +43,9 @@ const AboutText = styled.div`
 `
 
 const Text = styled.p`
-  /* font-size: calc(0.6rem + 0.6vw); */
   line-height: 1.75;
   font-size: 1.2rem;
   color: var(--fontMedium);
-  /* font-weight: 600; */
 
   @media only Screen and (max-width: 48em) {
     font-weight: 300;
@@ -62,12 +60,7 @@ const AboutSection = () => {
       <AboutHeader>About</AboutHeader>
       <AboutText>
         <Text>
-          Hello. My Name is a Nick. Over the past 5 years coding has developed
-          into a passion of mine, specifically in the realm of web development
-          and the creation of web apps. I honed my as skills an English teacher,
-          where I built fun and interactive web apps for my students and
-          colleagues. I now develop full time and am looking for my next
-          project.
+          Hello. My Name is a Nick. I am a Full Stack Engineer.  I'm passionate about code and creating innovative solutions to problems.  I strive to develop quality code on time, every time.  I love the challenge of working on bespoke features for a web project.  Send me a message, and let's find out if I am the right fit for your company.
         </Text>
       </AboutText>
     </AboutContainer>
@@ -76,44 +69,3 @@ const AboutSection = () => {
 
 export default AboutSection
 
-// I am here to help you or your company develop your digital presence
-// in an increasingly competitive world. I want to work with you and to
-// help you to introduce yourself, to grow, and to stand out by
-// building a creative website together. I am here to make your vision
-// become reality.
-
-// <Human>
-//   <img src={sittingMan} alt='sitting man' />
-// </Human>
-
-// <Man>
-//         <img src={standingMan} alt='man' />
-//       </Man>
-
-// <div>
-//   <Square style={{ backgroundColor: 'var(--purple)' }} />
-//   <Square style={{ backgroundColor: 'var(--grey)' }} />
-//   <Square style={{ backgroundColor: 'var(--black)' }} />
-// </div>
-
-// <WaveTop src={wave} alt='wave' width='400'></WaveTop>
-// <WaveBottom src={wavebot1} alt='wave' width='400'></WaveBottom>
-
-// <Sphere>
-//         <img src={sphere} alt='sphere' />
-//       </Sphere>
-
-// const Square = styled.div`
-//   display: inline-block;
-//   width: 1rem;
-//   height: 1rem;
-//   background-color: var(--black);
-//   margin-right: 0.5rem;
-//   margin-top: 1rem;
-
-//   @media only Screen and (max-width: 48em) {
-//     display: none;
-//   }
-// `
-
-// <CurvedLine />

@@ -155,12 +155,12 @@ const CardButton = styled.a`
   }
 `
 
-const index = ({ title, text, video, link, git, tags, reverse }) => {
+const index = ({ title, text, image, video, link, git, tags, reverse }) => {
   // const thumbnail = require(`../../assets/${image}.png`).default
   return (
     <CARD reverse={reverse}>
       <CardVideoAndTagContainer>
-        <VideoPlayer video={video} reverse={reverse} />
+        <VideoPlayer video={video} image={image} reverse={reverse} />
         <TagContainer>
           {tags.map((tag, index) => (
             <Tag key={index}>{tag}</Tag>

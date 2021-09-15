@@ -113,7 +113,7 @@ const CardButton = styled.a`
   }
 `
 
-const CardVertical = ({ title, text, video, link, git, tags }) => {
+const CardVertical = ({ title, text, image, video, link, git, tags }) => {
   // const videoSrc = require(`../../assets/${video}.mov`).default
 
   return (
@@ -122,7 +122,7 @@ const CardVertical = ({ title, text, video, link, git, tags }) => {
         <SubHeading>Featured Project</SubHeading>
         <Title>{title}</Title>
       </TitleContainer>
-      <VideoPlayer video={video} />
+      <VideoPlayer video={video} image={image} />
       <Text>{text}</Text>
       <TagContainer>
         {tags.map((tag, index) => (

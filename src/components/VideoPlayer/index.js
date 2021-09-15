@@ -11,6 +11,7 @@ import useVideoPlayer from '../../hooks/useVideoPlayer'
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa'
 
 import { BsPlay, BsPause, BsFullscreen } from 'react-icons/bs'
+import { useEffect } from 'react/cjs/react.development'
 
 const VideoPlayerContainer = styled.div`
   display: flex;
@@ -264,7 +265,7 @@ const VideoSpeedOption = styled.li`
   }
 `
 
-const VideoPlayer = ({ video, reverse }) => {
+const VideoPlayer = ({ video, image, reverse }) => {
   const videoElement = useRef(null)
   const {
     playerState,
@@ -293,7 +294,12 @@ const VideoPlayer = ({ video, reverse }) => {
     setSpeedMenu(!speedMenu)
   }
 
+  
+
   const videoSrc = require(`../../assets/${video}.mov`).default
+  const imageSrc = require(`../../assets/${image}.png`).default
+  // console.log('image', image)
+  // console.log('video', video)
 
   const handleSpeedChange = (speed) => {
     setSpeedMenu(false)
@@ -306,11 +312,14 @@ const VideoPlayer = ({ video, reverse }) => {
     }
   }
 
+  
+
   return (
     <VideoPlayerContainer reverse={reverse}>
       <VideoPlayerWrapper>
         <Video
           src={videoSrc}
+          poster={imageSrc}
           ref={videoElement}
           onTimeUpdate={handleOnTimeUpdate}
           onClick={togglePlay}
