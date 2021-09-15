@@ -1,12 +1,12 @@
 import { lazy, Suspense } from 'react'
 import { GlobalStyle } from './globalStyles'
 import { createBrowserHistory } from 'history'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import Resume from './Pages/Resume'
 
 const Home = lazy(() => import('./Pages/Home/index.js'))
 
-const history = createBrowserHistory();
+const history = createBrowserHistory()
 
 function App() {
   return (
@@ -15,8 +15,8 @@ function App() {
         <Router history={history}>
           <GlobalStyle />
           <Switch>
-            <Route path='/' component={Home} exact />
             <Route path='/resume' component={Resume} exact />
+            <Route path='/' component={Home} exact />
           </Switch>
         </Router>
       </Suspense>
