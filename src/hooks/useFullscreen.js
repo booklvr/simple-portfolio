@@ -8,7 +8,7 @@ export default function useFullscreen(elRef) {
   const setFullscreen = () => {
     if (elRef.current == null) return
 
-    if (typeof document.webkitRequestFullScreen !== 'undefined') {
+    if (typeof document.webkitRequestFullScreen != 'undefined') {
       elRef.current.webkitRequestFullscreen()
       setIsFullscreen(document[getBrowserFullscreenElementProp()] != null)
     } else {
