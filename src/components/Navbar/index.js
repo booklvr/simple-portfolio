@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components/macro'
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 
 import logoBlack from '../../assets/logo-black.svg'
 import logoWhite from '../../assets/logo-white.svg'
@@ -223,7 +223,7 @@ const Navbar = ({ toggle, isOpen }) => {
     scroll.scrollToTop()
   }
 
-  let history = useHistory();
+  // let history = useHistory()
 
   const [showNav, setShowNav] = useState(true)
   const [color, setColor] = useState('black')
@@ -246,10 +246,10 @@ const Navbar = ({ toggle, isOpen }) => {
     setTimeout(navLinkCallBack, 1000)
   }
 
-  const handleResumeLinkClick = () => {
-    handleNavLinkClick();
-    history.push('/');
-  }
+  // const handleResumeLinkClick = () => {
+  //   handleNavLinkClick()
+  //   history.push('/')
+  // }
 
   return (
     <Nav id='nav' show={showNav} color={color} isOpen={isOpen}>
@@ -322,7 +322,6 @@ const Navbar = ({ toggle, isOpen }) => {
               to='/resume'
               style={{ textDecoration: 'none', color: 'white' }}
               color={color}
-              onClick={handleResumeLinkClick}
             >
               Resume
             </NavLinkR>

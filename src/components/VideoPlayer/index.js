@@ -11,7 +11,6 @@ import useVideoPlayer from '../../hooks/useVideoPlayer'
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa'
 
 import { BsPlay, BsPause, BsFullscreen } from 'react-icons/bs'
-import { useEffect } from 'react/cjs/react.development'
 
 const VideoPlayerContainer = styled.div`
   display: flex;
@@ -294,8 +293,6 @@ const VideoPlayer = ({ video, image, reverse }) => {
     setSpeedMenu(!speedMenu)
   }
 
-  
-
   const videoSrc = require(`../../assets/${video}.mov`).default
   const imageSrc = require(`../../assets/${image}.png`).default
   // console.log('image', image)
@@ -311,8 +308,6 @@ const VideoPlayer = ({ video, image, reverse }) => {
       screenfull.request(videoElement.current)
     }
   }
-
-  
 
   return (
     <VideoPlayerContainer reverse={reverse}>
