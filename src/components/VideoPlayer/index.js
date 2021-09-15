@@ -294,6 +294,7 @@ const VideoPlayer = ({ video, reverse }) => {
           ref={videoElement}
           onTimeUpdate={handleOnTimeUpdate}
           onClick={togglePlay}
+          muted
         ></Video>
         <VideoControls>
           <VideoActions>
