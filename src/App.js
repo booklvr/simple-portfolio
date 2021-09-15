@@ -6,11 +6,13 @@ import Resume from './Pages/Resume'
 
 const Home = lazy(() => import('./Pages/Home/index.js'))
 
+const history = createBrowserHistory();
+
 function App() {
   return (
     <>
       <Suspense fallback={null}>
-        <Router history={createBrowserHistory}>
+        <Router history={history}>
           <GlobalStyle />
           <Switch>
             <Route path='/' component={Home} exact />
