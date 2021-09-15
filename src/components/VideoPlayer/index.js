@@ -90,13 +90,21 @@ const VideoActions = styled.div`
     padding: 0 1rem;
     width: 50%;
   } */
+`
+
+const RangeWrapper = styled.div`
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   input[type='range'] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     background: var(--background);
-    flex: 1;
+    /* flex: 1; */
     &:focus {
       outline: none;
     }
@@ -109,16 +117,24 @@ const VideoActions = styled.div`
   }
 
   .range-style {
-    /* width: 400px; */
     margin-right: 1rem;
     @media only Screen and (max-width: 42em) {
-      /* width: 70px; */
       margin-right: 0;
     }
 
     &::-webkit-slider-runnable-track {
-      display: flex;
-      align-items: center;
+      /* display: flex;
+      align-items: center; */
+      height: 8px;
+      border-radius: 10px;
+      background-color: var(--background);
+      box-shadow: inset 4px 4px 8px #adadad, inset -4px -4px 8px #ffffff;
+    }
+
+    &::-moz-range-track {
+      /* display: flex;
+      align-items: center; */
+      /* justify-content: center; */
       height: 8px;
       border-radius: 10px;
       background-color: var(--background);
@@ -126,29 +142,21 @@ const VideoActions = styled.div`
     }
     &::-webkit-slider-thumb {
       position: relative;
-      top: -50%;
+
+      top: -0.5rem;
       width: 25px;
       height: 25px;
-      transform: translateY(-25%);
       background-color: var(--background);
       background-image: linear-gradient(-45deg, rgba(white, 0.8), transparent);
       border-radius: 50%;
       box-shadow: 8px 8px 15px #adadad, -8px -8px 15px #ffffff;
     }
-    &::-moz-range-track {
-      display: flex;
-      align-items: center;
-      height: 8px;
-      border-radius: 10px;
-      background-color: var(--background);
-      box-shadow: inset 4px 4px 8px #adadad, inset -4px -4px 8px #ffffff;
-    }
+
     &::-moz-range-thumb {
       position: relative;
-      top: -50%;
+      /* top: -.5rem; */
       width: 25px;
       height: 25px;
-      transform: translateY(-25%);
       background-color: var(--background);
       background-image: linear-gradient(-45deg, rgba(white, 0.8), transparent);
       border-radius: 50%;
@@ -177,12 +185,17 @@ const ButtonStyle = css`
     height: 20px;
   }
 `
+
 const PlayButton = styled.button`
   ${ButtonStyle}
 `
 
 const ExpandButton = styled.button`
   ${ButtonStyle}
+
+  @media only Screen and (max-width: 46em) {
+    display: none;
+  }
 
   svg {
     width: 15px;
@@ -309,14 +322,17 @@ const VideoPlayer = ({ video, reverse }) => {
             <PlayButton onClick={togglePlay}>
               {!playerState.isPlaying ? <BsPlay /> : <BsPause />}
             </PlayButton>
-            <input
-              type='range'
-              min='0'
-              max='100'
-              value={playerState.progress}
-              onChange={(e) => handleVideoProgress(e)}
-              className='range-style'
-            />
+            <RangeWrapper>
+              <input
+                type='range'
+                min='0'
+                max='100'
+                value={playerState.progress}
+                onChange={(e) => handleVideoProgress(e)}
+                className='range-style'
+              />
+            </RangeWrapper>
+
             <VideoSpeedDropdown>
               <VideoSpeed onClick={toggleSpeedMenu}>
                 <span>{playerState.speed}x</span>
