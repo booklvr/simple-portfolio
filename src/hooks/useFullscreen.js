@@ -8,14 +8,19 @@ export default function useFullscreen(elRef) {
   const setFullscreen = () => {
     if (elRef.current == null) return
 
-    elRef.current
-      .requestFullscreen()
-      .then(() => {
-        setIsFullscreen(document[getBrowserFullscreenElementProp()] != null)
-      })
-      .catch(() => {
-        setIsFullscreen(false)
-      })
+    if (typeof document.webkitRequestFullScreen !== 'undefined') {
+      elRef.current.webkitRequestFullscreen()
+      setIsFullscreen(document[getBrowserFullscreenElementProp()] != null)
+    } else {
+      elRef.current
+        .requestFullscreen()
+        .then(() => {
+          setIsFullscreen(document[getBrowserFullscreenElementProp()] != null)
+        })
+        .catch(() => {
+          setIsFullscreen(false)
+        })
+    }
   }
 
   React.useLayoutEffect(() => {
@@ -37,8 +42,6 @@ function getBrowserFullscreenElementProp() {
     return 'msFullscreenElement'
   } else if (typeof document.webkitFullscreenElement !== 'undefined') {
     return 'webkitFullscreenElement'
-  } else if (typeof document.webkitCurrentFullScreenElement !== 'undefined') {
-    return 'webkitCurrentFullScreenElement'
   } else {
     throw new Error('fullscreenElement is not supported by this browser')
   }
