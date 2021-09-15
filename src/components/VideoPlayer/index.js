@@ -260,8 +260,18 @@ const VideoPlayer = ({ video, reverse }) => {
     handleVideoSpeed,
   } = useVideoPlayer(videoElement)
 
-  const [isFullScreen, setIsFullsceen] = useFullscreen(videoElement)
-  
+  let isFullscreen, setIsFullscreen
+  let errorMessage
+
+  try {
+    ;[isFullscreen, setIsFullscreen] = useFullscreen(videoElement)
+  } catch (e) {
+    errorMessage = 'Fullscreen not supported'
+    isFullscreen = false
+    setIsFullscreen = undefined
+  }
+
+  // const [isFullScreen, setIsFullsceen] = useFullscreen(videoElement)
 
   const [speedMenu, setSpeedMenu] = useState(false)
 
@@ -318,10 +328,21 @@ const VideoPlayer = ({ video, reverse }) => {
                 </VideoSpeedOption>
               </VideoSpeedList>
             </VideoSpeedDropdown>
-
-            <ExpandButton isFullScreen={isFullScreen} onClick={setIsFullsceen}>
-              <BsFullscreen />
-            </ExpandButton>
+            {errorMessage ? (
+              <ExpandButton
+                onClick={() => alert('Fullscreen is unsupported by this browser, please try another browser')}
+              >
+                <BsFullscreen />
+              </ExpandButton>
+            ) : (
+              <ExpandButton
+                isFullScreen={isFullscreen}
+                onClick={setIsFullscreen}
+              >
+                <BsFullscreen />
+              </ExpandButton>
+            )}
+    
           </VideoActions>
         </VideoControls>
       </VideoPlayerWrapper>
