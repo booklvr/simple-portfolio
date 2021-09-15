@@ -1,11 +1,12 @@
 import styled, { css } from 'styled-components/macro'
 
 import React, { useRef, useState } from 'react'
+import screenfull from 'screenfull'
 // import video from '../../assets/classpoint.mov'
 
 //hooks
 import useVideoPlayer from '../../hooks/useVideoPlayer'
-import useFullscreen from '../../hooks/useFullscreen'
+// import useFullscreen from '../../hooks/useFullscreen'
 
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa'
 
@@ -264,16 +265,16 @@ const VideoPlayer = ({ video, reverse }) => {
     handleVideoSpeed,
   } = useVideoPlayer(videoElement)
 
-  let isFullscreen, setIsFullscreen
+  // let isFullscreen, setIsFullscreen
   let errorMessage
 
-  try {
-    ;[isFullscreen, setIsFullscreen] = useFullscreen(videoElement)
-  } catch (e) {
-    errorMessage = 'Fullscreen not supported'
-    isFullscreen = false
-    setIsFullscreen = undefined
-  }
+  // try {
+  //   ;[isFullscreen, setIsFullscreen] = useFullscreen(videoElement)
+  // } catch (e) {
+  //   errorMessage = 'Fullscreen not supported'
+  //   isFullscreen = false
+  //   setIsFullscreen = undefined
+  // }
 
   // const [isFullScreen, setIsFullsceen] = useFullscreen(videoElement)
 
@@ -288,6 +289,12 @@ const VideoPlayer = ({ video, reverse }) => {
   const handleSpeedChange = (speed) => {
     setSpeedMenu(false)
     handleVideoSpeed(speed)
+  }
+
+  const handleFullScreen = () => {
+    if (screenfull.isEnabled) {
+      screenfull.request(videoElement.current)
+    }
   }
 
   return (
@@ -345,10 +352,7 @@ const VideoPlayer = ({ video, reverse }) => {
                 <BsFullscreen />
               </ExpandButton>
             ) : (
-              <ExpandButton
-                isFullScreen={isFullscreen}
-                onClick={setIsFullscreen}
-              >
+              <ExpandButton onClick={handleFullScreen}>
                 <BsFullscreen />
               </ExpandButton>
             )}
