@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { GlobalStyle } from './globalStyles'
+import { createBrowserHistory } from 'history'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Resume from './Pages/Resume'
 
@@ -9,7 +10,7 @@ function App() {
   return (
     <>
       <Suspense fallback={null}>
-        <Router>
+        <Router history={createBrowserHistory}>
           <GlobalStyle />
           <Switch>
             <Route path='/' component={Home} exact />

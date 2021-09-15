@@ -183,14 +183,3 @@ const SkillsSection = () => {
 
 export default SkillsSection
 
-// <SitFrontFace>
-//           <img src={sitFrontFace} alt='sitting man' />
-//         </SitFrontFace>
-
-// <StandWithLaptop>
-//           <img src={standWithLaptop} alt='standWithLaptop' />
-//         </StandWithLaptop>
-
-// <LayingDown>
-//           <img src={layingDown} alt='sitting man' />
-//         </LayingDown>

@@ -2,7 +2,6 @@ import styled from 'styled-components/macro'
 
 import React, { useState } from 'react'
 import Carousel from '../../components/Carousel'
-// import data from './data.js'
 
 const data = [
   {

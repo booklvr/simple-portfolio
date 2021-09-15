@@ -2,7 +2,6 @@ import styled from 'styled-components/macro'
 import React, { useState } from 'react'
 
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack'
-import { pdfjs } from 'react-pdf'
 
 import resume from '../../assets/resume.pdf'
 import {
@@ -13,7 +12,6 @@ import {
 } from 'react-icons/fa'
 import useWindowWidth from '../../hooks/getWindowWidth'
 // import resume from '../../assets/resume.pdf'
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/2.1.266/pdf.worker.js`
 
 const ResumePageContainer = styled.div`
   display: flex;

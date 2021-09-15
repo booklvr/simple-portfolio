@@ -1,12 +1,10 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-// import sitOnLedgeLong from '../../assets/sittingOnLedgeLongest.svg'
-// import Slider from 'react-slick'
+
 import Card from '../../components/Card'
 import CardVertical from '../../components/CardVertical'
 
-// import '../../../node_modules/slick-carousel/slick/slick.css'
-// import '../../../node_modules/slick-carousel/slick/slick-theme.css'
+//
 
 const ProjectsContainer = styled.div`
   display: flex;
@@ -242,8 +240,3 @@ const ProjectSection = () => {
 
 export default ProjectSection
 
-// <SitOnLedge>
-//   <img src={sitOnLedgeLong} alt='man on ledge' />
-// </SitOnLedge>
-
-// <CurvedLine />
