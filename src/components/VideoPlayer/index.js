@@ -184,10 +184,6 @@ const PlayButton = styled.button`
 const ExpandButton = styled.button`
   ${ButtonStyle}
 
-  @media only Screen and (max-width: 64em) {
-    display: none;
-  }
-
   svg {
     width: 15px;
     height: 15px;
