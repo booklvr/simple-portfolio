@@ -183,6 +183,10 @@ const PlayButton = styled.button`
 const ExpandButton = styled.button`
   ${ButtonStyle}
 
+  @media only Screen and (max-width: 64em) {
+    display: none;
+  }
+
   svg {
     width: 15px;
     height: 15px;
@@ -332,7 +336,11 @@ const VideoPlayer = ({ video, reverse }) => {
             </VideoSpeedDropdown>
             {errorMessage ? (
               <ExpandButton
-                onClick={() => alert('Fullscreen is unsupported by this browser, please try another browser')}
+                onClick={() =>
+                  alert(
+                    'Fullscreen is unsupported by this browser, please try another browser'
+                  )
+                }
               >
                 <BsFullscreen />
               </ExpandButton>
@@ -344,7 +352,6 @@ const VideoPlayer = ({ video, reverse }) => {
                 <BsFullscreen />
               </ExpandButton>
             )}
-    
           </VideoActions>
         </VideoControls>
       </VideoPlayerWrapper>
