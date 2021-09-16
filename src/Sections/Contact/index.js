@@ -135,6 +135,7 @@ const Input = styled.input`
   box-shadow: inset 4px 4px 5px #adadad, inset -5px -5px 10px #ffffff;
   -webkit-box-shadow: inset 4px 4px 5px #adadad, inset -5px -5px 10px #ffffff;
   -mox-box-shadow: inset 4px 4px 5px #adadad, inset -5px -5px 10px #ffffff;
+  -webkit-appearance: none;
   margin-bottom: 2rem;
 
   &:focus ~ label {
