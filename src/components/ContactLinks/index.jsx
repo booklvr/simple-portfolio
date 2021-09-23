@@ -24,8 +24,16 @@ const ContactLink = styled.a`
   height: 50px;
   width: 50px;
 
-  @media only Screen and (max-width: 350px) {
-    /* margin: 0 0.5rem; */
+  transition: all 0.2s ease-in;
+
+  &:hover {
+    box-shadow: 6px 6px 15px var(--fontMedium), -6px -6px 15px #ffffff;
+    transform: translate(-2px, -1px);
+  }
+
+  &:active {
+    box-shadow: 2px 2px 5px #adadad, -2px -2px 5px #ffffff;
+    transform: translate(1px, 2px);
   }
 
   img {
