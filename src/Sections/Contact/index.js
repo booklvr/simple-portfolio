@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import emailjs from 'emailjs-com'
 import logoBlack from '../../assets/logo-black.svg'
 import { FaEnvelope, FaUser, FaAt } from 'react-icons/fa'
+import ContactLinks from '../../components/ContactLinks'
 import ScrollToTop from '../../components/ScrollToTop'
 
 const ContactSectionContainer = styled.div`

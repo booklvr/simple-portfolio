@@ -2,11 +2,9 @@ import styled, { css } from 'styled-components/macro'
 
 import React, { useRef, useState } from 'react'
 import screenfull from 'screenfull'
-// import video from '../../assets/classpoint.mov'
 
 //hooks
 import useVideoPlayer from '../../hooks/useVideoPlayer'
-// import useFullscreen from '../../hooks/useFullscreen'
 
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa'
 
@@ -17,10 +15,7 @@ const VideoPlayerContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  /* padding: 0 1rem 0; */
-  /* margin: ${({ reverse }) =>
-    reverse ? '0rem 0rem 0rem 1rem' : '0rem 1rem 0rem 0 rem'}; */
-  /* max-width: 100%; */ /* max-width: 100%; */ /* height: 100%; */
+  
   @media only Screen and (max-width: 768px) {
     /* width: 100%; */
     /* max-width: 25rem; */

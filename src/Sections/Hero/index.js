@@ -187,7 +187,7 @@ const HeroSection = () => {
         <Subtext>
           I am passionate about clean code and innovative solutions.
         </Subtext>
-        <CTA to='contact' offset={-140}>
+        <CTA to='contact' offset={-140} smooth={true} duration={750}>
           Contact
         </CTA>
       </MainContent>
