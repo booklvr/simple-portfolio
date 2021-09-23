@@ -14,7 +14,7 @@ const ScrollToTopButton = styled(LinkS)`
   align-items: center;
   padding: 1rem 2rem;
   color: var(--black);
-  margin-top: 5rem;
+  margin-top: 3rem;
   border-radius: 10px;
   box-shadow: 8px 8px 15px #adadad, -8px -8px 15px #ffffff;
   transition: all 0.2s ease-in;

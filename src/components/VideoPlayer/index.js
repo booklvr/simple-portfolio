@@ -15,7 +15,7 @@ const VideoPlayerContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  
+
   @media only Screen and (max-width: 768px) {
     /* width: 100%; */
     /* max-width: 25rem; */
@@ -290,8 +290,6 @@ const VideoPlayer = ({ video, image, reverse }) => {
 
   const videoSrc = require(`../../assets/${video}.mov`).default
   const imageSrc = require(`../../assets/${image}.png`).default
-  // console.log('image', image)
-  // console.log('video', video)
 
   const handleSpeedChange = (speed) => {
     setSpeedMenu(false)
