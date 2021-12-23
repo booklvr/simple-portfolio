@@ -28,7 +28,7 @@ function useScrollPosition(effect, wait) {
 
   //   const scrollDirection = getScrollDirection(
   //     currentPosition,
-  //     previousPosition.current
+  //     previousPosition.currentuse
   //   )
 
   //   const color = setColorTheme(currentPosition)

@@ -44,7 +44,7 @@ const projectData = [
   },
   {
     title: 'Scategories',
-    text: 'Scattergories is a creative-thinking category-based game.  The objective is to score points by uniquely naming objects within a set of categories, given an initial letter, within a time limit.',
+    text: 'Scategories is a creative-thinking category-based game.  The objective is to score points by uniquely naming objects within a set of categories, given an initial letter, within a time limit.',
     image: 'scategories_thumbnail',
     video: 'scategories',
     link: 'https://scategories.classpoint.ca',
