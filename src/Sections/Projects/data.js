@@ -22,7 +22,7 @@ const projectData = [
   },
   {
     title: 'Classpoint',
-    text: 'Classpoint helps teachers to keep track of their students points for classroom games.  Classlists are saved, and games can be set up as individual games, team games, or boys vs girls.',
+    text: 'So far more than 200 teachers have decided to use Classpoint to keep track of their students points for classroom games.  Classlists are saved, and games can be set up as individual, team, or boys vs girls.  Classpoint is currently tracking nearly 2000 students.',
     image: 'classpoint_thumbnail',
     video: 'classpoint',
     link: 'https://classpoint.ca',
@@ -53,7 +53,7 @@ const projectData = [
   },
   {
     title: 'ConnectFour',
-    text: 'This site uses connect four, a game where opponents must connect 4 of their tiles in a row by dropping them down columns.  It is adapted as a tool to teach English as students must call out some target language to choose their column.',
+    text: 'This site uses connect four, a game where opponents must connect 4 of their tiles in a row by dropping them down columns.  It is adapted as a tool to teach English as students must call out some target language to choose their column.  Teachers have created nearly 50 different lessons for their students.',
     image: 'connectfour_thumbnail',
     video: 'connectfour',
     link: 'https://connectfour.classpoint.ca',

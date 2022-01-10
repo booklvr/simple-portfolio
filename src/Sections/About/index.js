@@ -60,7 +60,7 @@ const AboutSection = () => {
       <AboutHeader>About</AboutHeader>
       <AboutText>
         <Text>
-          Hello. My Name is a Nick. I am a Full Stack Engineer.  I'm passionate about code and creating innovative solutions to problems.  I strive to develop quality code on time, every time.  I love the challenge of working on bespoke features for a web project.  Send me a message, and let's find out if I am the right fit for your company.
+          Hello. My name is Nick.  I started to dabble in languages like C and Python nearly seven years ago but it wasn't until about three years ago that I became really serious about web development.  Everyday I improve my skills in React, Redux, and NodeJs.  I have several large projects under my belt and there are English teachers all over the world that use my websites every day.  I love learning new technologies and tackling new challenges.  I think this passion for learning could help me to hit the ground running if I were to join your team.  I'm all in.  I taught myself how to code while teaching English in Korea but I have since moved back to Canada so that I can focus 100% of my energy into my code and breaking into this industry.  
         </Text>
       </AboutText>
     </AboutContainer>
