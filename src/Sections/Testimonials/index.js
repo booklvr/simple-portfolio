@@ -110,7 +110,7 @@ const TestimonialsText = styled.div`
   border-radius: 10px;
   line-height: 1.75;
   color: var(--fontMedium);
-  box-shadow: 8px 8px 15px #adadad, -8px -8px 15px #ffffff;
+  box-shadow: var(--largeDarkShadow);
 
   @media only Screen and (max-width: 42em) {
     padding: 0.5rem;
@@ -127,7 +127,7 @@ const TextImageContainer = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  box-shadow: 6px 6px 10px #adadad, -8px -8px 10px #ffffff;
+  box-shadow: var(--largeDarkShadow);
 
   /* overflow: hidden; */
   shape-outside: content-box;

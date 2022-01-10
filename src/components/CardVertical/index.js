@@ -14,7 +14,7 @@ const CardVerticalContainer = styled.div`
   margin-top: 3rem;
   border-radius: 20px;
   background-color: var(--white);
-  box-shadow: 8px 8px 15px #adadad, -8px -8px 15px #ffffff;
+  box-shadow: var(--largeDarkShadow);
 
   @media only Screen and (max-width: 40em) {
     display: flex;
@@ -32,7 +32,7 @@ const TagContainer = styled.div`
   align-items: center;
   padding: 0.5rem;
   border-radius: 10px;
-  box-shadow: inset 4px 4px 8px #adadad, inset -4px -4px 8px #ffffff;
+  box-shadow: var(--largeDarkShadowInset);
 `
 
 const Tag = styled.div`
@@ -99,7 +99,7 @@ const CardButton = styled.a`
   background-color: var(--white);
   color: var(--black);
   border-radius: 10px;
-  box-shadow: 8px 8px 15px #adadad, -8px -8px 15px #ffffff;
+  box-shadow: var(--largeDarkShadow);
 
   &:hover {
     transform: scale(1.1);

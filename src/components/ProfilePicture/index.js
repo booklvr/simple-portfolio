@@ -13,9 +13,7 @@ const PictureContainer = styled.div`
   background: var(--background);
 
   box-shadow: ${(props) =>
-    props.current
-      ? '6px 6px 10px var(--primary), -8px -8px 10px #ffffff'
-      : '6px 6px 10px #adadad, -8px -8px 10px #ffffff'};
+    props.current ? 'var(--largePrimaryShadow)' : 'var(--largeDarkShadow)'};
 
   cursor: pointer;
   margin: 1rem;
@@ -24,12 +22,12 @@ const PictureContainer = styled.div`
     transform: scale(1.02) translate(-2px, -2px);
     box-shadow: ${(props) =>
       props.current
-        ? '5px 5px 10px var(--primary), 0px 0px 5px var(--lightShadow)'
-        : '5px 5px 10px var(--darkShadow), 0px 0px 5px var(--lightShadow)'};
+        ? 'var(--largePrimaryShadowHover)'
+        : 'var(--largeDarkShadowHover)'};
   }
   &:active {
     transform: scale(0.9);
-    box-shadow: 6px 6px 10px var(--primary), -8px -8px 10px #ffffff;
+    box-shadow: var(--largePrimaryShadow);
   }
 
   @media only Screen and (max-width: 42em) {

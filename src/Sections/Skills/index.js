@@ -116,7 +116,7 @@ const Skill = styled.div`
   padding: 0.5rem 1rem;
   background: var(--background);
   border-radius: 10px;
-  box-shadow: 8px 8px 15px #adadad, -8px -8px 15px #ffffff;
+  box-shadow: var(--largeDarkShadow);
 
   @media only Screen and (max-width: 42em) {
     font-size: 1rem;
@@ -130,7 +130,7 @@ const SkillLogo = styled.img`
   /* padding: 1rem; */
   padding: 0.5rem;
   border-radius: 50%;
-  box-shadow: 8px 8px 15px #adadad inset, -8px -8px 15px #ffffff inset;
+  box-shadow: var(--largeDarkShadowInset);
 
   @media only Screen and (max-width: 42em) {
     width: 30px;
@@ -182,4 +182,3 @@ const SkillsSection = () => {
 }
 
 export default SkillsSection
-

@@ -26,7 +26,8 @@ const ContentContainer = styled.div`
   position: relative;
   width: 30rem;
   border-radius: 10px;
-  box-shadow: 8px 8px 15px #adadad, -8px -8px 15px #ffffff;
+  box-shadow: var(--largeDarkShadow);
+
   padding: 1rem 2rem;
 
   @media only Screen and (max-width: 42em) {
@@ -45,7 +46,7 @@ const ContactLogoContainer = styled.div`
   align-items: center;
   /* padding: 2rem; */
   border-radius: 50%;
-  box-shadow: 8px 8px 15px #adadad, -8px -8px 15px #ffffff;
+  box-shadow: var(--largeDarkShadow);
   @media only Screen and (max-width: 42em) {
     margin: -3.5rem auto 0;
     width: 6rem;
@@ -133,9 +134,9 @@ const Input = styled.input`
   color: var(--fontMedium);
   background: var(--background);
   border-radius: 10px;
-  box-shadow: inset 4px 4px 5px #adadad, inset -5px -5px 10px #ffffff;
-  -webkit-box-shadow: inset 4px 4px 5px #adadad, inset -5px -5px 10px #ffffff;
-  -mox-box-shadow: inset 4px 4px 5px #adadad, inset -5px -5px 10px #ffffff;
+  box-shadow: var(--mediumDarkShadowInset);
+  -webkit-box-shadow: var(--mediumDarkShadowInset);
+  -mox-box-shadow: var(--mediumDarkShadowInset);
   -webkit-appearance: none;
   margin-bottom: 2rem;
 
@@ -166,9 +167,9 @@ const TextArea = styled.textarea`
   outline: none;
   border: none;
   border-radius: 10px;
-  box-shadow: inset 4px 4px 5px #adadad, inset -5px -5px 10px #ffffff;
-  -webkit-box-shadow: inset 4px 4px 5px #adadad, inset -5px -5px 10px #ffffff;
-  -mox-box-shadow: inset 4px 4px 5px #adadad, inset -5px -5px 10px #ffffff;
+  box-shadow: var(--largeDarkShadowInset);
+  -webkit-box-shadow: var(--largeDarkShadowInset);
+  -mox-box-shadow: var(--largeDarkShadowInset);
   -webkit-appearance: none;
   resize: none;
 
@@ -257,16 +258,16 @@ const SubmitButton = styled.button`
   cursor: pointer;
   background-color: var(--background);
   border-radius: 10px;
-  box-shadow: 8px 8px 15px #adadad, -8px -8px 15px #ffffff;
+  box-shadow: var(--largeDarkShadow);
   transition: all 0.2s ease-in;
 
   &:hover {
-    box-shadow: 6px 6px 15px var(--fontMedium), -6px -6px 15px #ffffff;
+    box-shadow: var(--largeDarkShadowHover);
     transform: translate(-2px, -1px);
   }
 
   &:active {
-    box-shadow: 2px 2px 5px #adadad, -2px -2px 5px #ffffff;
+    box-shadow: var(--mediumDarkShadow);
     transform: translate(1px, 2px);
   }
 `

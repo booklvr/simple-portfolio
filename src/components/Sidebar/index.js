@@ -43,15 +43,15 @@ const whiteLink = css`
   justify-content: center;
   align-items: center;
 
-  box-shadow: 4px 4px 8px #adadad, -4px -4px 8px #ffffff;
+  box-shadow: var(--largeDarkShadow);
 
   &:hover {
-    box-shadow: 6px 6px 15px var(--fontMedium), -6px -6px 15px #ffffff;
+    box-shadow: var(--largeDarkShadowHover);
     transform: translate(-2px, -1px);
   }
 
   &:active {
-    box-shadow: 2px 2px 5px #adadad, -2px -2px 5px #ffffff;
+    box-shadow: var(--mediumDarkShadow);
     transform: translate(1px, 2px);
   }
 `

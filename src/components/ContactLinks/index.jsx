@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import React from 'react'
 import github from '../../assets/github.svg'
 import gmail from '../../assets/gmail.svg'
@@ -19,7 +19,7 @@ const ContactLink = styled.a`
   padding: 0.5rem;
   border-radius: 50%;
   background-color: var(--background);
-  box-shadow: 8px 8px 15px #adadad, -8px -8px 15px #ffffff;
+  box-shadow: var(--largeDarkShadow);
   margin: 0 1rem;
   height: 50px;
   width: 50px;
@@ -27,12 +27,12 @@ const ContactLink = styled.a`
   transition: all 0.2s ease-in;
 
   &:hover {
-    box-shadow: 6px 6px 15px var(--fontMedium), -6px -6px 15px #ffffff;
+    box-shadow: var(--largeDarkShadowHover);
     transform: translate(-2px, -1px);
   }
 
   &:active {
-    box-shadow: 2px 2px 5px #adadad, -2px -2px 5px #ffffff;
+    box-shadow: var(--largeDarkShadowHover);
     transform: translate(1px, 2px);
   }
 
