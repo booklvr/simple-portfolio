@@ -22,8 +22,19 @@ ${'' /* Variables */}
   --fontLight: #767676;
   --fontMedium: #35353f;
 
-    --brShadow: 6px 6px 15px rgba(0,0,0,0.5);
-  --tlShadow: -6px -6px 15px rgba(255,255,255,0.8);
+  //SHADOWS
+  --largeDarkShadow: 3px 3px 3px #adadad, -3px -3px 3px #ffffff;
+  --largeDarkShadowHover: 4px 4px 4px #adadad, -4px -4px 4px #fff;
+  --largeDarkShadowInset: inset 3px 3px 3px #adadad, inset -3px -3px 3px #ffffff;
+  --largePrimaryShadow: 3px 3px 3px var(--primary), -3px -3px 3px #ffffff;
+  --largePrimaryShadowHover: 4px 4px 4px var(--primary), -4px -4px 4px #ffffff;
+  --mediumDarkShadow: 2px 2px 3px #adadad, -2px -2px 3px #fff;
+  --mediumDarkShadowInset: inset 2px 2px 3px #adadad, inset -2px -2px 3px #fff;
+
+
+
+    --brShadow: 3px 3px 4px rgba(0,0,0,0.5);
+  --tlShadow: -3px -3px 4px rgba(255,255,255,0.8);
 }
 
 *,*::before,*::after{

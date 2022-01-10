@@ -53,7 +53,7 @@ const VideoPlayerWrapper = styled.div`
 const Video = styled.video`
   width: 100%;
   border-radius: 20px;
-  box-shadow: 8px 8px 15px #adadad, -8px -8px 15px #ffffff;
+  box-shadow: var(--largeDarkShadow);
   margin-bottom: 1rem;
 
   @media only Screen and (max-width: 64em) {

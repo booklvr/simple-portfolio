@@ -47,7 +47,7 @@ function NextArrow(props) {
         height: '2rem',
         borderRadius: '50%',
         background: 'var(--background)',
-        boxShadow: '4px 4px 15px #adadad, -4px -4px 15px #ffffff',
+        boxShadow: 'var(--largeDarkShadow)',
       }}
       onClick={onClick}
     >
@@ -70,7 +70,7 @@ function PrevArrow(props) {
         height: '2rem',
         borderRadius: '50%',
         background: 'var(--background)',
-        boxShadow: '4px 4px 15px #adadad, -4px -4px 15px #ffffff',
+        boxShadow: 'var(--largeDarkShadow)',
       }}
       onClick={onClick}
     >

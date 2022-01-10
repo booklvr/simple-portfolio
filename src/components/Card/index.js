@@ -13,7 +13,7 @@ const CARD = styled.div`
   background: var(--background);
   border-radius: 20px;
 
-  box-shadow: 6px 6px 20px #adadad, -5px -5px 50px #ffffff;
+  box-shadow: var(--largeDarkShadow);
 
   margin: 0rem 1rem 3rem;
   margin-top: 3rem;
@@ -48,7 +48,7 @@ const TagContainer = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  box-shadow: inset 4px 4px 8px #adadad, inset -4px -4px 8px #ffffff;
+  box-shadow: var(--mediumDarkShadowInset);
 `
 
 const Tag = styled.div`
@@ -135,11 +135,11 @@ const CardButton = styled.a`
   cursor: pointer;
   background: var(--background);
   border-radius: 10px;
-  box-shadow: 8px 8px 15px #adadad, -8px -8px 15px #ffffff;
+  box-shadow: var(--largeDarkShadow);
 
   &:hover {
     transform: scale(1.02) translate(-2px, -2px);
-    box-shadow: 5px 5px 10px var(--darkShadow), 0px 0px 5px var(--lightShadow);
+    box-shadow: var(--largeDarkShadowHover);
   }
   &:active {
     transform: scale(0.9);

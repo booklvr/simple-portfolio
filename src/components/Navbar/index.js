@@ -46,7 +46,7 @@ const Nav = styled.nav`
       background-color: var(--background);
       justify-content: center;
       align-items: center;
-      box-shadow: 8px 8px 15px #adadad;
+      box-shadow: 3px 3px 3px #adadad;
     `};
 
   ${(props) =>
@@ -121,26 +121,24 @@ const linkStyle = css`
 const blackLinkStyle = css``
 
 const whiteLinkStyle = css`
-  box-shadow: 4px 4px 8px #adadad, -4px -4px 8px #ffffff;
+  box-shadow: var(--largeDarkShadow);
   color: var(--black) !important;
 
   &.active {
-    box-shadow: 4px 4px 8px var(--primary), -4px -4px 8px #ffffff;
+    box-shadow: var(--largePrimaryShadow);
   }
 
   &:hover {
     box-shadow: ${({ color }) =>
-      color === 'black'
-        ? 0
-        : '6px 6px 15px var(--fontMedium), -6px -6px 15px #ffffff'};
+      color === 'black' ? 0 : 'var(--largeDarkShadowHover)'};
     transform: translate(-2px, -1px);
     &.active {
-      box-shadow: 6px 6px 15px var(--primary), -6px -6px 15px #ffffff;
+      box-shadow: var(--largePrimaryShadow);
     }
   }
 
   &:active {
-    box-shadow: 2px 2px 5px #adadad, -2px -2px 5px #ffffff;
+    box-shadow: var(--mediumDarkShadow);
     transform: translate(1px, 2px);
   }
 `
